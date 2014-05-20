@@ -7,17 +7,21 @@ var mapaDeEntidades = {};
 
 var commits = fs.readFileSync(__dirname + '/log.csv').toString().split('\n');
 
-console.log('Excluindo commits_entidades');
-db.query('delete from commits_entidades', function (err, results) {
+console.log('Excluindo commits_issues');
+db.query('delete from commits_issues', function (err, results) {
 	if (err) { throw err; }
-	console.log('Excluindo entidades');
-	db.query('delete from entidades', function (err, results) {
+	console.log('Excluindo commits_entidades');
+	db.query('delete from commits_entidades', function (err, results) {
 		if (err) { throw err; }
-		console.log('Excluindo commits');
-		db.query('delete from commits', function (err, results) {
+		console.log('Excluindo entidades');
+		db.query('delete from entidades', function (err, results) {
 			if (err) { throw err; }
-			console.log('Incluindo commits');
-			nextCommit(0);
+			console.log('Excluindo commits');
+			db.query('delete from commits', function (err, results) {
+				if (err) { throw err; }
+				console.log('Incluindo commits');
+				nextCommit(0);
+			});
 		});
 	});
 });
@@ -42,6 +46,7 @@ function nextCommit (i) {
 		if (err) { throw err; }
 		var sql = '', values = [], j;
 		if (!!issues) {
+			issues = objectDeDup(issues);
 			for (j = 0; j < issues.length; j += 1) {
 				sql += 'insert into commits_issues(commit,issue) values (?,?);'
 				values.push(commit);
@@ -111,4 +116,14 @@ function tipoEntidade (entidade) {
 	var arr = entidade.split('/');
 	if (arr.length < 2) return null;
 	return arr[arr.length-2];
+}
+
+var objectDeDup = function(unordered) {
+  var result = [];
+  var object = {};
+  unordered.forEach(function(item) {
+    object[item] = null;
+  });
+  result = Object.keys(object);
+  return result;
 }
