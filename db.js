@@ -16,9 +16,8 @@ exports.query = function (sql, values, callback) {
 	pool.getConnection(function (err, connection) {
 		if (err) { return callback(err); }
 		var f = function (err, rows) {
-			callback(err, rows, function () {
-				connection.release();
-			});
+			callback(err, rows);
+			connection.release();
 		};
 		if (typeof values === 'undefined') {
 			connection.query(sql, f);
