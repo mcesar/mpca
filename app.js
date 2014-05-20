@@ -33,12 +33,32 @@ function nextCommit (i) {
 	}
 	var arr = commits[i].split('\t');
 	var commit = arr[0];
+	var issues = arr[3].match(/#(\d+)/g);
 	var sql = 'insert into commits(id,autor,data,comentario) values (?,?,?,?)';
 
 	arr[2] = arr[2].replace(' +0000', '');
 
-	db.query(sql, arr, function (err, results) {
+	db.query(sql, arr, function (err, result) {
 		if (err) { throw err; }
+		var sql = '', values = [], j;
+		if (!!issues) {
+			for (j = 0; j < issues.length; j += 1) {
+				sql += 'insert into commits_issues(commit,issue) values (?,?);'
+				values.push(commit);
+				values.push(parseInt(issues[j].substring(1)));
+			}			
+		}
+		if (sql.length === 0) {
+			coletaEntidades();
+		} else {
+			db.query(sql, values, function (err, result) {
+				if (err) { throw err; }
+				coletaEntidades();
+			});			
+		}
+	});
+
+	function coletaEntidades () {
 		var cmd = 'git diff-tree --no-commit-id --name-only -r ' + commit;
 		exec(cmd, {cwd:'../historage-data'}, function (err, stdout, stderr) {
 			var lines = stdout.split('\n'), j;
@@ -55,7 +75,8 @@ function nextCommit (i) {
 			}
 			nextCommit(i + 1);
 		});
-	});
+	}
+
 }
 
 function proximaEntidade (i) {
@@ -67,8 +88,8 @@ function proximaEntidade (i) {
 	if (i % 100 === 0) {
 		process.stdout.write('.');
 	}
-	var sql = 'insert into entidades(caminho) values (?)'; 
-	db.query(sql, [entidades[i]], function (err, result) {
+	var sql = 'insert into entidades(caminho,tipo) values (?,?)'; 
+	db.query(sql, [entidades[i],tipoEntidade(entidades[i])], function (err, result) {
 		if (err) { throw err; }
 		proximoCommitEntidade(result.insertId, mapaDeEntidades[entidades[i]], 0);
 	});
@@ -84,4 +105,10 @@ function proximaEntidade (i) {
 			proximoCommitEntidade(entidadeId, commits, j+1);
 		});
 	}
+}
+
+function tipoEntidade (entidade) {
+	var arr = entidade.split('/');
+	if (arr.length < 2) return null;
+	return arr[arr.length-2];
 }
