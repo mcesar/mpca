@@ -5,13 +5,31 @@ var repositorioName = argv._[0] || 'siop';
 
 var source = argv._[1] || 'commits';
 
-var repositorioMap = { siop: 1, derby: 2, hadoop: 3, wildfly: 4, 'eclipse.platform.ui': 5, 'eclipse.jdt': 6, 'geronimo': 7, 'lucene': 8 }
+var repositorioMap = { 
+	siop: 1, 
+	derby: 2, 
+	hadoop: 3, 
+	wildfly: 4, 
+	'eclipse.platform.ui': 5, 
+	'eclipse.jdt': 6, 
+	geronimo: 7, 
+	lucene: 8 }
 
 var repositorio = repositorioMap[repositorioName];
 
 var sql = { 
-	commits: 'select commit as id, entidade from mpca.commits_entidades where commit in (select id from commits where repositorio = ?) order by commit,entidade', 
-	issues: 'select distinct issue as id, ce.commit, entidade from mpca.commits_entidades ce inner join mpca.commits_issues ci on ci.commit = ce.commit where ce.commit in (select id from commits where repositorio = ?) order by issue,entidade' }
+	commits: '\
+		select commit as id, entidade \
+		from mpca.commits_entidades \
+		where commit in (select id from commits where repositorio = ?) \
+		order by commit,entidade', 
+	issues: '\
+		select distinct issue as id, ce.commit, entidade \
+		from mpca.commits_entidades ce \
+			inner join mpca.commits_issues ci on ci.commit = ce.commit \
+		where ce.commit in \
+			(select id from commits where repositorio = ?) \
+		order by issue,entidade' }
 
 var grafo = {}
 
