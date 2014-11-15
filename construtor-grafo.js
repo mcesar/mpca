@@ -23,21 +23,21 @@ var sql = {
 	commits: '\
 		select commit as id, entidade \
 		from mpca.commits_entidades \
-		where commit in (select id from commits where repository = ?) \
+		where commit in (select id from commits where repositorio = ?) \
 		order by commit,entidade', 
 	issues: '\
 		select distinct issue as id, ce.commit, entidade \
 		from mpca.commits_entidades ce \
 			inner join mpca.commits_issues ci on ci.commit = ce.commit \
 		where ce.commit in \
-			(select id from commits where repository = ?) \
+			(select id from commits where repositorio = ?) \
 		order by issue,entidade', 
 	issues_only: '\
 		select distinct issue as id, entidade \
 		from mpca.commits_entidades ce \
 			inner join mpca.commits_issues ci on ci.commit = ce.commit \
 		where ce.commit in \
-			(select id from commits where repository = ?) \
+			(select id from commits where repositorio = ?) \
 		order by issue,entidade' }
 
 var graph = {}
