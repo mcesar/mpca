@@ -22,19 +22,19 @@ var repository = repositoryMap[repositoryName];
 var sql = { 
 	commits: '\
 		select commit as id, entidade \
-		from mpca.commits_entitidades \
+		from mpca.commits_entidades \
 		where commit in (select id from commits where repository = ?) \
 		order by commit,entidade', 
 	issues: '\
 		select distinct issue as id, ce.commit, entidade \
-		from mpca.commits_entitidades ce \
+		from mpca.commits_entidades ce \
 			inner join mpca.commits_issues ci on ci.commit = ce.commit \
 		where ce.commit in \
 			(select id from commits where repository = ?) \
 		order by issue,entidade', 
 	issues_only: '\
 		select distinct issue as id, entidade \
-		from mpca.commits_entitidades ce \
+		from mpca.commits_entidades ce \
 			inner join mpca.commits_issues ci on ci.commit = ce.commit \
 		where ce.commit in \
 			(select id from commits where repository = ?) \
