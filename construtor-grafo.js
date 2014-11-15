@@ -7,6 +7,8 @@ var source = argv._[1] || 'commits';
 
 var MAX_ENTITIES = argv.max_entities || 100;
 
+var MIN_WEIGHT = argv.min_weight || 2;
+
 var repositoryMap = { 
 	siop: 1, 
 	derby: 2, 
@@ -60,7 +62,7 @@ db.query(sql[source], [repository], function (err, result) {
 	var count = 0;
 	Object.keys(graph).forEach(function (k) {
 		var arr = k.split('|')
-		if (graph[k] > 1) {
+		if (graph[k] >= MIN_WEIGHT) {
 			console.log(arr[0] + ' ' + arr[1] + ' ' + graph[k])
 		}
 	});
