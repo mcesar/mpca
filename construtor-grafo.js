@@ -31,6 +31,13 @@ var sql = {
 			inner join mpca.commits_issues ci on ci.commit = ce.commit \
 		where ce.commit in \
 			(select id from commits where repository = ?) \
+		order by issue,entidade', 
+	issues_only: '\
+		select distinct issue as id, entidade \
+		from mpca.commits_entities ce \
+			inner join mpca.commits_issues ci on ci.commit = ce.commit \
+		where ce.commit in \
+			(select id from commits where repository = ?) \
 		order by issue,entidade' }
 
 var graph = {}
@@ -51,7 +58,7 @@ db.query(sql[source], [repository], function (err, result) {
 	db.end()
 	collectCombinations(entities)
 	var count = 0;
-	Object.keys(graph).forEach(function(k) {
+	Object.keys(graph).forEach(function (k) {
 		var arr = k.split('|')
 		if (graph[k] > 1) {
 			console.log(arr[0] + ' ' + arr[1] + ' ' + graph[k])
