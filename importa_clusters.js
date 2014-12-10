@@ -5,20 +5,18 @@ var constants = require('./constants');
 
 var count = 0;
 
-/*
-console.log('Excluindo commits_issues');
+console.log('Excluindo clusters_entidades');
 db.query('delete from clusters_entidades', function (err, results) {
 	if (err) { throw err; }
+	console.log('Excluindo clusters');
 	db.query('delete from clusters', function (err, results) {
 		if (err) { throw err; }
-*/
+		console.log('Incluindo clusters');
 		recursive(__dirname, function (err, files) {
 			import_files(files);
 		});
-/*
 	});
 });
-*/
 
 function import_files(files) {
 	var arr, repository, file, name, content, regex, i;
