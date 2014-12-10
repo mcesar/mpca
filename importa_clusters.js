@@ -3,6 +3,8 @@ var recursive = require('recursive-readdir');
 var db = require('./db');
 var constants = require('./constants');
 
+var count = 0;
+
 /*
 console.log('Excluindo commits_issues');
 db.query('delete from clusters_entidades', function (err, results) {
@@ -19,8 +21,7 @@ db.query('delete from clusters_entidades', function (err, results) {
 */
 
 function import_files(files) {
-	var arr, repository, file, name, content, regex, count, i;
-	count = 0
+	var arr, repository, file, name, content, regex, i;
 	regex = /subgraph (.+) {/;
 	for (i = 0; i < files.length; i += 1) {
 		if (/\.dot$/.test(files[i])) {
