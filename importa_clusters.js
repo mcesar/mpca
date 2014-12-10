@@ -19,7 +19,8 @@ db.query('delete from clusters_entidades', function (err, results) {
 */
 
 function import_files(files) {
-	var arr, repository, file, name, content, regex, i;
+	var arr, repository, file, name, content, regex, count, i;
+	count = 0
 	regex = /subgraph (.+) {/;
 	for (i = 0; i < files.length; i += 1) {
 		if (/\.dot$/.test(files[i])) {
@@ -30,14 +31,23 @@ function import_files(files) {
 			for (var j = 0; j < content.length; j++) {
 				if (regex.test(content[j])) {
 					name = regex.exec(content[j])[1];
+					count++;
 					db.query('insert into clusters(repositorio, arquivo, nome) values (?,?,?)',
 						[repository, file, name],
 						function (err, results) {
+							count--;
 							if (err) throw err;
 						}
 					);
 				}
-			};
+			}
 		}
 	}
 }
+
+var timer = setInterval(function () {
+	if (count == 0) {
+		db.end();
+		clearInterval(timer);
+	}
+}, 500);
