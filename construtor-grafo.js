@@ -9,6 +9,8 @@ var MAX_ENTITIES = argv.max_entities || 100;
 
 var MIN_WEIGHT = argv.min_weight || 2;
 
+var MIN_DATE = argv.min_date || '1900-01-01';
+
 var repositoryMap = { 
 	siop: 1, 
 	derby: 2, 
@@ -25,26 +27,26 @@ var sql = {
 	commits: '\
 		select commit as id, entidade \
 		from mpca.commits_entidades \
-		where commit in (select id from commits where repositorio = ?) \
+		where commit in (select id from commits where repositorio = ? and data >= ?) \
 		order by commit,entidade', 
 	issues: '\
 		select distinct issue as id, ce.commit, entidade \
 		from mpca.commits_entidades ce \
 			inner join mpca.commits_issues ci on ci.commit = ce.commit \
 		where ce.commit in \
-			(select id from commits where repositorio = ?) \
+			(select id from commits where repositorio = ? and data >= ?) \
 		order by issue,entidade', 
 	issues_only: '\
 		select distinct issue as id, entidade \
 		from mpca.commits_entidades ce \
 			inner join mpca.commits_issues ci on ci.commit = ce.commit \
 		where ce.commit in \
-			(select id from commits where repositorio = ?) \
+			(select id from commits where repositorio = ? and data >= ?) \
 		order by issue,entidade' }
 
 var graph = {}
 
-db.query(sql[source], [repository], function (err, result) {
+db.query(sql[source], [repository, MIN_DATE], function (err, result) {
 	if (err) { throw err; }
 	var entities = [];
 	var previousId;
