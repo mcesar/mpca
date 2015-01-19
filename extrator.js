@@ -8,7 +8,7 @@ var mapaDeEntidades = {};
 
 var repositorioName = argv._[0] || 'siop';
 
-var repositorioMap = { siop: 1, derby: 2, hadoop: 3, wildfly: 4, 'eclipse.platform.ui': 5, 'eclipse.jdt': 6, 'geronimo': 7, 'lucene': 8 }
+var repositorioMap = { siop: 1, derby: 2, hadoop: 3, wildfly: 4, 'eclipse.platform.ui': 5, 'eclipse.jdt': 6, 'geronimo': 7, 'lucene': 8, 'jhotdraw7': 9 }
 
 var repositorio = repositorioMap[repositorioName];
 
@@ -99,6 +99,9 @@ var issueExtractor = {
 			}			
 		}
 		return result;
+	},
+	jhotdraw7: function (comment) {
+		return false;
 	}
 }
 
