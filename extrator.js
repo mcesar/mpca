@@ -168,34 +168,35 @@ function nextCommit (i) {
 			}			
 		}
 		if (sql.length === 0) {
-			coletaEntidades();
+			coletaEntidades(commit);
+			nextCommit(i + 1);
 		} else {
 			db.query(sql, values, function (err, result) {
 				if (err) { throw err; }
-				coletaEntidades();
+				coletaEntidades(commit);
+				nextCommit(i + 1);
 			});			
 		}
 	});
+}
 
-	function coletaEntidades () {
-		var cmd = 'git diff-tree --no-commit-id --name-only -r ' + commit;
-		exec(cmd, {cwd:dir}, function (err, stdout, stderr) {
-			var lines = stdout.split('\n'), j;
-			var line;
-			for (j = 0; j < lines.length; j += 1) {
-				line = lines[j].trim();
-				if (line.indexOf('.f/') !== -1) {
-					if (!mapaDeEntidades[line]) {
-						entidades.push(line);
-						mapaDeEntidades[line] = [];
-					}
-					mapaDeEntidades[line].push(commit);
+function coletaEntidades (commit) {
+	var cmd = 'git diff-tree --no-commit-id --name-only -r ' + commit;
+	exec(cmd, {cwd:dir, maxBuffer: 20 * 1024 * 1024}, function (err, stdout, stderr) {
+		if (err) { throw err; }
+		var lines = stdout.split('\n'), j;
+		var line;
+		for (j = 0; j < lines.length; j += 1) {
+			line = lines[j].trim();
+			if (line.indexOf('.f/') !== -1) {
+				if (!mapaDeEntidades[line]) {
+					entidades.push(line);
+					mapaDeEntidades[line] = [];
 				}
+				mapaDeEntidades[line].push(commit);
 			}
-			nextCommit(i + 1);
-		});
-	}
-
+		}
+	});
 }
 
 function proximaEntidade (i) {
