@@ -1,0 +1,1806 @@
+<?xml version="1.0" ?>
+<ldi>
+    <element name="org.jhotdraw.draw.action.AbstractDrawingEditorAction.setEditor(DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.draw.action.AbstractDrawingEditorAction.updateEnabledState()_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.action.AbstractDrawingEditorAction.updateEnabledState()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.AbstractDrawingViewAction.AbstractDrawingViewAction(DrawingView)_CN">
+    </element>
+    <element name="org.jhotdraw.draw.action.AbstractDrawingViewAction.setEditor(DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.draw.action.AbstractDrawingViewAction.editor_FE"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGRectRadiusHandle.draw(Graphics2D)_CM">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGRectRadiusHandle.draw(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGRectRadiusHandle.locate()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGRectRadiusHandle.trackEnd(Point,Point,int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGRectRadiusHandle.trackStart(Point,int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGRectRadiusHandle.trackStep(Point,Point,int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGRectRadiusHandle.getToolTipText(Point)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGPathOutlineHandle.draw(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGRectRadiusHandle.keyPressed(KeyEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.getActiveHandle()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.getEditor()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawingPanel.DrawingPanel()_CN">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingEditor.DefaultDrawingEditor()_CN"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.setDrawing(Drawing)_MT"/>
+        <uses provider="org.jhotdraw.samples.draw.DrawingPanel.addCreationButtonsTo(JToolBar,DrawingEditor)_MT"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawing.DefaultDrawing()_CN"/>
+    </element>
+    <element name="org.jhotdraw.samples.net.NetPanel.NetPanel()_CN">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingEditor.DefaultDrawingEditor()_CN"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.setDrawing(Drawing)_MT"/>
+        <uses provider="org.jhotdraw.samples.net.NetPanel.addCreationButtonsTo(JToolBar,DrawingEditor)_MT"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawing.DefaultDrawing()_CN"/>
+    </element>
+    <element name="org.jhotdraw.samples.pert.PertPanel.PertPanel()_CN">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingEditor.DefaultDrawingEditor()_CN"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.setDrawing(Drawing)_MT"/>
+        <uses provider="org.jhotdraw.samples.pert.PertPanel.addCreationButtonsTo(JToolBar,DrawingEditor)_MT"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawing.DefaultDrawing()_CN"/>
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.addKeyListener(KeyListener)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.addMouseListener(MouseListener)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.addMouseMotionListener(MouseMotionListener)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.removeKeyListener(KeyListener)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.removeMouseListener(MouseListener)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.removeMouseMotionListener(MouseMotionListener)_CM">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextFigure.getTool(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.TextFigure.getBaseline()_MT">
+        <uses provider="org.jhotdraw.draw.TextFigure.getTextLayout()_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readAttribute(IXMLElement,String,String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readInheritAttribute(IXMLElement,String,String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readRectElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.toText(IXMLElement,String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.toTransform(IXMLElement,String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readInheritColorAttribute(IXMLElement,String,String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.supportedFeatures_FE">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.toLength(IXMLElement,String,double)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.read(InputStream,Drawing,boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.read(File,Drawing,boolean)_MT">
+        <uses provider="org.jhotdraw.samples.odg.io.ODGInputFormat.read(InputStream,Drawing,boolean)_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.read(Transferable,Drawing,boolean)_MT">
+        <uses provider="org.jhotdraw.samples.odg.io.ODGInputFormat.read(InputStream,Drawing,boolean)_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readFiguresFromDocumentContent(InputStream,Drawing,boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.read(File,Drawing,boolean)_MT">
+        <uses provider="org.jhotdraw.samples.svg.io.SVGInputFormat.read(InputStream,Drawing,boolean)_CM"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.read(Transferable,Drawing,boolean)_MT">
+        <uses provider="org.jhotdraw.samples.svg.io.SVGInputFormat.read(InputStream,Drawing,boolean)_CM"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.flattenStyles(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readGraphicsAttributes(IXMLElement,Figure)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readImageElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readInheritFontSizeAttribute(IXMLElement,String,String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readLinearGradientElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readRadialGradientElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readTSpanElement(IXMLElement,DefaultStyledDocument)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.toColor(IXMLElement,String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.toDouble(IXMLElement,String,double,double,double)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.toPaint(IXMLElement,String)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteToolBarUI.calculateConstraint()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteToolBarUI.getDockingConstraint(Component,Point)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteToolBarUI.setFloating(boolean,Point)_MT">
+        <uses provider="org.jhotdraw.gui.plaf.palette.PaletteToolBarUI.getDockingConstraint(Component,Point)_MT"/>
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteToolBarUI.uninstallUI(JComponent)_MT">
+        <uses provider="org.jhotdraw.gui.plaf.palette.PaletteToolBarUI.setFloating(boolean,Point)_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.elementObjects_FE">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.identifiedElements_FE">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readDefsElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readGElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat$Viewport.toString()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readSVGElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readSwitchElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readAElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.DefaultDrawingView()_CN">
+        <uses provider="org.jhotdraw.draw.GridConstrainer.GridConstrainer(double,double)_CN"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.addToSelection(Collection_Figure_)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.addToSelection(Figure)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.clearSelection()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.drawDrawing(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.findFigure(Point)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.findHandle(Point)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.getCompatibleHandles(Handle)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.selectAll()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.setDrawing(Drawing)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.setScaleFactor(double)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.toggleSelection(Figure)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.setViewRenderingHints(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.drawBackground(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.getDrawingToViewTransform()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.paintComponent(Graphics)_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.drawBackground(Graphics2D)_MT"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.drawDrawing(Graphics2D)_MT"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.drawHandles(Graphics2D)_MT"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.drawTool(Graphics2D)_MT"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.drawConstrainer(Graphics2D)_MT"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.setViewRenderingHints(Graphics2D)_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.viewToDrawing(Point)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.viewToDrawing(Rectangle)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.printComponent(Graphics)_MT">
+    </element>
+    <element name="org.jhotdraw.io.StreamPosTokenizer.unread_FE">
+    </element>
+    <element name="org.jhotdraw.io.StreamPosTokenizer.read()_MT">
+    </element>
+    <element name="org.jhotdraw.io.StreamPosTokenizer.unread(int)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView$EventHandler.focusLost(FocusEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.drawConstrainer(Graphics2D)_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.getConstrainer()_MT"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.getCanvasViewBounds()_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteLookAndFeel.get(Object)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteLookAndFeel.initComponentDefaults(UIDefaults)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteLookAndFeel.installBorder(JComponent,String)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawing.drawCanvas(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.QuadTreeDrawing.drawCanvas(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawApplet.getAppletInfo()_MT">
+        <uses provider="org.jhotdraw.samples.draw.DrawApplet.getVersion()_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawApplet.getParameter(String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.draw.Main.main(String[])_MT">
+    </element>
+    <element name="org.jhotdraw.samples.net.Main.main(String[])_MT">
+    </element>
+    <element name="org.jhotdraw.samples.net.NetApplet.getAppletInfo()_MT">
+        <uses provider="org.jhotdraw.samples.net.NetApplet.getVersion()_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.pert.Main.main(String[])_MT">
+    </element>
+    <element name="org.jhotdraw.samples.pert.PertApplet.getAppletInfo()_MT">
+        <uses provider="org.jhotdraw.samples.pert.PertApplet.getVersion()_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.Main.main(String[])_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplet.getAppletInfo()_MT">
+        <uses provider="org.jhotdraw.samples.svg.SVGApplet.getVersion()_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawApplet.getVersion()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.net.NetApplet.getVersion()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.pert.PertApplet.getVersion()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplet.getVersion()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showConfirmSheet(Component,Object,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.showConfirmSheet(Component,Object,int,SheetListener)_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showConfirmSheet(Component,Object,int,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.showConfirmSheet(Component,Object,int,int,SheetListener)_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showConfirmSheet(Component,Object,int,int,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.showConfirmSheet(Component,Object,int,int,Icon,SheetListener)_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.addNotify()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.createSheet(JOptionPane,Component,int)_MT">
+        <uses provider="org.jhotdraw.gui.JSheet.isNativeSheetSupported()_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.fireOptionSelected(JOptionPane)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.hide()_MT">
+        <uses provider="org.jhotdraw.gui.JSheet.hide0()_MT"/>
+        <uses provider="org.jhotdraw.gui.JSheet.isNativeSheetSupported()_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.hide0()_MT">
+        <uses provider="org.jhotdraw.gui.JSheet.isDocumentModalitySupported()_CM"/>
+        <uses provider="org.jhotdraw.gui.JSheet.ownersGlassPane_FE"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.init()_MT">
+        <uses provider="org.jhotdraw.gui.JSheet.isDocumentModalitySupported()_CM"/>
+        <uses provider="org.jhotdraw.gui.JSheet.isNativeSheetSupported()_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.installSheet()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.show()_MT">
+        <uses provider="org.jhotdraw.gui.JSheet.show0()_MT"/>
+        <uses provider="org.jhotdraw.gui.JSheet.isDocumentModalitySupported()_CM"/>
+        <uses provider="org.jhotdraw.gui.JSheet.isNativeSheetSupported()_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.show0()_MT">
+        <uses provider="org.jhotdraw.gui.JSheet.isDocumentModalitySupported()_CM"/>
+        <uses provider="org.jhotdraw.gui.JSheet.ownersGlassPane_FE"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showInputSheet(Component,Object,int,Icon,Object[],Object,SheetListener)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showMessageSheet(Component,Object,int)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showOptionSheet(Component,Object,int,int,Icon,Object[],Object,SheetListener)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showSheet(JFileChooser,Component,String,SheetListener)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.uninstallSheet()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.Main.COPYRIGHT_FE">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.Main.main(String[])_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.isDocumentModalitySupported()_CM">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.isNativeSheetSupported()_CM">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.ownersGlassPane_FE">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.requestUserAttention(boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.TeddyView.read(URI,URIChooser)_MT">
+        <uses provider="org.jhotdraw.samples.teddy.TeddyView.read(URI,String)_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.teddy.TeddyView.write(URI,URIChooser)_MT">
+        <uses provider="org.jhotdraw.samples.teddy.TeddyView.write(URI,String,String)_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.QuadTreeDrawing.findFiguresWithin(Rectangle2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawing.findFiguresWithin(Rectangle2D)_MT">
+    </element>
+    <element name="org.jhotdraw.util.ResourceBundleUtil.getStringRecursive(String)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.app.OpenApplicationFileAction.actionPerformed(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.file.OpenFileAction.actionPerformed(ActionEvent)_MT">
+        <uses provider="org.jhotdraw.app.Application.getComponent()_CM"/>
+        <uses provider="org.jhotdraw.app.Application.getModel()_CM"/>
+        <uses provider="org.jhotdraw.app.Application.isEnabled()_CM"/>
+        <uses provider="org.jhotdraw.app.Application.setEnabled(boolean)_CM"/>
+        <uses provider="org.jhotdraw.app.View.getURI()_CM"/>
+        <uses provider="org.jhotdraw.gui.URIChooser.setDialogType(int)_CM"/>
+        <uses provider="org.jhotdraw.app.action.file.OpenFileAction.openViewFromURI(View,URI,URIChooser)_MT"/>
+        <uses provider="org.jhotdraw.app.Application.getViews()_CM"/>
+    </element>
+    <element name="org.jhotdraw.app.action.file.OpenFileAction.showDialog(URIChooser,Component)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.file.OpenRecentFileAction.actionPerformed(ActionEvent)_MT">
+        <uses provider="org.jhotdraw.app.Application.getModel()_CM"/>
+        <uses provider="org.jhotdraw.app.Application.isEnabled()_CM"/>
+        <uses provider="org.jhotdraw.app.Application.setEnabled(boolean)_CM"/>
+        <uses provider="org.jhotdraw.app.View.getURI()_CM"/>
+        <uses provider="org.jhotdraw.app.action.file.OpenRecentFileAction.openView(View)_MT"/>
+        <uses provider="org.jhotdraw.app.Application.getViews()_CM"/>
+    </element>
+    <element name="org.jhotdraw.app.action.file.OpenRecentFileAction.openView(View)_MT">
+        <uses provider="org.jhotdraw.app.Application.setEnabled(boolean)_CM"/>
+    </element>
+    <element name="org.jhotdraw.app.MDIApplication.show(View)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.AbstractSaveUnsavedChangesAction.saveViewToURI(View,URI,URIChooser)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.file.OpenFileAction.openViewFromURI(View,URI,URIChooser)_MT">
+        <uses provider="org.jhotdraw.app.Application.setEnabled(boolean)_CM"/>
+    </element>
+    <element name="org.jhotdraw.app.action.file.SaveFileAction.saveViewToURI(View,URI,URIChooser)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.app.OpenApplicationFileAction.openView(View,URI)_MT">
+        <uses provider="org.jhotdraw.app.Application.setEnabled(boolean)_CM"/>
+        <uses provider="org.jhotdraw.app.View.getURI()_CM"/>
+    </element>
+    <element name="org.jhotdraw.samples.teddy.CharacterSetAccessory.fetchAvailableCharSets()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGCreateFromFileTool.activate(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.mini.SVGDrawingPanelSample.open(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.mini.SVGDrawingPanelSample.saveAs(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.tool.ImageTool.activate(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.addNotify(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.removeNotify(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.getActiveHandle()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.getEditor()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.setActiveHandle(Handle)_MT">
+    </element>
+    <element name="org.jhotdraw.app.Application.addPropertyChangeListener(PropertyChangeListener)_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.getComponent()_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.getCopyright()_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.getModel()_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.getName()_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.getVersion()_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.isEnabled()_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.removePropertyChangeListener(PropertyChangeListener)_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.setEnabled(boolean)_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.setModel(ApplicationModel)_CM">
+    </element>
+    <element name="org.jhotdraw.util.Images.hasAlpha(Image)_MT">
+    </element>
+    <element name="org.jhotdraw.util.Images.toBufferedImage(Image)_MT">
+    </element>
+    <element name="org.jhotdraw.util.Images.toBufferedImage(RenderedImage)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingViewTransferHandler.canImport(JComponent,DataFlavor[])_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingViewTransferHandler.createTransferable(JComponent)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingViewTransferHandler.exportAsDrag(JComponent,InputEvent,int)_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingViewTransferHandler.getSourceActions(JComponent)_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingViewTransferHandler.exportDone(JComponent,Transferable,int)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingViewTransferHandler.getSourceActions(JComponent)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingViewTransferHandler.getVisualRepresentation(Transferable)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingViewTransferHandler.importData(JComponent,Transferable)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.read(InputStream,Drawing,boolean)_CM">
+        <uses provider="org.jhotdraw.samples.svg.io.SVGInputFormat.elementObjects_FE"/>
+        <uses provider="org.jhotdraw.samples.svg.io.SVGInputFormat.identifiedElements_FE"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingViewTransferHandler.createTransferable(DrawingView,Set_Figure_)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.action.ToggleLineNumbersAction.updateView()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.action.ToggleStatusBarAction.updateView()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.addActionListener(ActionListener)_CM">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.getApproveButtonText()_CM">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.getDialogTitle()_CM">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.removeActionListener(ActionListener)_CM">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.setApproveButtonMnemonic(int)_CM">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.setApproveButtonText(String)_CM">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.setDialogTitle(String)_CM">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.setDialogType(int)_CM">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.setSelectedURI(URI)_CM">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.showDialog(Component,String)_CM">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.showOpenDialog(Component)_CM">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.showSaveDialog(Component)_CM">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.getApproveButtonText()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.setDialogType(int)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.showDialog(Component,String)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.showOpenDialog(Component)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.URIChooser.showSaveDialog(Component)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readDrawingElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readGElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readPageElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.toTransform(String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGStylesReader.read(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGStylesReader.readDefaultStyleElement(IXMLElement,HashMap_String,Style_)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGStylesReader.readDocumentContentElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGStylesReader.readDocumentStylesElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGStylesReader.readStyleElement(IXMLElement,HashMap_String,Style_)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGStylesReader.readStylesChildren(IXMLElement,HashMap_String,Style_)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.read(InputStream,Drawing,boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.geom.BezierPath.chop(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.geom.BezierPath.outlineContains(Point2D,double)_MT">
+    </element>
+    <element name="org.jhotdraw.geom.BezierPath.toGeneralPath()_MT">
+    </element>
+    <element name="org.jhotdraw.geom.GrowStroke.createStrokedShape(Shape)_MT">
+        <uses provider="org.jhotdraw.geom.BezierPath.getWindingRule()_CM"/>
+    </element>
+    <element name="org.jhotdraw.geom.BezierPath.getWindingRule()_CM">
+        <uses provider="org.jhotdraw.geom.BezierPath.windingRule_FE"/>
+    </element>
+    <element name="org.jhotdraw.geom.BezierPath.setWindingRule(int)_CM">
+        <uses provider="org.jhotdraw.geom.BezierPath.windingRule_FE"/>
+    </element>
+    <element name="org.jhotdraw.geom.BezierPath.windingRule_FE">
+    </element>
+    <element name="org.jhotdraw.geom.BezierPath$Node.equals(Object)_MT">
+    </element>
+    <element name="org.jhotdraw.geom.BezierPath$Node.hashCode()_MT">
+    </element>
+    <element name="org.jhotdraw.geom.Bezier.addCurveTo(Point2D[],BezierPath,double,boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.geom.Bezier.findCorners(List_Point2D_,double,double)_MT">
+    </element>
+    <element name="org.jhotdraw.geom.Bezier.fitBezierPath(List_Point2D_,double)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.ImageHolderFigure.getImageData()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.ImageHolderFigure.setImage(byte[],BufferedImage)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingEditor.DefaultDrawingEditor()_CN">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingEditor.focusHandler_FE"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingEditor.createActionMap()_CM"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingEditor.createInputMap()_CM"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingEditor.focusHandler_FE">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingEditor.add(DrawingView)_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingEditor.focusHandler_FE"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingEditor.updateActiveView()_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingEditor.remove(DrawingView)_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingEditor.focusHandler_FE"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingEditor.updateActiveView()_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingEditor.setTool(Tool)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.AbstractSelectedAction$EventHandler.propertyChange(PropertyChangeEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingEditor.getActiveView()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingEditor.setActiveView(DrawingView)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingEditor.updateActiveView()_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingEditor.setActiveView(DrawingView)_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.AbstractFigure.isTransformable()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.AbstractFigure.setTransformable(boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.tool.DefaultHandleTracker.activate(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.tool.DefaultHandleTracker.deactivate(DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.draw.tool.DefaultHandleTracker.dragLocation_FE"/>
+    </element>
+    <element name="org.jhotdraw.draw.tool.DefaultHandleTracker.dragLocation_FE">
+    </element>
+    <element name="org.jhotdraw.draw.BezierFigure.createHandles(int)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.BezierFigure.handleMouseClick(Point2D,MouseEvent,DrawingView)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.LineFigure.createHandles(int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGPathFigure.handleMouseClick(Point2D,MouseEvent,DrawingView)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGBezierFigure.handleMouseClick(Point2D,MouseEvent,DrawingView)_MT">
+    </element>
+    <element name="org.jhotdraw.geom.BezierPath.splitSegment(Point2D,double)_MT">
+    </element>
+    <element name="org.jhotdraw.geom.BezierPath.getPointOnPath(double,double)_MT">
+    </element>
+    <element name="org.jhotdraw.geom.BezierPath.getLengthOfPath(double)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.BezierFigure.splitSegment(Point2D,double)_CM">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGBezierFigure.splitSegment(Point2D,double)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.drawingToView(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.drawingToView(Rectangle2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.getPreferredSize()_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.cachedPreferredSize_FE"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.getDrawingArea()_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.addAlignmentButtonsTo(JToolBar,DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.addAttributesButtonsTo(JToolBar,DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.addColorButtonsTo(JToolBar,DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.addSelectionToolTo(JToolBar,DrawingEditor,Collection_Action_,Collection_Action_)_MT">
+        <uses provider="org.jhotdraw.draw.action.ButtonFactory.addSelectionToolTo(JToolBar,DrawingEditor,Tool)_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.addToolTo(JToolBar,DrawingEditor,Tool,String,ResourceBundleUtil)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createApplyAttributesButton(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createDrawingActions(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createFontButton(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createFontStyleBoldButton(DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.draw.action.ButtonFactory.createFontStyleBoldButton(DrawingEditor,ResourceBundleUtil)_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createFontStyleItalicButton(DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.draw.action.ButtonFactory.createFontStyleItalicButton(DrawingEditor,ResourceBundleUtil)_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createFontStyleUnderlineButton(DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.draw.action.ButtonFactory.createFontStyleUnderlineButton(DrawingEditor,ResourceBundleUtil)_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createPickAttributesButton(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createSelectionActions(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createStrokeCapButton(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createStrokeDashesButton(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createStrokeDashesButton(DrawingEditor,double[][])_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createStrokeDecorationButton(DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.draw.AttributeKeys.END_DECORATION_FE"/>
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createStrokeJoinButton(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createStrokePlacementButton(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createStrokeTypeButton(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createStrokeWidthButton(DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.draw.action.ButtonFactory.createStrokeWidthButton(DrawingEditor,double[],ResourceBundleUtil)_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createStrokeWidthButton(DrawingEditor,double[])_MT">
+        <uses provider="org.jhotdraw.draw.action.ButtonFactory.createStrokeWidthButton(DrawingEditor,double[],ResourceBundleUtil)_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createToggleGridButton(DrawingView)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createZoomButton(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createZoomButton(DrawingView)_MT">
+        <uses provider="org.jhotdraw.draw.action.ButtonFactory.createZoomButton(DrawingView,double[])_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createZoomButton(DrawingView,double[])_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.SelectionColorIcon.paintIcon(Component,Graphics,int,int)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView$EventHandler.attributeChanged(FigureEvent)_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.viewToDrawing(Rectangle)_MT"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.getCanvasViewBounds()_CM"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.setBounds(int,int,int,int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawLiveConnectApplet.save(ActionEvent)_MT">
+        <uses provider="org.jhotdraw.samples.draw.DrawLiveConnectApplet.getData()_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGView.clear()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.gui.ActionsToolBar.createDisclosedComponent(int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGDrawingPanel$ItemChangeHandler.itemStateChanged(ItemEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGDrawingPanel.SVGDrawingPanel()_CN">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingEditor.DefaultDrawingEditor()_CN"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.setDrawing(Drawing)_MT"/>
+        <uses provider="org.jhotdraw.samples.svg.SVGDrawingPanel.setEditor(DrawingEditor)_MT"/>
+        <uses provider="org.jhotdraw.samples.svg.gui.ViewToolBar.setView(DrawingView)_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGDrawingPanel.initComponents()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGDrawingPanel.setEditor(DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.samples.svg.gui.FontToolBar.setEditor(DrawingEditor)_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.gui.ViewToolBar.createDisclosedComponent(int)_MT">
+        <uses provider="org.jhotdraw.draw.action.ButtonFactory.createZoomButton(DrawingView)_MT"/>
+        <uses provider="org.jhotdraw.draw.DrawingView.getVisibleConstrainer()_CM"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.gui.ViewToolBar.setView(DrawingView)_MT">
+        <uses provider="org.jhotdraw.draw.DrawingView.getVisibleConstrainer()_CM"/>
+    </element>
+    <element name="org.jhotdraw.draw.TextAreaFigure.TextAreaFigure()_CN">
+    </element>
+    <element name="org.jhotdraw.draw.TextAreaFigure.createHandles(int)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.TextAreaFigure.drawText(Graphics2D)_MT">
+        <uses provider="org.jhotdraw.draw.TextAreaFigure.drawParagraph(Graphics2D,AttributedCharacterIterator,float,float,float,float,float[],int)_CM"/>
+    </element>
+    <element name="org.jhotdraw.draw.TextAreaFigure.getInsets()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.TextAreaFigure.drawParagraph(Graphics2D,AttributedCharacterIterator,float,float,float,float,float[],int)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.TextAreaFigure.isTextOverflow()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.addSelectionToolTo(JToolBar,DrawingEditor,Tool)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.tool.DefaultDragTracker.mouseDragged(MouseEvent)_MT">
+        <uses provider="org.jhotdraw.draw.DrawingView.getConstrainer()_CM"/>
+    </element>
+    <element name="org.jhotdraw.draw.tool.DefaultDragTracker.mouseReleased(MouseEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplicationModel.createActionMap(Application,View)_MT">
+        <uses provider="org.jhotdraw.app.action.file.ExportFileAction.ExportFileAction(Application,View)_CN"/>
+    </element>
+    <element name="org.jhotdraw.draw.TextFigure.getTextLayout()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createFontStyleBoldButton(DrawingEditor,ResourceBundleUtil)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createFontStyleItalicButton(DrawingEditor,ResourceBundleUtil)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createFontStyleUnderlineButton(DrawingEditor,ResourceBundleUtil)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ButtonFactory.createStrokeWidthButton(DrawingEditor,double[],ResourceBundleUtil)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawApplicationModel.addCreationButtonsTo(JToolBar,DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.draw.action.ButtonFactory.createDrawingActions(DrawingEditor)_MT"/>
+        <uses provider="org.jhotdraw.draw.action.ButtonFactory.createSelectionActions(DrawingEditor)_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawApplicationModel.addDefaultCreationButtonsTo(JToolBar,DrawingEditor,Collection_Action_,Collection_Action_)_MT">
+        <uses provider="org.jhotdraw.draw.TextAreaFigure.TextAreaFigure()_CN"/>
+        <uses provider="org.jhotdraw.draw.AttributeKeys.END_DECORATION_FE"/>
+        <uses provider="org.jhotdraw.draw.BezierFigure.BezierFigure(boolean)_CN"/>
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawingPanel.addCreationButtonsTo(JToolBar,DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.draw.action.ButtonFactory.createDrawingActions(DrawingEditor)_MT"/>
+        <uses provider="org.jhotdraw.draw.action.ButtonFactory.createSelectionActions(DrawingEditor)_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawingPanel.addDefaultCreationButtonsTo(JToolBar,DrawingEditor,Collection_Action_,Collection_Action_)_MT">
+        <uses provider="org.jhotdraw.draw.TextAreaFigure.TextAreaFigure()_CN"/>
+        <uses provider="org.jhotdraw.draw.AttributeKeys.END_DECORATION_FE"/>
+        <uses provider="org.jhotdraw.draw.BezierFigure.BezierFigure(boolean)_CN"/>
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.getConstrainer()_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView$EventHandler.figureAdded(CompositeFigureEvent)_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.invalidateDimension()_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView$EventHandler.figureRemoved(CompositeFigureEvent)_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.invalidateDimension()_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.getInvisibleConstrainer()_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.getVisibleConstrainer()_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.isConstrainerVisible()_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.setConstrainerVisible(boolean)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.setInvisibleConstrainer(Constrainer)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.setVisibleConstrainer(Constrainer)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.AbstractCompositeFigure.getBounds()_MT">
+        <uses provider="org.jhotdraw.draw.Figure.getBounds()_CM"/>
+    </element>
+    <element name="org.jhotdraw.draw.BezierFigure.BezierFigure(boolean)_CN">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGImageFigure.getActions(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGPathFigure.getActions(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGBezierFigure.SVGBezierFigure(boolean)_CN">
+        <uses provider="org.jhotdraw.draw.BezierFigure.BezierFigure(boolean)_CN"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGAttributedFigure.getActions(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.figures.ODGAttributedFigure.getActions(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.figures.ODGPathFigure.getActions(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.pert.PertApplicationModel.createToolBars(Application,View)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showMessageSheet(Component,Object,int,SheetListener)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawApplet.setData(String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawLiveConnectApplet.getAppletInfo()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawLiveConnectApplet.setData(String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.net.NetApplet.getData()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.net.NetApplet.setData(String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.pert.PertApplet.getParameterInfo()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JFileURIChooser.getComponent()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JFileURIChooser.getSelectedURI()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JFileURIChooser.setSelectedURI(URI)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGEllipseFigure.createHandles(int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGGroupFigure.createHandles(int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGImageFigure.createHandles(int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGPathFigure.createHandles(int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGRectFigure.createHandles(int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextAreaFigure.createHandles(int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextFigure.createHandles(int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawApplet.getData()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawApplet.main(String[])_MT">
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawLiveConnectApplet.getData()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawLiveConnectApplet.init()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.pert.PertApplet.getData()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.pert.PertApplet.setData(String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.TeddyView.read(URI,String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.TeddyView.write(URI,String,String)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JComponentPopup.menuSelectionChanged(boolean)_MT">
+        <uses provider="org.jhotdraw.gui.JComponentPopup.setVisible(boolean)_MT"/>
+    </element>
+    <element name="org.jhotdraw.gui.JComponentPopup.setVisible(boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.fireOptionSelected(URIChooser,int)_CM">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showOpenSheet(URIChooser,Component,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.showSheet(URIChooser,Component,String,SheetListener)_CM"/>
+        <uses provider="org.jhotdraw.gui.URIChooser.setDialogType(int)_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showSaveSheet(URIChooser,Component,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.showSheet(URIChooser,Component,String,SheetListener)_CM"/>
+        <uses provider="org.jhotdraw.gui.URIChooser.setDialogType(int)_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showSheet(URIChooser,Component,String,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.show()_MT"/>
+        <uses provider="org.jhotdraw.gui.URIChooser.addActionListener(ActionListener)_CM"/>
+        <uses provider="org.jhotdraw.gui.URIChooser.setApproveButtonText(String)_CM"/>
+        <uses provider="org.jhotdraw.gui.URIChooser.setDialogType(int)_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showSheet(URIChooser,Component,String,SheetListener)_MT">
+    </element>
+    <element name="org.jhotdraw.net.URIUtil.getName(URI)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.EditGridAction.getApplication()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ToggleGridAction.ToggleGridAction(DrawingEditor)_CN">
+        <uses provider="org.jhotdraw.draw.action.ToggleGridAction.updateViewState()_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.action.ToggleGridAction.updateViewState()_MT">
+        <uses provider="org.jhotdraw.draw.DrawingView.isConstrainerVisible()_CM"/>
+    </element>
+    <element name="org.jhotdraw.color.ColorSliderUI.calculateTrackRect()_MT">
+    </element>
+    <element name="org.jhotdraw.color.ColorSliderUI.paintFocus(Graphics)_MT">
+    </element>
+    <element name="org.jhotdraw.color.ColorSliderUI.paintMajorTickForHorizSlider(Graphics,Rectangle,int)_MT">
+    </element>
+    <element name="org.jhotdraw.color.ColorSliderUI.paintMajorTickForVertSlider(Graphics,Rectangle,int)_MT">
+    </element>
+    <element name="org.jhotdraw.color.ColorSliderUI.paintMinorTickForHorizSlider(Graphics,Rectangle,int)_MT">
+    </element>
+    <element name="org.jhotdraw.color.ColorSliderUI.paintMinorTickForVertSlider(Graphics,Rectangle,int)_MT">
+    </element>
+    <element name="org.jhotdraw.color.ColorSliderUI.paintThumb(Graphics)_MT">
+    </element>
+    <element name="org.jhotdraw.color.ColorSliderUI.paintTicks(Graphics)_MT">
+        <uses provider="org.jhotdraw.color.ColorSliderUI.paintMajorTickForHorizSlider(Graphics,Rectangle,int)_MT"/>
+        <uses provider="org.jhotdraw.color.ColorSliderUI.paintMajorTickForVertSlider(Graphics,Rectangle,int)_MT"/>
+        <uses provider="org.jhotdraw.color.ColorSliderUI.paintMinorTickForHorizSlider(Graphics,Rectangle,int)_MT"/>
+        <uses provider="org.jhotdraw.color.ColorSliderUI.paintMinorTickForVertSlider(Graphics,Rectangle,int)_MT"/>
+    </element>
+    <element name="org.jhotdraw.color.ColorSliderUI.paintTrack(Graphics)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.color.WheelsAndSlidersMain$Handler.stateChanged(ChangeEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.color.WheelsAndSlidersMain.WheelsAndSlidersMain()_CN">
+    </element>
+    <element name="org.jhotdraw.samples.color.WheelsAndSlidersMain.initComponents()_MT">
+    </element>
+    <element name="org.jhotdraw.color.JColorWheel.createWheelProducer(int,int)_MT">
+    </element>
+    <element name="org.jhotdraw.color.ColorSquareImageProducer.generateColorWheel()_MT">
+        <uses provider="org.jhotdraw.color.ColorSquareImageProducer.generateLookupTables()_MT"/>
+    </element>
+    <element name="org.jhotdraw.color.ColorSquareImageProducer.generateLookupTables()_MT">
+    </element>
+    <element name="org.jhotdraw.color.ColorSquareImageProducer.getColorAt(int,int)_MT">
+    </element>
+    <element name="org.jhotdraw.color.ColorSquareImageProducer.getColorLocation(float[])_MT">
+    </element>
+    <element name="org.jhotdraw.color.HSLHarmonicColorWheelImageProducer.getColorLocation(float[])_MT">
+    </element>
+    <element name="org.jhotdraw.draw.GridConstrainer.GridConstrainer(double,double)_CN">
+    </element>
+    <element name="org.jhotdraw.draw.GridConstrainer.GridConstrainer(double,double,boolean)_CN">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.getVisibleConstrainer()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.setVisibleConstrainer(Constrainer)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingEditorProxy.target_FE">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingEditorProxy.getFocusedView()_MT">
+        <uses provider="org.jhotdraw.draw.DrawingEditorProxy.target_FE"/>
+    </element>
+    <element name="org.jhotdraw.draw.AttributeKeys.END_DECORATION_FE">
+    </element>
+    <element name="org.jhotdraw.samples.svg.gui.CanvasToolBar.createDisclosedComponent(int)_MT">
+        <uses provider="org.jhotdraw.text.ColorFormatter.createFormatterFactory()_CM"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.gui.FigureToolBar.createDisclosedComponent(int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.gui.FillToolBar.createDisclosedComponent(int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.gui.FontToolBar.createDisclosedComponent(int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.gui.StrokeToolBar.createDisclosedComponent(int)_MT">
+        <uses provider="org.jhotdraw.text.JavaNumberFormatter.JavaNumberFormatter(double,double,double)_CN"/>
+    </element>
+    <element name="org.jhotdraw.text.ColorFormatter$Format.RGB_INTEGER_FE">
+    </element>
+    <element name="org.jhotdraw.text.ColorFormatter.createFormatterFactory()_CM">
+    </element>
+    <element name="org.jhotdraw.text.ColorFormatter.ColorFormatter(Format,boolean,boolean)_CN">
+        <uses provider="org.jhotdraw.text.ColorFormatter$Format.RGB_INTEGER_FE"/>
+    </element>
+    <element name="org.jhotdraw.text.ColorFormatter.rgbIntegerPattern_FE">
+    </element>
+    <element name="org.jhotdraw.text.ColorFormatter.createFormatterFactory()_MT">
+    </element>
+    <element name="org.jhotdraw.text.ColorFormatter.stringToValue(String)_MT">
+        <uses provider="org.jhotdraw.text.ColorFormatter$Format.RGB_INTEGER_FE"/>
+        <uses provider="org.jhotdraw.text.ColorFormatter.rgbIntegerPattern_FE"/>
+    </element>
+    <element name="org.jhotdraw.text.ColorFormatter.valueToString(Object)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.gui.LinkToolBar.createDisclosedComponent(int)_MT">
+    </element>
+    <element name="org.jhotdraw.text.JavaNumberFormatter.JavaNumberFormatter(double,double,double)_CN">
+    </element>
+    <element name="org.jhotdraw.text.JavaNumberFormatter.createFormatterFactory(double,double,double)_MT">
+    </element>
+    <element name="org.jhotdraw.text.JavaNumberFormatter.stringToValue(String)_MT">
+    </element>
+    <element name="org.jhotdraw.text.JavaNumberFormatter.valueToString(Object)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.getConstrainer()_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.isConstrainerVisible()_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.getInvisibleConstrainer()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.getVisibleConstrainer()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.isConstrainerVisible()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.setConstrainerVisible(boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.setInvisibleConstrainer(Constrainer)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.setVisibleConstrainer(Constrainer)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.ImageFigure.bufferedImage_FE">
+    </element>
+    <element name="org.jhotdraw.draw.ImageFigure.drawFigure(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGImageFigure.cachedHitShape_FE">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGImageFigure.cachedTransformedShape_FE">
+    </element>
+    <element name="org.jhotdraw.app.action.file.LoadRecentFileAction.doIt(View)_MT">
+        <uses provider="org.jhotdraw.app.Application.getModel()_CM"/>
+        <uses provider="org.jhotdraw.app.Application.setEnabled(boolean)_CM"/>
+        <uses provider="org.jhotdraw.app.View.getURI()_CM"/>
+        <uses provider="org.jhotdraw.app.Application.getViews()_CM"/>
+    </element>
+    <element name="org.jhotdraw.app.OSXApplication.init()_MT">
+        <uses provider="org.jhotdraw.app.AbstractApplication.init()_MT"/>
+    </element>
+    <element name="org.jhotdraw.app.action.file.ExportFileAction.exportView(View,URI,URIChooser)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.file.LoadFileAction.loadViewFromURI(View,URI,URIChooser)_MT">
+    </element>
+    <element name="org.jhotdraw.app.AbstractApplication.start(List_URI_)_MT">
+    </element>
+    <element name="org.jhotdraw.app.Application.start(List_URI_)_CM">
+    </element>
+    <element name="org.jhotdraw.app.DefaultMenuBuilder.add(JMenu,Action)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.ImageMapOutputFormat.writeLineElement(IXMLElement,SVGPathFigure)_MT">
+        <uses provider="org.jhotdraw.geom.GrowStroke.createStrokedShape(Shape)_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.ImageMapOutputFormat.writePathElement(IXMLElement,SVGPathFigure)_MT">
+        <uses provider="org.jhotdraw.geom.GrowStroke.createStrokedShape(Shape)_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.ImageMapOutputFormat.writePolygonElement(IXMLElement,SVGPathFigure)_MT">
+        <uses provider="org.jhotdraw.geom.GrowStroke.createStrokedShape(Shape)_MT"/>
+    </element>
+    <element name="org.jhotdraw.app.action.file.OpenFileAction.createDialog(URIChooser,Component)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.file.SaveFileAction.actionPerformed(ActionEvent)_MT">
+        <uses provider="org.jhotdraw.app.View.getURI()_CM"/>
+        <uses provider="org.jhotdraw.gui.JSheet.showSaveSheet(URIChooser,Component,SheetListener)_CM"/>
+        <uses provider="org.jhotdraw.app.action.file.SaveFileAction.saveViewToURI(View,URI,URIChooser)_MT"/>
+    </element>
+    <element name="org.jhotdraw.app.MDIApplication.createEditMenu(View)_MT">
+    </element>
+    <element name="org.jhotdraw.app.SDIApplication.createEditMenu(View)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawApplet.init()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.net.NetApplet.init()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.pert.PertApplet.init()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.pert.PertApplet.main(String[])_MT">
+    </element>
+    <element name="org.jhotdraw.samples.draw.DrawApplet.initDrawing(Drawing)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.net.NetApplet.initDrawing(Drawing)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.pert.PertApplet.initDrawing(Drawing)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.pert.figures.TaskFigure$DurationAdapter.attributeChanged(FigureEvent)_MT">
+        <uses provider="org.jhotdraw.samples.pert.figures.TaskFigure.updateStartTime()_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.pert.figures.TaskFigure$NameAdapter.attributeChanged(FigureEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.file.ExportFileAction.actionPerformed(ActionEvent)_MT">
+        <uses provider="org.jhotdraw.app.Application.getModel()_CM"/>
+        <uses provider="org.jhotdraw.app.View.getURI()_CM"/>
+        <uses provider="org.jhotdraw.gui.JSheet.showSheet(URIChooser,Component,String,SheetListener)_CM"/>
+        <uses provider="org.jhotdraw.gui.URIChooser.setSelectedURI(URI)_CM"/>
+    </element>
+    <element name="org.jhotdraw.app.action.file.ExportFileAction.ExportFileAction(Application,View)_CN">
+        <uses provider="org.jhotdraw.app.action.file.ExportFileAction.ExportFileAction(Application,View,boolean)_CN"/>
+    </element>
+    <element name="org.jhotdraw.app.action.file.ExportFileAction.ExportFileAction(Application,View,boolean)_CN">
+        <uses provider="org.jhotdraw.app.action.AbstractViewAction.AbstractViewAction(Application,View)_CN"/>
+    </element>
+    <element name="org.jhotdraw.draw.action.AbstractDrawingEditorAction$EventHandler.propertyChange(PropertyChangeEvent)_MT">
+        <uses provider="org.jhotdraw.draw.action.AbstractDrawingEditorAction.updateEnabledState()_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.action.AbstractDrawingViewAction$EventHandler.propertyChange(PropertyChangeEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.drawDrawingNonvolatileBuffered(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.drawDrawingVolatileBuffered(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.removeNotify()_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.drawingBufferNV_FE"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.drawingBufferV_FE"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.validateViewTranslation()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.drawingBufferNV_FE">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.drawingBufferV_FE">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readCircleElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readEllipseElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readLineElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readPathElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readPolygonElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readPolylineElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readTextAreaElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readTextElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.readUseElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGInputFormat.toPath(IXMLElement,String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGEllipseFigure.contains(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGImageFigure.draw(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGAttributedFigure.draw(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGPathFigure.draw(Graphics2D)_MT">
+        <uses provider="org.jhotdraw.samples.svg.figures.SVGPathFigure.getDrawingArea()_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.delete()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.invalidateDimension()_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.cachedDrawingArea_FE"/>
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.cachedPreferredSize_FE"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.invalidateHandles()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.removeFromSelection(Figure)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.setHandleDetailLevel(int)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.validateHandles()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.getDrawingArea()_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawingView.cachedDrawingArea_FE"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.fireSelectionChanged(Set_Figure_,Set_Figure_)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.getCanvasViewBounds()_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.drawCanvas(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.getCanvasViewBounds()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.setDrawingDoubleBuffered(boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.io.DOMStorableInputOutputFormat.createTransferable(Drawing,List_Figure_,double)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.io.DOMStorableInputOutputFormat.read(File,Drawing,boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.io.DOMStorableInputOutputFormat.read(Transferable,Drawing,boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.io.DOMStorableInputOutputFormat.write(File,Drawing)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.io.ImageOutputFormat.write(File,Drawing)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplet.close()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplet.createDrawingComponent()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplet.htmlencode(String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplet.loadDrawing(ProgressIndicator)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.AttributeKey.AttributeKey(String,Class_T_,T,boolean)_CN">
+    </element>
+    <element name="org.jhotdraw.draw.AttributeKey.AttributeKey(String,Class_T_,T,boolean,ResourceBundleUtil)_CN">
+    </element>
+    <element name="org.jhotdraw.draw.AbstractFigure.changed()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.BezierFigure.chop(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.BezierFigure.contains(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.BezierFigure.drawFill(Graphics2D)_MT">
+        <uses provider="org.jhotdraw.geom.GrowStroke.createStrokedShape(Shape)_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.BezierFigure.drawStroke(Graphics2D)_MT">
+        <uses provider="org.jhotdraw.geom.GrowStroke.createStrokedShape(Shape)_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.BezierFigure.getBounds()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.BezierFigure.read(DOMInput)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.BezierFigure.setClosed(boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.Figure.getBounds()_CM">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGPathFigure.contains(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGPathFigure.getDrawingArea()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.figures.ODGPathFigure.contains(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.BezierFigure.set(AttributeKey_T_,T)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.DefaultAttributeAction.changeAttribute()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGImageFigure.restoreTransformTo(Object)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGEllipseFigure.SVGEllipseFigure(double,double,double,double)_CN">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGRectFigure.SVGRectFigure(double,double,double,double,double,double)_CN">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextAreaFigure.SVGTextAreaFigure(String)_CN">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplet.init()_CM">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplet.getParameter(String)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplet.getParameterInfo()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplet.init()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplet.createDrawing()_MT">
+        <uses provider="org.jhotdraw.draw.DefaultDrawing.DefaultDrawing()_CN"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.action.ViewSourceAction.ID_FE">
+    </element>
+    <element name="org.jhotdraw.samples.svg.action.ViewSourceAction.actionPerformed(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.gui.MessagePanel.MessagePanel(Icon,String)_CN">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplet.SVGApplet()_CN">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplet.drawingComponent_FE">
+    </element>
+    <element name="org.jhotdraw.samples.svg.SVGApplet.getDrawingComponent()_MT">
+        <uses provider="org.jhotdraw.samples.svg.SVGApplet.drawingComponent_FE"/>
+    </element>
+    <element name="org.jhotdraw.samples.mini.SVGDrawingPanelSample.getOpenChooser()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.mini.SVGDrawingPanelSample.getSaveChooser()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.tool.TextAreaCreationTool.mousePressed(MouseEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.tool.TextCreationTool.mousePressed(MouseEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.AbstractViewAction.isEnabled()_CM">
+    </element>
+    <element name="org.jhotdraw.app.action.AbstractViewAction.isEnabled()_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.AbstractViewAction.setEnabled(boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.AbstractSaveUnsavedChangesAction.actionPerformed(ActionEvent)_MT">
+        <uses provider="org.jhotdraw.app.View.getURI()_CM"/>
+    </element>
+    <element name="org.jhotdraw.app.action.AbstractViewAction.isMayCreateView()_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.AbstractViewAction.setMayCreateView(boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.AttributeKey.set(Figure,T)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.AttributeAction.actionPerformed(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.AttributeToggler.actionPerformed(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.pert.figures.DependencyFigure.DependencyFigure()_CN">
+        <uses provider="org.jhotdraw.draw.AttributeKeys.END_DECORATION_FE"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGEllipseFigure.getTransformRestoreData()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGEllipseFigure.restoreTransformTo(Object)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGRectFigure.restoreTransformTo(Object)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextAreaFigure.restoreTransformTo(Object)_MT">
+        <uses provider="org.jhotdraw.samples.svg.figures.SVGTextAreaFigure.invalidate()_MT"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextFigure.restoreTransformTo(Object)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.AttributeKey.setClone(Figure,T)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.AttributeKey.getClone(Figure)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.AttributeKey.setClone(Figure,T)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGPathFigure.restoreTransformTo(Object)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGEllipseFigure.transform(AffineTransform)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.ImageFigure.loadImage(File)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.ImageFigure.writeObject(ObjectOutputStream)_MT">
+    </element>
+    <element name="src.main.java.net.n3.nanoxml.IXMLElement.getDoubleAttribute(String,String,double)_CM">
+    </element>
+    <element name="src.main.java.net.n3.nanoxml.XMLElement.getDoubleAttribute(String,String,double)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.Drawing.add(Figure)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.Drawing.remove(Figure)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.Drawing.add(int,Figure)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.ApplyAttributesAction.applyAttributes()_MT">
+        <uses provider="org.jhotdraw.draw.action.ApplyAttributesAction.excludedAttributes_FE"/>
+    </element>
+    <element name="org.jhotdraw.draw.action.ApplyAttributesAction.excludedAttributes_FE">
+    </element>
+    <element name="org.jhotdraw.gui.Worker.construct()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.Worker.run()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.Worker.failed(Throwable)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.TextAreaFigure.drawParagraph(Graphics2D,AttributedCharacterIterator,float,float,float,float,float[],int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextAreaFigure.contains(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextAreaFigure.invalidate()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextAreaFigure.getTransformRestoreData()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextAreaFigure.getTextShape()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextAreaFigure.isTextOverflow()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.mini.FileIconsSample.main(String[])_MT">
+    </element>
+    <element name="org.jhotdraw.draw.TextAreaFigure.getPreferredTextSize(double)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextAreaFigure.getPreferredTextSize(double)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.AttributeKeys.getPerpendicularDrawGrowth(Figure)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.AttributeKeys.getStroke(Figure)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.AttributeKeys.getStrokeTotalMiterLimit(Figure)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.LinearGradient.getPaint(Figure,double)_MT">
+        <uses provider="org.jhotdraw.draw.Figure.getBounds()_CM"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.RadialGradient.getPaint(Figure,double)_MT">
+        <uses provider="org.jhotdraw.draw.Figure.getBounds()_CM"/>
+    </element>
+    <element name="org.jhotdraw.samples.teddy.regex.Matcher.findNext()_CM">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.regex.Matcher.findNext(int)_CM">
+        <uses provider="org.jhotdraw.samples.teddy.regex.Matcher.findNext()_CM"/>
+    </element>
+    <element name="org.jhotdraw.samples.teddy.regex.Matcher.findPrevious()_CM">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.regex.Matcher.findPrevious(int)_CM">
+        <uses provider="org.jhotdraw.samples.teddy.regex.Matcher.findPrevious()_CM"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingEditor.createActionMap()_CM">
+        <uses provider="org.jhotdraw.app.action.edit.DeleteAction.DeleteAction()_CN"/>
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingEditor.createInputMap()_CM">
+    </element>
+    <element name="org.jhotdraw.draw.AbstractFigure.clone()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.findFigure(Point)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingView.findHandle(Point)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.LineConnectionFigure.addNotify(Drawing)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.LineConnectionFigure.clone()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.LineConnectionFigure.removeNotify(Drawing)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.BezierFigure.getDrawingArea()_MT">
+        <uses provider="org.jhotdraw.draw.AttributeKeys.END_DECORATION_FE"/>
+    </element>
+    <element name="org.jhotdraw.draw.LineConnectionFigure.setNode(int,BezierPath)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.net.NetApplicationModel.addCreationButtonsTo(JToolBar,DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.samples.net.figures.NodeFigure.NodeFigure()_CN"/>
+    </element>
+    <element name="org.jhotdraw.samples.net.NetPanel.addCreationButtonsTo(JToolBar,DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.samples.net.figures.NodeFigure.NodeFigure()_CN"/>
+    </element>
+    <element name="org.jhotdraw.samples.pert.PertApplicationModel.addCreationButtonsTo(JToolBar,DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.draw.TextAreaFigure.TextAreaFigure()_CN"/>
+        <uses provider="org.jhotdraw.samples.pert.figures.DependencyFigure.DependencyFigure()_CN"/>
+        <uses provider="org.jhotdraw.samples.pert.figures.TaskFigure.TaskFigure()_CN"/>
+    </element>
+    <element name="org.jhotdraw.samples.pert.PertPanel.addCreationButtonsTo(JToolBar,DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.draw.TextAreaFigure.TextAreaFigure()_CN"/>
+        <uses provider="org.jhotdraw.samples.pert.figures.DependencyFigure.DependencyFigure()_CN"/>
+        <uses provider="org.jhotdraw.samples.pert.figures.TaskFigure.TaskFigure()_CN"/>
+    </element>
+    <element name="org.jhotdraw.samples.odg.ODGDrawingPanel.addCreationButtonsTo(JToolBar,DrawingEditor)_MT">
+        <uses provider="org.jhotdraw.draw.action.ButtonFactory.createDrawingActions(DrawingEditor)_MT"/>
+        <uses provider="org.jhotdraw.samples.svg.figures.SVGBezierFigure.SVGBezierFigure(boolean)_CN"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.gui.FontToolBar.setEditor(DrawingEditor)_MT">
+    </element>
+    <element name="org.jhotdraw.io.BoundedRangeInputStream.getValue()_CM">
+    </element>
+    <element name="org.jhotdraw.io.BoundedRangeInputStream.read()_CM">
+    </element>
+    <element name="org.jhotdraw.io.BoundedRangeInputStream.read(byte[])_CM">
+    </element>
+    <element name="org.jhotdraw.io.BoundedRangeInputStream.read(byte[],int,int)_CM">
+    </element>
+    <element name="org.jhotdraw.io.BoundedRangeInputStream.reset()_CM">
+    </element>
+    <element name="org.jhotdraw.io.BoundedRangeInputStream.setMaximum(int)_CM">
+    </element>
+    <element name="org.jhotdraw.io.BoundedRangeInputStream.setMinimum(int)_CM">
+    </element>
+    <element name="org.jhotdraw.io.BoundedRangeInputStream.setValue(int)_CM">
+    </element>
+    <element name="org.jhotdraw.io.BoundedRangeInputStream.skip(long)_CM">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.action.ToggleLineNumbersAction.actionPerformed(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.action.ToggleLineWrapAction.actionPerformed(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.action.ToggleStatusBarAction.actionPerformed(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.geom.ConvexHull.isRightTurn(Point,Point,Point)_MT">
+    </element>
+    <element name="org.jhotdraw.geom.ConvexHull.isRightTurn2D(Double,Double,Double)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.Drawing.basicAdd(Figure)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.Drawing.basicRemove(Figure)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DiamondFigure.drawFill(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DiamondFigure.drawStroke(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DiamondFigure.contains(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DiamondFigure.getDrawingArea()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.event.GenericListener$DefaultInvoker.byte_0_FE">
+    </element>
+    <element name="org.jhotdraw.gui.event.GenericListener$DefaultInvoker.char_0_FE">
+    </element>
+    <element name="org.jhotdraw.draw.action.FontChooserHandler.updateEnabledState()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JFontChooser.setSelectedFont(Font)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JFontChooser.updateSelectionPath(Font)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PalettePanelUI.paint(Graphics,JComponent)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.colorchooser.PaletteCMYKChooser.buildChooser()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showConfirmSheet(Component,Object,int,int,Icon,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.showOptionSheet(Component,Object,int,int,Icon,Object[],Object,SheetListener)_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showInputSheet(Component,Object,Object,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.showInputSheet(Component,Object,int,Icon,Object[],Object,SheetListener)_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showInputSheet(Component,Object,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.showInputSheet(Component,Object,int,SheetListener)_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showInputSheet(Component,Object,int,Icon,Object[],Object,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.createSheet(JOptionPane,Component,int)_MT"/>
+        <uses provider="org.jhotdraw.gui.JSheet.show()_MT"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showInputSheet(Component,Object,int,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.showInputSheet(Component,Object,int,Icon,Object[],Object,SheetListener)_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showOpenSheet(JFileChooser,Component,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.showSheet(JFileChooser,Component,String,SheetListener)_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showOptionSheet(Component,Object,int,int,Icon,Object[],Object,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.createSheet(JOptionPane,Component,int)_MT"/>
+        <uses provider="org.jhotdraw.gui.JSheet.show()_MT"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showSaveSheet(JFileChooser,Component,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.showSheet(JFileChooser,Component,String,SheetListener)_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.JSheet.showSheet(JFileChooser,Component,String,SheetListener)_CM">
+        <uses provider="org.jhotdraw.gui.JSheet.show()_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.LineConnectionFigure$ConnectionHandler.figureChanged(FigureEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.LineConnectionFigure$ConnectionHandler.figureRemoved(FigureEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.mini.ConnectingFiguresSample.main(String[])_MT">
+    </element>
+    <element name="org.jhotdraw.samples.mini.EditorSample.main(String[])_MT">
+    </element>
+    <element name="org.jhotdraw.samples.mini.LabeledLineConnectionFigureSample.main(String[])_MT">
+    </element>
+    <element name="org.jhotdraw.samples.mini.CreationToolSample.main(String[])_MT">
+    </element>
+    <element name="org.jhotdraw.samples.mini.MultiEditorSample.createDrawing()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteToolBarUI$DockingListener.origin_FE">
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteToolBarUI.createDragWindow(JToolBar)_MT">
+    </element>
+    <element name="org.jhotdraw.app.AbstractApplication.configure(String[])_MT">
+    </element>
+    <element name="org.jhotdraw.app.AbstractApplication.getModel()_MT">
+    </element>
+    <element name="org.jhotdraw.app.AbstractApplication.init()_MT">
+        <uses provider="org.jhotdraw.app.AbstractApplication.getModel()_MT"/>
+    </element>
+    <element name="org.jhotdraw.app.AbstractApplication.launch(String[])_MT">
+        <uses provider="org.jhotdraw.app.AbstractApplication.configure(String[])_MT"/>
+    </element>
+    <element name="org.jhotdraw.app.AbstractApplication.setModel(ApplicationModel)_MT">
+    </element>
+    <element name="org.jhotdraw.app.Application.init()_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.stop()_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.getComponent()_MT">
+    </element>
+    <element name="org.jhotdraw.app.Application.createEditMenu(View)_MT">
+    </element>
+    <element name="org.jhotdraw.app.Application.createFileMenu(View)_MT">
+    </element>
+    <element name="org.jhotdraw.app.Application.createHelpMenu(View)_MT">
+    </element>
+    <element name="org.jhotdraw.app.Application.createViewMenu(View)_MT">
+    </element>
+    <element name="org.jhotdraw.app.Application.createWindowMenu(View)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteTextComponentBorder.paintBorder(Component,Graphics,int,int,int,int)_MT">
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteToolBarBorder.paintBorder(Component,Graphics,int,int,int,int)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.AbstractFigure.createHandles(int)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.duplicate()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.TextFigure.createHandles(int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.net.figures.NodeFigure.findCompatibleConnector(Connector,boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.app.Application.addPalette(Window)_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.removePalette(Window)_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.removeWindow(Window)_CM">
+    </element>
+    <element name="org.jhotdraw.gui.JFontChooser.getUIClassID()_CM">
+    </element>
+    <element name="org.jhotdraw.gui.JFontChooser.setUI(FontChooserUI)_CM">
+    </element>
+    <element name="org.jhotdraw.geom.Bezier.fitBezierPath(BezierPath,double)_CM">
+    </element>
+    <element name="org.jhotdraw.geom.Bezier.fitBezierPath(Point2D[],double)_CM">
+    </element>
+    <element name="org.jhotdraw.app.MDIApplication$WindowMenuHandler.updateWindowMenu()_MT">
+    </element>
+    <element name="org.jhotdraw.app.MDIApplication.createFileMenu(View)_MT">
+    </element>
+    <element name="org.jhotdraw.app.MDIApplication.createHelpMenu(View)_MT">
+    </element>
+    <element name="org.jhotdraw.app.MDIApplication.createWindowMenu(View)_MT">
+    </element>
+    <element name="org.jhotdraw.app.SDIApplication.createFileMenu(View)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.handle.ResizeHandleKit$EastHandle.keyPressed(KeyEvent)_MT">
+        <uses provider="org.jhotdraw.draw.Figure.getBounds()_CM"/>
+    </element>
+    <element name="org.jhotdraw.draw.handle.ResizeHandleKit$NorthHandle.keyPressed(KeyEvent)_MT">
+        <uses provider="org.jhotdraw.draw.Figure.getBounds()_CM"/>
+    </element>
+    <element name="org.jhotdraw.draw.handle.ResizeHandleKit$WestHandle.keyPressed(KeyEvent)_MT">
+        <uses provider="org.jhotdraw.draw.Figure.getBounds()_CM"/>
+    </element>
+    <element name="org.jhotdraw.samples.net.NetFactory.classTagArray_FE">
+    </element>
+    <element name="org.jhotdraw.samples.net.figures.NodeFigure.NodeFigure()_CN">
+    </element>
+    <element name="org.jhotdraw.samples.pert.figures.TaskFigure.TaskFigure()_CN">
+    </element>
+    <element name="org.jhotdraw.samples.net.figures.NodeFigure.readDecorator(DOMInput)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.net.figures.NodeFigure.writeDecorator(DOMOutput)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.net.figures.NodeFigure.getConnectors(ConnectionFigure)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawing.DefaultDrawing()_CN">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawing.draw(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawing.findFigureInside(Point2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawing.indexOf(Figure)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.LineConnectionFigure.createHandles(int)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.LineConnectionFigure.handleMouseClick(Point2D,MouseEvent,DrawingView)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.LineConnectionFigure.read(DOMInput)_MT">
+        <uses provider="org.jhotdraw.draw.LineConnectionFigure.readLiner(DOMInput)_MT"/>
+    </element>
+    <element name="org.jhotdraw.draw.LineConnectionFigure.readLiner(DOMInput)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextFigure.cachedBounds_FE">
+    </element>
+    <element name="org.jhotdraw.draw.handle.ResizeHandleKit$ResizeHandle.trackStart(Point,int)_MT">
+        <uses provider="org.jhotdraw.draw.Figure.getBounds()_CM"/>
+    </element>
+    <element name="org.jhotdraw.draw.handle.ResizeHandleKit$ResizeHandle.trackStep(Point,Point,int)_MT">
+        <uses provider="org.jhotdraw.draw.DrawingView.getConstrainer()_CM"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.io.SVGOutputFormat.write(OutputStream,Drawing,List_Figure_)_MT">
+    </element>
+    <element name="org.jhotdraw.util.prefs.PreferencesUtil.systemNodeForPackage(Class_?_)_MT">
+    </element>
+    <element name="org.jhotdraw.util.prefs.PreferencesUtil.userNodeForPackage(Class_?_)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.action.CombineAction.CombineAction(DrawingEditor,SVGPathFigure,boolean)_CN">
+    </element>
+    <element name="org.jhotdraw.samples.svg.action.CombineAction.canUngroup()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGPathFigure.cachedPath_FE">
+    </element>
+    <element name="org.jhotdraw.samples.odg.figures.ODGPathFigure.cachedPath_FE">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.drawHandles(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.drawTool(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.LinkHandle.basicGetBounds()_MT">
+        <uses provider="org.jhotdraw.draw.Figure.getBounds()_CM"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.LinkHandle.draw(Graphics2D)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.LinkHandle.getToolTipText(Point)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.AbstractDrawingViewAction.editor_FE">
+    </element>
+    <element name="org.jhotdraw.draw.action.AbstractDrawingViewAction.getView()_MT">
+        <uses provider="org.jhotdraw.draw.action.AbstractDrawingViewAction.editor_FE"/>
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextFigure.getDrawingArea()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGEllipseFigure.getDrawingArea()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGRectFigure.getDrawingArea()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextAreaFigure.getDrawingArea()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.FindDialog.initComponents()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.EditGridPanel.initComponents()_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.edit.ClearSelectionAction.actionPerformed(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.edit.CopyAction.actionPerformed(ActionEvent)_MT">
+        <uses provider="org.jhotdraw.gui.datatransfer.ClipboardUtil.getClipboard()_CM"/>
+    </element>
+    <element name="org.jhotdraw.app.action.edit.CutAction.actionPerformed(ActionEvent)_MT">
+        <uses provider="org.jhotdraw.gui.datatransfer.ClipboardUtil.getClipboard()_CM"/>
+    </element>
+    <element name="org.jhotdraw.app.action.edit.DeleteAction.DeleteAction()_CN">
+    </element>
+    <element name="org.jhotdraw.app.action.edit.DeleteAction.actionPerformed(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.edit.DeleteAction.deleteNextChar(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.edit.DuplicateAction.actionPerformed(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.edit.PasteAction.actionPerformed(ActionEvent)_MT">
+        <uses provider="org.jhotdraw.gui.datatransfer.ClipboardUtil.getClipboard()_CM"/>
+    </element>
+    <element name="org.jhotdraw.app.action.edit.SelectAllAction.actionPerformed(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.edit.ClearSelectionAction.ClearSelectionAction(JComponent)_CN">
+    </element>
+    <element name="org.jhotdraw.app.action.edit.CopyAction.CopyAction(JComponent)_CN">
+    </element>
+    <element name="org.jhotdraw.app.action.edit.CutAction.CutAction(JComponent)_CN">
+    </element>
+    <element name="org.jhotdraw.app.action.edit.DeleteAction.DeleteAction(JComponent)_CN">
+    </element>
+    <element name="org.jhotdraw.app.action.edit.DuplicateAction.DuplicateAction(JComponent)_CN">
+    </element>
+    <element name="org.jhotdraw.app.action.edit.PasteAction.PasteAction(JComponent)_CN">
+    </element>
+    <element name="org.jhotdraw.app.action.edit.SelectAllAction.SelectAllAction(JComponent)_CN">
+    </element>
+    <element name="org.jhotdraw.gui.datatransfer.ClipboardUtil.getClipboard()_CM">
+    </element>
+    <element name="org.jhotdraw.gui.datatransfer.ClipboardUtil.getClipboard()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JFontChooser.JFontChooser()_CN">
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteFontChooserUI.doFamilyChanged()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.JFontChooser.loadAllFonts()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.fontchooser.DefaultFontChooserModel.setFonts(Font[])_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.figures.SVGTextAreaFigure.getInsets()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.repaintHandles()_MT">
+    </element>
+    <element name="org.jhotdraw.xml.JavaxDOMInput.readObject(int)_MT">
+    </element>
+    <element name="org.jhotdraw.xml.NanoXMLDOMInput.readObject(int)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.cachedDrawingArea_FE">
+    </element>
+    <element name="org.jhotdraw.draw.DefaultDrawingView.cachedPreferredSize_FE">
+    </element>
+    <element name="org.jhotdraw.draw.AbstractFigure.isConnectable()_CM">
+    </element>
+    <element name="org.jhotdraw.draw.AbstractFigure.isConnectable()_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.AbstractApplicationAction.getApplication()_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.AbstractApplicationAction.isEnabled()_MT">
+    </element>
+    <element name="org.jhotdraw.app.action.AbstractApplicationAction.setEnabled(boolean)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.action.CombineAction.combinePaths(DrawingView,CompositeFigure,Collection_Figure_,int)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.svg.action.CombineAction.splitPath(DrawingView,CompositeFigure,List_Figure_,int[],int[])_MT">
+    </element>
+    <element name="org.jhotdraw.app.AbstractApplication$OpenRecentMenuHandler.propertyChange(PropertyChangeEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.app.AbstractApplication.addRecentURI(URI)_MT">
+    </element>
+    <element name="org.jhotdraw.app.AbstractApplication.clearRecentURIs()_MT">
+    </element>
+    <element name="org.jhotdraw.app.AbstractApplication.getRecentURIs()_MT">
+    </element>
+    <element name="org.jhotdraw.app.AbstractView.uri_FE">
+    </element>
+    <element name="org.jhotdraw.app.AbstractView.getURI()_MT">
+        <uses provider="org.jhotdraw.app.AbstractView.uri_FE"/>
+    </element>
+    <element name="org.jhotdraw.app.AbstractView.setURI(URI)_MT">
+        <uses provider="org.jhotdraw.app.AbstractView.uri_FE"/>
+    </element>
+    <element name="org.jhotdraw.app.Application.addRecentURI(URI)_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.clearRecentURIs()_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.getRecentURIs()_CM">
+    </element>
+    <element name="org.jhotdraw.app.View.getURI()_CM">
+    </element>
+    <element name="org.jhotdraw.app.View.getURI()_MT">
+    </element>
+    <element name="org.jhotdraw.app.View.setURI(URI)_MT">
+    </element>
+    <element name="org.jhotdraw.app.Application.configure(String[])_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.launch(String[])_CM">
+    </element>
+    <element name="org.jhotdraw.app.AbstractApplicationModel.setAllowMultipleViewsForURI(boolean)_CM">
+    </element>
+    <element name="org.jhotdraw.app.Application.getViews()_CM">
+    </element>
+    <element name="org.jhotdraw.app.DefaultMenuBuilder.add(JMenu,Action)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.action.MoveAction.actionPerformed(ActionEvent)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.action.MoveConstrainedAction.actionPerformed(ActionEvent)_MT">
+        <uses provider="org.jhotdraw.draw.DrawingView.getConstrainer()_CM"/>
+        <uses provider="org.jhotdraw.draw.Figure.getBounds()_CM"/>
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteToolBarUI.createNonRolloverBorder()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteToolBarUI.createNonRolloverToggleBorder()_MT">
+    </element>
+    <element name="org.jhotdraw.gui.plaf.palette.PaletteToolBarUI.createRolloverBorder()_MT">
+    </element>
+    <element name="org.jhotdraw.app.AbstractApplication.getOpenChooser(View)_MT">
+        <uses provider="org.jhotdraw.app.AbstractApplication.getRecentURIs()_MT"/>
+        <uses provider="org.jhotdraw.gui.URIChooser.setSelectedURI(URI)_CM"/>
+    </element>
+    <element name="org.jhotdraw.app.AbstractApplication.getSaveChooser(View)_MT">
+        <uses provider="org.jhotdraw.app.View.getURI()_CM"/>
+        <uses provider="org.jhotdraw.gui.URIChooser.setSelectedURI(URI)_CM"/>
+    </element>
+    <element name="org.jhotdraw.beans.AbstractBean.addPropertyChangeListener(PropertyChangeListener)_CM">
+    </element>
+    <element name="org.jhotdraw.beans.AbstractBean.addPropertyChangeListener(String,PropertyChangeListener)_CM">
+    </element>
+    <element name="org.jhotdraw.beans.AbstractBean.removePropertyChangeListener(PropertyChangeListener)_CM">
+    </element>
+    <element name="org.jhotdraw.beans.AbstractBean.removePropertyChangeListener(String,PropertyChangeListener)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingEditor.getActiveView()_MT">
+    </element>
+    <element name="org.jhotdraw.draw.DrawingEditor.setActiveView(DrawingView)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.pert.figures.TaskFigure.createHandles(int)_MT">
+        <uses provider="org.jhotdraw.samples.pert.figures.DependencyFigure.DependencyFigure()_CN"/>
+    </element>
+    <element name="org.jhotdraw.samples.pert.figures.TaskFigure.isDependentOf(TaskFigure)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.pert.figures.TaskFigure.updateStartTime()_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readCaptionElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readCircleElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readCustomShapeElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readEllipseElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readLineElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readMeasureElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readPathElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readPolygonElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readPolylineElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readRectElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.odg.io.ODGInputFormat.readRegularPolygonElement(IXMLElement)_MT">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.JEditorArea.replaceRange(String,int,int)_CM">
+    </element>
+    <element name="org.jhotdraw.samples.teddy.JEditorArea.setLineWrap(boolean)_CM">
+    </element>
+    <element name="org.jhotdraw.app.action.AbstractViewAction.AbstractViewAction(Application,View)_CN">
+        <uses provider="org.jhotdraw.app.Application.addPropertyChangeListener(PropertyChangeListener)_CM"/>
+        <uses provider="org.jhotdraw.app.action.AbstractViewAction.view_FE"/>
+    </element>
+    <element name="org.jhotdraw.app.action.AbstractViewAction.view_FE">
+    </element>
+    <element name="org.jhotdraw.app.ApplicationModel.createToolBars(Application,View)_CM">
+    </element>
+    <element name="org.jhotdraw.app.ApplicationModel.initApplication(Application)_CM">
+    </element>
+    <element name="org.jhotdraw.app.ApplicationModel.initView(Application,View)_CM">
+    </element>
+    <element name="org.jhotdraw.draw.Drawing.basicAdd(Figure)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.Drawing.basicRemove(Figure)_MT">
+    </element>
+    <element name="org.jhotdraw.draw.Drawing.findFigureInside(Point2D)_MT">
+    </element>
+</ldi>

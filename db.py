@@ -24,5 +24,8 @@ class Db:
 		if cursor:
 			return self.execute(statement, params)
 		else:
-			self.execute(statement, params)
-			return self.cursor.fetchall()
+			c = self.conn.cursor()
+			c.execute(statement, params)
+			result = c.fetchall()
+			c.close()
+			return result

@@ -3,9 +3,6 @@ var exec = require('child_process').exec;
 var db = require('./db');
 var argv = require('optimist').argv;
 
-var entidades = [];
-var mapaDeEntidades = {};
-
 var repositorioName = argv._[0] || 'siop';
 
 var repositorioMap = { siop: 1, derby: 2, hadoop: 3, wildfly: 4, 'eclipse.platform.ui': 5, 'eclipse.jdt': 6, 'geronimo': 7, 'lucene': 8, 'jhotdraw7': 9 }
@@ -15,6 +12,9 @@ var repositorio = repositorioMap[repositorioName];
 var dir = './../../' + repositorioName + '-historage';
 
 console.log(repositorioName, repositorio, dir);
+
+var entidades = [];
+var mapaDeEntidades = {};
 
 var issueExtractor = {
 	siop: function (comment) {
@@ -168,34 +168,62 @@ function nextCommit (i) {
 			}			
 		}
 		if (sql.length === 0) {
-			coletaEntidades(commit);
-			nextCommit(i + 1);
+			coletaEntidades(commit, function () {
+				nextCommit(i + 1);
+			});
 		} else {
 			db.query(sql, values, function (err, result) {
 				if (err) { throw err; }
-				coletaEntidades(commit);
-				nextCommit(i + 1);
+				coletaEntidades(commit, function () {
+					nextCommit(i + 1);
+				});
 			});			
 		}
 	});
 }
 
-function coletaEntidades (commit) {
-	var cmd = 'git diff-tree --no-commit-id --name-only -r ' + commit;
+function coletaEntidades (commit, callback) {
+	var cmd = 'git diff-tree --no-commit-id --name-status -r ' + commit;
 	exec(cmd, {cwd:dir, maxBuffer: 20 * 1024 * 1024}, function (err, stdout, stderr) {
 		if (err) { throw err; }
-		var lines = stdout.split('\n'), j;
-		var line;
-		for (j = 0; j < lines.length; j += 1) {
-			line = lines[j].trim();
-			if (line.indexOf('.f/') !== -1) {
-				if (!mapaDeEntidades[line]) {
-					entidades.push(line);
-					mapaDeEntidades[line] = [];
+		var lines = stdout.split('\n'), i, j;
+		var line, arr;
+		for (i = 0; i < lines.length; i += 1) {
+			if (lines[i].indexOf('DefaultCompositeFigure.f') > -1) {
+				console.log(lines[i]);
+			}
+			arr = lines[i].trim().split('\t');
+			line = arr[1];
+			if (arr.length > 1 && line.indexOf('.f/') !== -1) {
+				/*
+				if (arr[0] == 'R') { // entity renaming
+					delete mapaDeEntidades[line]
+					for (j = 0; j < entidades.length; j++) {
+						if (entidades[j] === line) {
+							entidades.splice(j, 1);
+							break;
+						}
+					};
+				} 
+				*/
+				if (arr[0] == 'D') { // entity deletion
+					delete mapaDeEntidades[line]
+					for (j = 0; j < entidades.length; j++) {
+						if (entidades[j] === line) {
+							entidades.splice(j, 1);
+							break;
+						}
+					};
+				} else {
+					if (!mapaDeEntidades[line]) {
+						entidades.push(line);
+						mapaDeEntidades[line] = [];
+					}
+					mapaDeEntidades[line].push(commit);					
 				}
-				mapaDeEntidades[line].push(commit);
 			}
 		}
+		callback();
 	});
 }
 

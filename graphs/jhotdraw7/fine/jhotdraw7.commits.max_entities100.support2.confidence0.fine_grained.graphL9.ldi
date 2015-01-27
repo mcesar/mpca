@@ -1,0 +1,1806 @@
+<?xml version="1.0" ?>
+<ldi>
+    <element name="cluster23.MT_org_jhotdraw_draw_AbstractFigure_changed()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_AbstractFigure_clone()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_DrawingView_getConstrainer()">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_draw_TextAreaFigure_TextAreaFigure()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_AbstractApplicationAction_getApplication()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_AbstractApplicationAction_isEnabled()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_AbstractApplicationAction_setEnabled(boolean)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_AbstractCompositeFigure_getBounds()">
+        <uses provider="cluster23.CM_org_jhotdraw_draw_Figure_getBounds()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_AbstractFigure_createHandles(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_AttributeKey_set(Figure,T)">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_draw_AttributeKeys_END_DECORATION">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_AttributeKeys_getPerpendicularDrawGrowth(Figure)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_AttributeKeys_getStroke(Figure)">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_draw_BezierFigure_BezierFigure(boolean)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_BezierFigure_chop(Point2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_BezierFigure_contains(Point2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_BezierFigure_createHandles(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_BezierFigure_drawFill(Graphics2D)">
+        <uses provider="cluster26.MT_org_jhotdraw_geom_GrowStroke_createStrokedShape(Shape)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_BezierFigure_drawStroke(Graphics2D)">
+        <uses provider="cluster26.MT_org_jhotdraw_geom_GrowStroke_createStrokedShape(Shape)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_BezierFigure_getBounds()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_BezierFigure_handleMouseClick(Point2D,MouseEvent,DrawingView)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_BezierFigure_read(DOMInput)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_BezierFigure_setClosed(boolean)">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_draw_DefaultDrawingEditor_DefaultDrawingEditor()">
+        <uses provider="cluster23.FE_org_jhotdraw_draw_DefaultDrawingEditor_focusHandler"/>
+        <uses provider="cluster31.CM_org_jhotdraw_draw_DefaultDrawingEditor_createActionMap()"/>
+        <uses provider="cluster31.CM_org_jhotdraw_draw_DefaultDrawingEditor_createInputMap()"/>
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_draw_DefaultDrawingEditor_focusHandler">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingEditor_add(DrawingView)">
+        <uses provider="cluster23.FE_org_jhotdraw_draw_DefaultDrawingEditor_focusHandler"/>
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingEditor_updateActiveView()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingEditor_remove(DrawingView)">
+        <uses provider="cluster23.FE_org_jhotdraw_draw_DefaultDrawingEditor_focusHandler"/>
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingEditor_updateActiveView()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingEditor_setTool(Tool)">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_draw_DefaultDrawingView_DefaultDrawingView()">
+        <uses provider="cluster23.CN_org_jhotdraw_draw_GridConstrainer_GridConstrainer(double,double)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_addNotify(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_addToSelection(Collection_Figure_)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_addToSelection(Figure)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_clearSelection()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_delete()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_drawBackground(Graphics2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_drawDrawing(Graphics2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_drawingToView(Point2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_drawingToView(Rectangle2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_duplicate()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_findFigure(Point)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_findHandle(Point)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_getCompatibleHandles(Handle)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_getConstrainer()">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_isConstrainerVisible()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_getDrawingToViewTransform()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_getPreferredSize()">
+        <uses provider="cluster23.FE_org_jhotdraw_draw_DefaultDrawingView_cachedPreferredSize"/>
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_getDrawingArea()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_invalidateDimension()">
+        <uses provider="cluster23.FE_org_jhotdraw_draw_DefaultDrawingView_cachedDrawingArea"/>
+        <uses provider="cluster23.FE_org_jhotdraw_draw_DefaultDrawingView_cachedPreferredSize"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_invalidateHandles()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_paintComponent(Graphics)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_drawBackground(Graphics2D)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_drawDrawing(Graphics2D)"/>
+        <uses provider="cluster30.MT_org_jhotdraw_draw_DefaultDrawingView_drawHandles(Graphics2D)"/>
+        <uses provider="cluster30.MT_org_jhotdraw_draw_DefaultDrawingView_drawTool(Graphics2D)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_drawConstrainer(Graphics2D)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setViewRenderingHints(Graphics2D)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_removeFromSelection(Figure)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_removeNotify(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_selectAll()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setDrawing(Drawing)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setHandleDetailLevel(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setScaleFactor(double)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_toggleSelection(Figure)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_validateHandles()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_viewToDrawing(Point)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_viewToDrawing(Rectangle)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DiamondFigure_contains(Point2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DrawingView_findFigure(Point)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DrawingView_findHandle(Point)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_Figure_getBounds()">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_draw_GridConstrainer_GridConstrainer(double,double)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_LineConnectionFigure$ConnectionHandler_figureChanged(FigureEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_LineConnectionFigure$ConnectionHandler_figureRemoved(FigureEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_LineConnectionFigure_addNotify(Drawing)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_LineConnectionFigure_clone()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_LineConnectionFigure_createHandles(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_LineConnectionFigure_handleMouseClick(Point2D,MouseEvent,DrawingView)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_LineConnectionFigure_read(DOMInput)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_LineConnectionFigure_readLiner(DOMInput)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_LineConnectionFigure_readLiner(DOMInput)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_LineConnectionFigure_removeNotify(Drawing)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_LineFigure_createHandles(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_TextAreaFigure_createHandles(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_TextAreaFigure_drawText(Graphics2D)">
+        <uses provider="cluster23.CM_org_jhotdraw_draw_TextAreaFigure_drawParagraph(Graphics2D,AttributedCharacterIterator,float,float,float,float,float[],int)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_TextAreaFigure_getInsets()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_TextFigure_createHandles(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_TextFigure_getTextLayout()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_AbstractSelectedAction$EventHandler_propertyChange(PropertyChangeEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_AttributeAction_actionPerformed(ActionEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_AttributeToggler_actionPerformed(ActionEvent)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showConfirmSheet(Component,Object,SheetListener)">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_showConfirmSheet(Component,Object,int,SheetListener)"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showConfirmSheet(Component,Object,int,SheetListener)">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_showConfirmSheet(Component,Object,int,int,SheetListener)"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showConfirmSheet(Component,Object,int,int,Icon,SheetListener)">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_showOptionSheet(Component,Object,int,int,Icon,Object[],Object,SheetListener)"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showConfirmSheet(Component,Object,int,int,SheetListener)">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_showConfirmSheet(Component,Object,int,int,Icon,SheetListener)"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showInputSheet(Component,Object,Object,SheetListener)">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_showInputSheet(Component,Object,int,Icon,Object[],Object,SheetListener)"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showInputSheet(Component,Object,SheetListener)">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_showInputSheet(Component,Object,int,SheetListener)"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showInputSheet(Component,Object,int,Icon,Object[],Object,SheetListener)">
+        <uses provider="cluster23.MT_org_jhotdraw_gui_JSheet_createSheet(JOptionPane,Component,int)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_gui_JSheet_show()"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showInputSheet(Component,Object,int,SheetListener)">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_showInputSheet(Component,Object,int,Icon,Object[],Object,SheetListener)"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showOpenSheet(JFileChooser,Component,SheetListener)">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_showSheet(JFileChooser,Component,String,SheetListener)"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showOptionSheet(Component,Object,int,int,Icon,Object[],Object,SheetListener)">
+        <uses provider="cluster23.MT_org_jhotdraw_gui_JSheet_createSheet(JOptionPane,Component,int)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_gui_JSheet_show()"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showSaveSheet(JFileChooser,Component,SheetListener)">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_showSheet(JFileChooser,Component,String,SheetListener)"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showSheet(JFileChooser,Component,String,SheetListener)">
+        <uses provider="cluster23.MT_org_jhotdraw_gui_JSheet_show()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_addNotify()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_createSheet(JOptionPane,Component,int)">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_isNativeSheetSupported()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_fireOptionSelected(JOptionPane)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_hide()">
+        <uses provider="cluster23.MT_org_jhotdraw_gui_JSheet_hide0()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_isNativeSheetSupported()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_hide0()">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_isDocumentModalitySupported()"/>
+        <uses provider="cluster23.FE_org_jhotdraw_gui_JSheet_ownersGlassPane"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_init()">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_isDocumentModalitySupported()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_isNativeSheetSupported()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_installSheet()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_show()">
+        <uses provider="cluster23.MT_org_jhotdraw_gui_JSheet_show0()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_isDocumentModalitySupported()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_isNativeSheetSupported()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_show0()">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_isDocumentModalitySupported()"/>
+        <uses provider="cluster23.FE_org_jhotdraw_gui_JSheet_ownersGlassPane"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_showInputSheet(Component,Object,int,Icon,Object[],Object,SheetListener)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_showMessageSheet(Component,Object,int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_showMessageSheet(Component,Object,int,SheetListener)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_showOptionSheet(Component,Object,int,int,Icon,Object[],Object,SheetListener)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_showSheet(JFileChooser,Component,String,SheetListener)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_uninstallSheet()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawApplet_getAppletInfo()">
+        <uses provider="cluster23.MT_org_jhotdraw_samples_draw_DrawApplet_getVersion()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawApplet_getData()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawApplet_getParameter(String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawApplet_init()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawApplet_main(String[])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawApplet_setData(String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawApplicationModel_addCreationButtonsTo(JToolBar,DrawingEditor)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createDrawingActions(DrawingEditor)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createSelectionActions(DrawingEditor)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawApplicationModel_addDefaultCreationButtonsTo(JToolBar,DrawingEditor,Collection_Action_,Collection_Action_)">
+        <uses provider="cluster23.CN_org_jhotdraw_draw_TextAreaFigure_TextAreaFigure()"/>
+        <uses provider="cluster23.FE_org_jhotdraw_draw_AttributeKeys_END_DECORATION"/>
+        <uses provider="cluster23.CN_org_jhotdraw_draw_BezierFigure_BezierFigure(boolean)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawLiveConnectApplet_getAppletInfo()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawLiveConnectApplet_getData()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawLiveConnectApplet_init()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawLiveConnectApplet_save(ActionEvent)">
+        <uses provider="cluster23.MT_org_jhotdraw_samples_draw_DrawLiveConnectApplet_getData()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawLiveConnectApplet_setData(String)">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_samples_draw_DrawingPanel_DrawingPanel()">
+        <uses provider="cluster23.CN_org_jhotdraw_draw_DefaultDrawingEditor_DefaultDrawingEditor()"/>
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setDrawing(Drawing)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_samples_draw_DrawingPanel_addCreationButtonsTo(JToolBar,DrawingEditor)"/>
+        <uses provider="cluster25.CN_org_jhotdraw_draw_DefaultDrawing_DefaultDrawing()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawingPanel_addCreationButtonsTo(JToolBar,DrawingEditor)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createDrawingActions(DrawingEditor)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createSelectionActions(DrawingEditor)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawingPanel_addDefaultCreationButtonsTo(JToolBar,DrawingEditor,Collection_Action_,Collection_Action_)">
+        <uses provider="cluster23.CN_org_jhotdraw_draw_TextAreaFigure_TextAreaFigure()"/>
+        <uses provider="cluster23.FE_org_jhotdraw_draw_AttributeKeys_END_DECORATION"/>
+        <uses provider="cluster23.CN_org_jhotdraw_draw_BezierFigure_BezierFigure(boolean)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_Main_main(String[])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_net_Main_main(String[])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_net_NetApplet_getAppletInfo()">
+        <uses provider="cluster23.MT_org_jhotdraw_samples_net_NetApplet_getVersion()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_net_NetApplet_getData()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_net_NetApplet_init()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_net_NetApplet_setData(String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_net_NetApplicationModel_addCreationButtonsTo(JToolBar,DrawingEditor)">
+        <uses provider="cluster23.CN_org_jhotdraw_samples_net_figures_NodeFigure_NodeFigure()"/>
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_samples_net_NetFactory_classTagArray">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_samples_net_NetPanel_NetPanel()">
+        <uses provider="cluster23.CN_org_jhotdraw_draw_DefaultDrawingEditor_DefaultDrawingEditor()"/>
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setDrawing(Drawing)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_samples_net_NetPanel_addCreationButtonsTo(JToolBar,DrawingEditor)"/>
+        <uses provider="cluster25.CN_org_jhotdraw_draw_DefaultDrawing_DefaultDrawing()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_net_NetPanel_addCreationButtonsTo(JToolBar,DrawingEditor)">
+        <uses provider="cluster23.CN_org_jhotdraw_samples_net_figures_NodeFigure_NodeFigure()"/>
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_samples_net_figures_NodeFigure_NodeFigure()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_net_figures_NodeFigure_findCompatibleConnector(Connector,boolean)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_pert_Main_main(String[])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_pert_PertApplet_getAppletInfo()">
+        <uses provider="cluster23.MT_org_jhotdraw_samples_pert_PertApplet_getVersion()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_pert_PertApplet_getData()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_pert_PertApplet_getParameterInfo()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_pert_PertApplet_init()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_pert_PertApplet_main(String[])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_pert_PertApplet_setData(String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_pert_PertApplicationModel_addCreationButtonsTo(JToolBar,DrawingEditor)">
+        <uses provider="cluster23.CN_org_jhotdraw_draw_TextAreaFigure_TextAreaFigure()"/>
+        <uses provider="cluster23.CN_org_jhotdraw_samples_pert_figures_DependencyFigure_DependencyFigure()"/>
+        <uses provider="cluster23.CN_org_jhotdraw_samples_pert_figures_TaskFigure_TaskFigure()"/>
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_samples_pert_PertPanel_PertPanel()">
+        <uses provider="cluster23.CN_org_jhotdraw_draw_DefaultDrawingEditor_DefaultDrawingEditor()"/>
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setDrawing(Drawing)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_samples_pert_PertPanel_addCreationButtonsTo(JToolBar,DrawingEditor)"/>
+        <uses provider="cluster25.CN_org_jhotdraw_draw_DefaultDrawing_DefaultDrawing()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_pert_PertPanel_addCreationButtonsTo(JToolBar,DrawingEditor)">
+        <uses provider="cluster23.CN_org_jhotdraw_draw_TextAreaFigure_TextAreaFigure()"/>
+        <uses provider="cluster23.CN_org_jhotdraw_samples_pert_figures_DependencyFigure_DependencyFigure()"/>
+        <uses provider="cluster23.CN_org_jhotdraw_samples_pert_figures_TaskFigure_TaskFigure()"/>
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_samples_pert_figures_DependencyFigure_DependencyFigure()">
+        <uses provider="cluster23.FE_org_jhotdraw_draw_AttributeKeys_END_DECORATION"/>
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_samples_pert_figures_TaskFigure_TaskFigure()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_Main_main(String[])">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_samples_svg_SVGApplet_init()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGApplet_getAppletInfo()">
+        <uses provider="cluster23.MT_org_jhotdraw_samples_svg_SVGApplet_getVersion()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGApplet_getParameter(String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGApplet_getParameterInfo()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGApplet_init()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_mini_ConnectingFiguresSample_main(String[])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_mini_EditorSample_main(String[])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_mini_LabeledLineConnectionFigureSample_main(String[])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_AttributeKeys_getStrokeTotalMiterLimit(Figure)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_TextAreaFigure_drawParagraph(Graphics2D,AttributedCharacterIterator,float,float,float,float,float[],int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_TextAreaFigure_drawParagraph(Graphics2D,AttributedCharacterIterator,float,float,float,float,float[],int)">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_samples_svg_io_SVGInputFormat_elementObjects">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_samples_svg_io_SVGInputFormat_identifiedElements">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_flattenStyles(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readAttribute(IXMLElement,String,String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readCircleElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readDefsElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readEllipseElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readGElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readGraphicsAttributes(IXMLElement,Figure)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readImageElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readInheritAttribute(IXMLElement,String,String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readInheritFontSizeAttribute(IXMLElement,String,String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readLineElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readLinearGradientElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readPathElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readPolygonElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readPolylineElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readRadialGradientElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readRectElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readTSpanElement(IXMLElement,DefaultStyledDocument)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readTextAreaElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readTextElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readUseElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_toColor(IXMLElement,String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_toDouble(IXMLElement,String,double,double,double)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_toPaint(IXMLElement,String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_toPath(IXMLElement,String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_toText(IXMLElement,String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_toTransform(IXMLElement,String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_printComponent(Graphics)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGEllipseFigure_contains(Point2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGEllipseFigure_createHandles(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGGroupFigure_createHandles(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGImageFigure_createHandles(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGImageFigure_getActions(Point2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGPathFigure_createHandles(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGPathFigure_getActions(Point2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGPathFigure_handleMouseClick(Point2D,MouseEvent,DrawingView)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGRectFigure_createHandles(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGTextAreaFigure_contains(Point2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGTextAreaFigure_createHandles(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGTextAreaFigure_getInsets()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGTextAreaFigure_invalidate()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGTextFigure_createHandles(int)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_samples_svg_figures_SVGRectRadiusHandle_draw(Graphics2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGRectRadiusHandle_draw(Graphics2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGRectRadiusHandle_locate()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGRectRadiusHandle_trackEnd(Point,Point,int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGRectRadiusHandle_trackStart(Point,int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGRectRadiusHandle_trackStep(Point,Point,int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_BezierFigure_getDrawingArea()">
+        <uses provider="cluster23.FE_org_jhotdraw_draw_AttributeKeys_END_DECORATION"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DiamondFigure_getDrawingArea()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_LinearGradient_getPaint(Figure,double)">
+        <uses provider="cluster23.CM_org_jhotdraw_draw_Figure_getBounds()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_RadialGradient_getPaint(Figure,double)">
+        <uses provider="cluster23.CM_org_jhotdraw_draw_Figure_getBounds()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGEllipseFigure_getTransformRestoreData()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGEllipseFigure_restoreTransformTo(Object)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGImageFigure_draw(Graphics2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGRectFigure_restoreTransformTo(Object)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGRectRadiusHandle_getToolTipText(Point)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGTextAreaFigure_getTransformRestoreData()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGTextAreaFigure_restoreTransformTo(Object)">
+        <uses provider="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGTextAreaFigure_invalidate()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGTextFigure_restoreTransformTo(Object)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat$Viewport_toString()">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_samples_svg_io_SVGInputFormat_supportedFeatures">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readSVGElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readSwitchElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_toLength(IXMLElement,String,double)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_net_figures_NodeFigure_readDecorator(DOMInput)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_net_figures_NodeFigure_writeDecorator(DOMOutput)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGApplet_createDrawing()">
+        <uses provider="cluster25.CN_org_jhotdraw_draw_DefaultDrawing_DefaultDrawing()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGAttributedFigure_draw(Graphics2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGPathFigure_draw(Graphics2D)">
+        <uses provider="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGPathFigure_getDrawingArea()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_teddy_CharacterSetAccessory_fetchAvailableCharSets()">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_samples_teddy_Main_COPYRIGHT">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_teddy_Main_main(String[])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_teddy_action_ToggleLineNumbersAction_actionPerformed(ActionEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_teddy_action_ToggleLineWrapAction_actionPerformed(ActionEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_teddy_action_ToggleStatusBarAction_actionPerformed(ActionEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_addAlignmentButtonsTo(JToolBar,DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_addAttributesButtonsTo(JToolBar,DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_addColorButtonsTo(JToolBar,DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_addSelectionToolTo(JToolBar,DrawingEditor,Collection_Action_,Collection_Action_)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_addSelectionToolTo(JToolBar,DrawingEditor,Tool)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_addToolTo(JToolBar,DrawingEditor,Tool,String,ResourceBundleUtil)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createApplyAttributesButton(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createDrawingActions(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createFontButton(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createFontStyleBoldButton(DrawingEditor)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createFontStyleBoldButton(DrawingEditor,ResourceBundleUtil)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createFontStyleItalicButton(DrawingEditor)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createFontStyleItalicButton(DrawingEditor,ResourceBundleUtil)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createFontStyleUnderlineButton(DrawingEditor)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createFontStyleUnderlineButton(DrawingEditor,ResourceBundleUtil)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createPickAttributesButton(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createSelectionActions(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createStrokeCapButton(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createStrokeDashesButton(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createStrokeDashesButton(DrawingEditor,double[][])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createStrokeDecorationButton(DrawingEditor)">
+        <uses provider="cluster23.FE_org_jhotdraw_draw_AttributeKeys_END_DECORATION"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createStrokeJoinButton(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createStrokePlacementButton(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createStrokeTypeButton(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createStrokeWidthButton(DrawingEditor)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createStrokeWidthButton(DrawingEditor,double[],ResourceBundleUtil)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createStrokeWidthButton(DrawingEditor,double[])">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createStrokeWidthButton(DrawingEditor,double[],ResourceBundleUtil)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createToggleGridButton(DrawingView)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createZoomButton(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createZoomButton(DrawingView)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createZoomButton(DrawingView,double[])"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createZoomButton(DrawingView,double[])">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_io_StreamPosTokenizer_unread">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_io_StreamPosTokenizer_read()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_io_StreamPosTokenizer_unread(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGTextFigure_getDrawingArea()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_AttributeKey_setClone(Figure,T)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_AttributeKey_getClone(Figure)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_AttributeKey_setClone(Figure,T)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGPathFigure_restoreTransformTo(Object)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readCaptionElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readCircleElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readCustomShapeElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readDrawingElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readEllipseElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readGElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readLineElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readMeasureElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readPageElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readPathElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readPolygonElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readPolylineElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readRectElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readRegularPolygonElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawApplet_initDrawing(Drawing)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_net_NetApplet_initDrawing(Drawing)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_pert_PertApplet_initDrawing(Drawing)">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_samples_svg_figures_SVGBezierFigure_SVGBezierFigure(boolean)">
+        <uses provider="cluster23.CN_org_jhotdraw_draw_BezierFigure_BezierFigure(boolean)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGBezierFigure_handleMouseClick(Point2D,MouseEvent,DrawingView)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGEllipseFigure_getDrawingArea()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGRectFigure_getDrawingArea()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGTextAreaFigure_getDrawingArea()">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_samples_svg_figures_SVGTextFigure_cachedBounds">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readAElement(IXMLElement)">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_draw_DefaultDrawingView_cachedDrawingArea">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_draw_DefaultDrawingView_cachedPreferredSize">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_getDrawingArea()">
+        <uses provider="cluster23.FE_org_jhotdraw_draw_DefaultDrawingView_cachedDrawingArea"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_LineConnectionFigure_setNode(int,BezierPath)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createFontStyleBoldButton(DrawingEditor,ResourceBundleUtil)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createFontStyleItalicButton(DrawingEditor,ResourceBundleUtil)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createFontStyleUnderlineButton(DrawingEditor,ResourceBundleUtil)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createStrokeWidthButton(DrawingEditor,double[],ResourceBundleUtil)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_SelectionColorIcon_paintIcon(Component,Graphics,int,int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGEllipseFigure_transform(AffineTransform)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGPathFigure_contains(Point2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGPathFigure_getDrawingArea()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGPathOutlineHandle_draw(Graphics2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGTextAreaFigure_getTextShape()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_fireSelectionChanged(Set_Figure_,Set_Figure_)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGAttributedFigure_getActions(Point2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_TextAreaFigure_isTextOverflow()">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_samples_svg_action_ViewSourceAction_ID">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_action_ViewSourceAction_actionPerformed(ActionEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGTextAreaFigure_isTextOverflow()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingViewTransferHandler_canImport(JComponent,DataFlavor[])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingViewTransferHandler_createTransferable(JComponent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingViewTransferHandler_exportAsDrag(JComponent,InputEvent,int)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingViewTransferHandler_getSourceActions(JComponent)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingViewTransferHandler_exportDone(JComponent,Transferable,int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingViewTransferHandler_getSourceActions(JComponent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingViewTransferHandler_getVisualRepresentation(Transferable)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingViewTransferHandler_importData(JComponent,Transferable)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_net_figures_NodeFigure_getConnectors(ConnectionFigure)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingEditor_getActiveView()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingEditor_setActiveView(DrawingView)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingEditor_updateActiveView()">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingEditor_setActiveView(DrawingView)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DrawingEditor_getActiveView()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DrawingEditor_setActiveView(DrawingView)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_AbstractApplication_configure(String[])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_AbstractApplication_getModel()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_AbstractApplication_init()">
+        <uses provider="cluster23.MT_org_jhotdraw_app_AbstractApplication_getModel()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_AbstractApplication_launch(String[])">
+        <uses provider="cluster23.MT_org_jhotdraw_app_AbstractApplication_configure(String[])"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_AbstractApplication_setModel(ApplicationModel)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_addPropertyChangeListener(PropertyChangeListener)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_configure(String[])">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_getComponent()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_getCopyright()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_getModel()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_getName()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_getVersion()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_init()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_isEnabled()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_launch(String[])">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_removePropertyChangeListener(PropertyChangeListener)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_setEnabled(boolean)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_setModel(ApplicationModel)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_stop()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_Application_getComponent()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_draw_DrawApplet_getVersion()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_net_NetApplet_getVersion()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_pert_PertApplet_getVersion()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGApplet_getVersion()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView$EventHandler_attributeChanged(FigureEvent)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_viewToDrawing(Rectangle)"/>
+        <uses provider="cluster23.CM_org_jhotdraw_draw_DefaultDrawingView_getCanvasViewBounds()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView$EventHandler_figureAdded(CompositeFigureEvent)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_invalidateDimension()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView$EventHandler_figureRemoved(CompositeFigureEvent)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_invalidateDimension()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView$EventHandler_focusLost(FocusEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_ODGDrawingPanel_addCreationButtonsTo(JToolBar,DrawingEditor)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createDrawingActions(DrawingEditor)"/>
+        <uses provider="cluster23.CN_org_jhotdraw_samples_svg_figures_SVGBezierFigure_SVGBezierFigure(boolean)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_figures_ODGAttributedFigure_getActions(Point2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_figures_ODGPathFigure_contains(Point2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_figures_ODGPathFigure_getActions(Point2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_toTransform(String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGStylesReader_read(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGStylesReader_readDefaultStyleElement(IXMLElement,HashMap_String,Style_)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGStylesReader_readDocumentContentElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGStylesReader_readDocumentStylesElement(IXMLElement)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGStylesReader_readStyleElement(IXMLElement,HashMap_String,Style_)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGStylesReader_readStylesChildren(IXMLElement,HashMap_String,Style_)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_pert_figures_TaskFigure$DurationAdapter_attributeChanged(FigureEvent)">
+        <uses provider="cluster32.MT_org_jhotdraw_samples_pert_figures_TaskFigure_updateStartTime()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_pert_figures_TaskFigure$NameAdapter_attributeChanged(FigureEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_drawConstrainer(Graphics2D)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_getConstrainer()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_draw_DefaultDrawingView_getCanvasViewBounds()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_getInvisibleConstrainer()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_getVisibleConstrainer()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_isConstrainerVisible()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setConstrainerVisible(boolean)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setInvisibleConstrainer(Constrainer)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setVisibleConstrainer(Constrainer)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_DrawingView_getInvisibleConstrainer()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_DrawingView_getVisibleConstrainer()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_DrawingView_isConstrainerVisible()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_DrawingView_setConstrainerVisible(boolean)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_DrawingView_setInvisibleConstrainer(Constrainer)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_DrawingView_setVisibleConstrainer(Constrainer)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DrawingView_getVisibleConstrainer()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DrawingView_setVisibleConstrainer(Constrainer)">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_draw_GridConstrainer_GridConstrainer(double,double,boolean)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_util_Images_hasAlpha(Image)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_util_Images_toBufferedImage(Image)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_util_Images_toBufferedImage(RenderedImage)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_ApplicationModel_createToolBars(Application,View)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_pert_PertApplicationModel_createToolBars(Application,View)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGView_clear()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_samples_svg_io_SVGInputFormat_read(InputStream,Drawing,boolean)">
+        <uses provider="cluster23.FE_org_jhotdraw_samples_svg_io_SVGInputFormat_elementObjects"/>
+        <uses provider="cluster23.FE_org_jhotdraw_samples_svg_io_SVGInputFormat_identifiedElements"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_read(InputStream,Drawing,boolean)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_isDocumentModalitySupported()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_isNativeSheetSupported()">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_gui_JSheet_ownersGlassPane">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_requestUserAttention(boolean)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_ColorSliderUI_calculateTrackRect()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_ColorSliderUI_paintFocus(Graphics)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_ColorSliderUI_paintMajorTickForHorizSlider(Graphics,Rectangle,int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_ColorSliderUI_paintMajorTickForVertSlider(Graphics,Rectangle,int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_ColorSliderUI_paintMinorTickForHorizSlider(Graphics,Rectangle,int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_ColorSliderUI_paintMinorTickForVertSlider(Graphics,Rectangle,int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_ColorSliderUI_paintThumb(Graphics)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_ColorSliderUI_paintTicks(Graphics)">
+        <uses provider="cluster23.MT_org_jhotdraw_color_ColorSliderUI_paintMajorTickForHorizSlider(Graphics,Rectangle,int)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_color_ColorSliderUI_paintMajorTickForVertSlider(Graphics,Rectangle,int)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_color_ColorSliderUI_paintMinorTickForHorizSlider(Graphics,Rectangle,int)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_color_ColorSliderUI_paintMinorTickForVertSlider(Graphics,Rectangle,int)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_ColorSliderUI_paintTrack(Graphics)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_plaf_palette_PaletteLookAndFeel_get(Object)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_plaf_palette_PaletteLookAndFeel_initComponentDefaults(UIDefaults)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_plaf_palette_PaletteLookAndFeel_installBorder(JComponent,String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_plaf_palette_PaletteToolBarUI_calculateConstraint()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_plaf_palette_PaletteToolBarUI_getDockingConstraint(Component,Point)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_plaf_palette_PaletteToolBarUI_setFloating(boolean,Point)">
+        <uses provider="cluster23.MT_org_jhotdraw_gui_plaf_palette_PaletteToolBarUI_getDockingConstraint(Component,Point)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_plaf_palette_PaletteToolBarUI_uninstallUI(JComponent)">
+        <uses provider="cluster23.MT_org_jhotdraw_gui_plaf_palette_PaletteToolBarUI_setFloating(boolean,Point)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_color_WheelsAndSlidersMain$Handler_stateChanged(ChangeEvent)">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_samples_color_WheelsAndSlidersMain_WheelsAndSlidersMain()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_color_WheelsAndSlidersMain_initComponents()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_JColorWheel_createWheelProducer(int,int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_getActiveHandle()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_getEditor()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setActiveHandle(Handle)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_DrawingView_addKeyListener(KeyListener)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_DrawingView_addMouseListener(MouseListener)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_DrawingView_addMouseMotionListener(MouseMotionListener)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_DrawingView_removeKeyListener(KeyListener)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_DrawingView_removeMouseListener(MouseListener)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_DrawingView_removeMouseMotionListener(MouseMotionListener)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGRectRadiusHandle_keyPressed(KeyEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_action_CombineAction_combinePaths(DrawingView,CompositeFigure,Collection_Figure_,int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_action_CombineAction_splitPath(DrawingView,CompositeFigure,List_Figure_,int[],int[])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_geom_BezierPath_splitSegment(Point2D,double)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_read(File,Drawing,boolean)">
+        <uses provider="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_read(InputStream,Drawing,boolean)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_read(InputStream,Drawing,boolean)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_read(Transferable,Drawing,boolean)">
+        <uses provider="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_read(InputStream,Drawing,boolean)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_odg_io_ODGInputFormat_readFiguresFromDocumentContent(InputStream,Drawing,boolean)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGCreateFromFileTool_activate(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_read(File,Drawing,boolean)">
+        <uses provider="cluster23.CM_org_jhotdraw_samples_svg_io_SVGInputFormat_read(InputStream,Drawing,boolean)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_read(Transferable,Drawing,boolean)">
+        <uses provider="cluster23.CM_org_jhotdraw_samples_svg_io_SVGInputFormat_read(InputStream,Drawing,boolean)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_mini_FileIconsSample_main(String[])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_TextAreaFigure_getPreferredTextSize(double)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_figures_SVGTextAreaFigure_getPreferredTextSize(double)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_util_ResourceBundleUtil_getStringRecursive(String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_AbstractDrawingEditorAction_setEditor(DrawingEditor)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_AbstractDrawingEditorAction_updateEnabledState()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_AbstractDrawingEditorAction_updateEnabledState()">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_draw_action_AbstractDrawingViewAction_AbstractDrawingViewAction(DrawingView)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_AbstractDrawingViewAction_setEditor(DrawingEditor)">
+        <uses provider="cluster30.FE_org_jhotdraw_draw_action_AbstractDrawingViewAction_editor"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_gui_ActionsToolBar_createDisclosedComponent(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_gui_CanvasToolBar_createDisclosedComponent(int)">
+        <uses provider="cluster23.CM_org_jhotdraw_text_ColorFormatter_createFormatterFactory()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_gui_FigureToolBar_createDisclosedComponent(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_gui_FillToolBar_createDisclosedComponent(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_gui_FontToolBar_createDisclosedComponent(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_gui_FontToolBar_setEditor(DrawingEditor)">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_samples_svg_gui_MessagePanel_MessagePanel(Icon,String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_gui_StrokeToolBar_createDisclosedComponent(int)">
+        <uses provider="cluster23.CN_org_jhotdraw_text_JavaNumberFormatter_JavaNumberFormatter(double,double,double)"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_io_BoundedRangeInputStream_getValue()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_io_BoundedRangeInputStream_read()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_io_BoundedRangeInputStream_read(byte[])">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_io_BoundedRangeInputStream_read(byte[],int,int)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_io_BoundedRangeInputStream_reset()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_io_BoundedRangeInputStream_setMaximum(int)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_io_BoundedRangeInputStream_setMinimum(int)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_io_BoundedRangeInputStream_setValue(int)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_io_BoundedRangeInputStream_skip(long)">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_samples_svg_SVGApplet_SVGApplet()">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_samples_svg_SVGApplet_drawingComponent">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGApplet_close()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGApplet_createDrawingComponent()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGApplet_getDrawingComponent()">
+        <uses provider="cluster23.FE_org_jhotdraw_samples_svg_SVGApplet_drawingComponent"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGApplet_htmlencode(String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGApplet_loadDrawing(ProgressIndicator)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGDrawingPanel$ItemChangeHandler_itemStateChanged(ItemEvent)">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_samples_svg_SVGDrawingPanel_SVGDrawingPanel()">
+        <uses provider="cluster23.CN_org_jhotdraw_draw_DefaultDrawingEditor_DefaultDrawingEditor()"/>
+        <uses provider="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setDrawing(Drawing)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_samples_svg_SVGDrawingPanel_setEditor(DrawingEditor)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_samples_svg_gui_ViewToolBar_setView(DrawingView)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGDrawingPanel_initComponents()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGDrawingPanel_setEditor(DrawingEditor)">
+        <uses provider="cluster23.MT_org_jhotdraw_samples_svg_gui_FontToolBar_setEditor(DrawingEditor)"/>
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_text_ColorFormatter$Format_RGB_INTEGER">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_text_ColorFormatter_createFormatterFactory()">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_text_ColorFormatter_ColorFormatter(Format,boolean,boolean)">
+        <uses provider="cluster23.FE_org_jhotdraw_text_ColorFormatter$Format_RGB_INTEGER"/>
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_text_ColorFormatter_rgbIntegerPattern">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_text_ColorFormatter_createFormatterFactory()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_text_ColorFormatter_stringToValue(String)">
+        <uses provider="cluster23.FE_org_jhotdraw_text_ColorFormatter$Format_RGB_INTEGER"/>
+        <uses provider="cluster23.FE_org_jhotdraw_text_ColorFormatter_rgbIntegerPattern"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_text_ColorFormatter_valueToString(Object)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_gui_LinkToolBar_createDisclosedComponent(int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_repaintHandles()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_io_SVGInputFormat_readInheritColorAttribute(IXMLElement,String,String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_mini_CreationToolSample_main(String[])">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_text_JavaNumberFormatter_JavaNumberFormatter(double,double,double)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_text_JavaNumberFormatter_createFormatterFactory(double,double,double)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_text_JavaNumberFormatter_stringToValue(String)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_text_JavaNumberFormatter_valueToString(Object)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_mini_MultiEditorSample_createDrawing()">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_draw_AttributeKey_AttributeKey(String,Class_T_,T,boolean)">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_draw_AttributeKey_AttributeKey(String,Class_T_,T,boolean,ResourceBundleUtil)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingViewTransferHandler_createTransferable(DrawingView,Set_Figure_)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_addSelectionToolTo(JToolBar,DrawingEditor,Tool)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setBounds(int,int,int,int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_gui_ViewToolBar_createDisclosedComponent(int)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_ButtonFactory_createZoomButton(DrawingView)"/>
+        <uses provider="cluster23.CM_org_jhotdraw_draw_DrawingView_getVisibleConstrainer()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_gui_ViewToolBar_setView(DrawingView)">
+        <uses provider="cluster23.CM_org_jhotdraw_draw_DrawingView_getVisibleConstrainer()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_geom_ConvexHull_isRightTurn(Point,Point,Point)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_geom_ConvexHull_isRightTurn2D(Double,Double,Double)">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_gui_event_GenericListener$DefaultInvoker_byte_0">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_gui_event_GenericListener$DefaultInvoker_char_0">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_draw_DefaultDrawingView_getCanvasViewBounds()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_drawCanvas(Graphics2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_getCanvasViewBounds()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_ApplicationModel_initApplication(Application)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_ApplicationModel_initView(Application,View)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_mini_SVGDrawingPanelSample_getOpenChooser()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_mini_SVGDrawingPanelSample_getSaveChooser()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_mini_SVGDrawingPanelSample_open(ActionEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_mini_SVGDrawingPanelSample_saveAs(ActionEvent)">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_app_action_AbstractViewAction_AbstractViewAction(Application,View)">
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_addPropertyChangeListener(PropertyChangeListener)"/>
+        <uses provider="cluster23.FE_org_jhotdraw_app_action_AbstractViewAction_view"/>
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_app_action_AbstractViewAction_view">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_BezierFigure_set(AttributeKey_T_,T)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setDrawingDoubleBuffered(boolean)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_setViewRenderingHints(Graphics2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_removeNotify()">
+        <uses provider="cluster23.FE_org_jhotdraw_draw_DefaultDrawingView_drawingBufferNV"/>
+        <uses provider="cluster23.FE_org_jhotdraw_draw_DefaultDrawingView_drawingBufferV"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawingView_validateViewTranslation()">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_draw_DefaultDrawingView_drawingBufferNV">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_draw_DefaultDrawingView_drawingBufferV">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_io_DOMStorableInputOutputFormat_createTransferable(Drawing,List_Figure_,double)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_io_DOMStorableInputOutputFormat_read(File,Drawing,boolean)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_io_DOMStorableInputOutputFormat_read(Transferable,Drawing,boolean)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_io_DOMStorableInputOutputFormat_write(File,Drawing)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_io_ImageOutputFormat_write(File,Drawing)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_tool_DefaultDragTracker_mouseDragged(MouseEvent)">
+        <uses provider="cluster23.CM_org_jhotdraw_draw_DrawingView_getConstrainer()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_tool_DefaultDragTracker_mouseReleased(MouseEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_tool_DefaultHandleTracker_activate(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_tool_DefaultHandleTracker_deactivate(DrawingEditor)">
+        <uses provider="cluster23.FE_org_jhotdraw_draw_tool_DefaultHandleTracker_dragLocation"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_tool_ImageTool_activate(DrawingEditor)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_tool_TextAreaCreationTool_mousePressed(MouseEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_tool_TextCreationTool_mousePressed(MouseEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_AbstractApplication$OpenRecentMenuHandler_propertyChange(PropertyChangeEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_AbstractApplication_addRecentURI(URI)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_AbstractApplication_clearRecentURIs()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_AbstractApplication_getRecentURIs()">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_app_AbstractView_uri">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_AbstractView_getURI()">
+        <uses provider="cluster23.FE_org_jhotdraw_app_AbstractView_uri"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_AbstractView_setURI(URI)">
+        <uses provider="cluster23.FE_org_jhotdraw_app_AbstractView_uri"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_addRecentURI(URI)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_clearRecentURIs()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_getRecentURIs()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_View_getURI()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_View_getURI()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_View_setURI(URI)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_fireOptionSelected(URIChooser,int)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showOpenSheet(URIChooser,Component,SheetListener)">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_showSheet(URIChooser,Component,String,SheetListener)"/>
+        <uses provider="cluster26.CM_org_jhotdraw_gui_URIChooser_setDialogType(int)"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showSaveSheet(URIChooser,Component,SheetListener)">
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_showSheet(URIChooser,Component,String,SheetListener)"/>
+        <uses provider="cluster26.CM_org_jhotdraw_gui_URIChooser_setDialogType(int)"/>
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_gui_JSheet_showSheet(URIChooser,Component,String,SheetListener)">
+        <uses provider="cluster23.MT_org_jhotdraw_gui_JSheet_show()"/>
+        <uses provider="cluster26.CM_org_jhotdraw_gui_URIChooser_addActionListener(ActionListener)"/>
+        <uses provider="cluster26.CM_org_jhotdraw_gui_URIChooser_setApproveButtonText(String)"/>
+        <uses provider="cluster26.CM_org_jhotdraw_gui_URIChooser_setDialogType(int)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JSheet_showSheet(URIChooser,Component,String,SheetListener)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_net_URIUtil_getName(URI)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_Application_createEditMenu(View)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_Application_createFileMenu(View)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_Application_createHelpMenu(View)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_Application_createViewMenu(View)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_Application_createWindowMenu(View)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_app_OpenApplicationFileAction_actionPerformed(ActionEvent)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_file_ExportFileAction_actionPerformed(ActionEvent)">
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_getModel()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_app_View_getURI()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_showSheet(URIChooser,Component,String,SheetListener)"/>
+        <uses provider="cluster26.CM_org_jhotdraw_gui_URIChooser_setSelectedURI(URI)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_file_LoadRecentFileAction_doIt(View)">
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_getModel()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_setEnabled(boolean)"/>
+        <uses provider="cluster23.CM_org_jhotdraw_app_View_getURI()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_getViews()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_file_OpenFileAction_actionPerformed(ActionEvent)">
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_getComponent()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_getModel()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_isEnabled()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_setEnabled(boolean)"/>
+        <uses provider="cluster23.CM_org_jhotdraw_app_View_getURI()"/>
+        <uses provider="cluster26.CM_org_jhotdraw_gui_URIChooser_setDialogType(int)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_app_action_file_OpenFileAction_openViewFromURI(View,URI,URIChooser)"/>
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_getViews()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_file_OpenFileAction_createDialog(URIChooser,Component)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_file_OpenFileAction_showDialog(URIChooser,Component)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_file_OpenRecentFileAction_actionPerformed(ActionEvent)">
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_getModel()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_isEnabled()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_setEnabled(boolean)"/>
+        <uses provider="cluster23.CM_org_jhotdraw_app_View_getURI()"/>
+        <uses provider="cluster23.MT_org_jhotdraw_app_action_file_OpenRecentFileAction_openView(View)"/>
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_getViews()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_file_OpenRecentFileAction_openView(View)">
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_setEnabled(boolean)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_file_SaveFileAction_actionPerformed(ActionEvent)">
+        <uses provider="cluster23.CM_org_jhotdraw_app_View_getURI()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_gui_JSheet_showSaveSheet(URIChooser,Component,SheetListener)"/>
+        <uses provider="cluster23.MT_org_jhotdraw_app_action_file_SaveFileAction_saveViewToURI(View,URI,URIChooser)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_MDIApplication_createEditMenu(View)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_MDIApplication_show(View)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_OSXApplication_init()">
+        <uses provider="cluster23.MT_org_jhotdraw_app_AbstractApplication_init()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_SDIApplication_createEditMenu(View)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_AbstractSaveUnsavedChangesAction_saveViewToURI(View,URI,URIChooser)">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_app_action_file_ExportFileAction_ExportFileAction(Application,View)">
+        <uses provider="cluster23.CN_org_jhotdraw_app_action_file_ExportFileAction_ExportFileAction(Application,View,boolean)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_file_ExportFileAction_exportView(View,URI,URIChooser)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_file_LoadFileAction_loadViewFromURI(View,URI,URIChooser)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_file_OpenFileAction_openViewFromURI(View,URI,URIChooser)">
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_setEnabled(boolean)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_file_SaveFileAction_saveViewToURI(View,URI,URIChooser)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_svg_SVGApplicationModel_createActionMap(Application,View)">
+        <uses provider="cluster23.CN_org_jhotdraw_app_action_file_ExportFileAction_ExportFileAction(Application,View)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_teddy_TeddyView_read(URI,URIChooser)">
+        <uses provider="cluster24.MT_org_jhotdraw_samples_teddy_TeddyView_read(URI,String)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_samples_teddy_TeddyView_write(URI,URIChooser)">
+        <uses provider="cluster24.MT_org_jhotdraw_samples_teddy_TeddyView_write(URI,String,String)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_action_app_OpenApplicationFileAction_openView(View,URI)">
+        <uses provider="cluster23.CM_org_jhotdraw_app_Application_setEnabled(boolean)"/>
+        <uses provider="cluster23.CM_org_jhotdraw_app_View_getURI()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_ColorSquareImageProducer_generateColorWheel()">
+        <uses provider="cluster23.MT_org_jhotdraw_color_ColorSquareImageProducer_generateLookupTables()"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_ColorSquareImageProducer_generateLookupTables()">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_ColorSquareImageProducer_getColorAt(int,int)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_ColorSquareImageProducer_getColorLocation(float[])">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_color_HSLHarmonicColorWheelImageProducer_getColorLocation(float[])">
+    </element>
+    <element name="cluster23.FE_org_jhotdraw_draw_tool_DefaultHandleTracker_dragLocation">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_DefaultDrawing_drawCanvas(Graphics2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_draw_QuadTreeDrawing_drawCanvas(Graphics2D)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JComponentPopup_menuSelectionChanged(boolean)">
+        <uses provider="cluster23.MT_org_jhotdraw_gui_JComponentPopup_setVisible(boolean)"/>
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_gui_JComponentPopup_setVisible(boolean)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_AbstractApplication_start(List_URI_)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_start(List_URI_)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_AbstractApplicationModel_setAllowMultipleViewsForURI(boolean)">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_Application_getViews()">
+    </element>
+    <element name="cluster23.CM_org_jhotdraw_app_DefaultMenuBuilder_add(JMenu,Action)">
+    </element>
+    <element name="cluster23.MT_org_jhotdraw_app_DefaultMenuBuilder_add(JMenu,Action)">
+    </element>
+    <element name="cluster23.CN_org_jhotdraw_app_action_file_ExportFileAction_ExportFileAction(Application,View,boolean)">
+        <uses provider="cluster23.CN_org_jhotdraw_app_action_AbstractViewAction_AbstractViewAction(Application,View)"/>
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_xml_JavaxDOMInput_readObject(int)">
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_samples_svg_figures_SVGTextFigure_getTool(Point2D)">
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_xml_NanoXMLDOMInput_readObject(int)">
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_draw_action_EditGridAction_getApplication()">
+    </element>
+    <element name="cluster24.CN_org_jhotdraw_draw_action_ToggleGridAction_ToggleGridAction(DrawingEditor)">
+        <uses provider="cluster24.MT_org_jhotdraw_draw_action_ToggleGridAction_updateViewState()"/>
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_draw_action_ToggleGridAction_updateViewState()">
+        <uses provider="cluster23.CM_org_jhotdraw_draw_DrawingView_isConstrainerVisible()"/>
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_draw_DrawingView_getActiveHandle()">
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_draw_DrawingView_getEditor()">
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_draw_TextFigure_getBaseline()">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_TextFigure_getTextLayout()"/>
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_samples_teddy_TeddyView_read(URI,String)">
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_samples_teddy_TeddyView_write(URI,String,String)">
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_app_action_edit_ClearSelectionAction_actionPerformed(ActionEvent)">
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_app_action_edit_CopyAction_actionPerformed(ActionEvent)">
+        <uses provider="cluster25.CM_org_jhotdraw_gui_datatransfer_ClipboardUtil_getClipboard()"/>
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_app_action_edit_CutAction_actionPerformed(ActionEvent)">
+        <uses provider="cluster25.CM_org_jhotdraw_gui_datatransfer_ClipboardUtil_getClipboard()"/>
+    </element>
+    <element name="cluster24.CN_org_jhotdraw_app_action_edit_DeleteAction_DeleteAction()">
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_app_action_edit_DeleteAction_actionPerformed(ActionEvent)">
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_app_action_edit_DeleteAction_deleteNextChar(ActionEvent)">
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_app_action_edit_DuplicateAction_actionPerformed(ActionEvent)">
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_app_action_edit_PasteAction_actionPerformed(ActionEvent)">
+        <uses provider="cluster25.CM_org_jhotdraw_gui_datatransfer_ClipboardUtil_getClipboard()"/>
+    </element>
+    <element name="cluster24.MT_org_jhotdraw_app_action_edit_SelectAllAction_actionPerformed(ActionEvent)">
+    </element>
+    <element name="cluster24.CN_org_jhotdraw_app_action_edit_ClearSelectionAction_ClearSelectionAction(JComponent)">
+    </element>
+    <element name="cluster24.CN_org_jhotdraw_app_action_edit_CopyAction_CopyAction(JComponent)">
+    </element>
+    <element name="cluster24.CN_org_jhotdraw_app_action_edit_CutAction_CutAction(JComponent)">
+    </element>
+    <element name="cluster24.CN_org_jhotdraw_app_action_edit_DeleteAction_DeleteAction(JComponent)">
+    </element>
+    <element name="cluster24.CN_org_jhotdraw_app_action_edit_DuplicateAction_DuplicateAction(JComponent)">
+    </element>
+    <element name="cluster24.CN_org_jhotdraw_app_action_edit_PasteAction_PasteAction(JComponent)">
+    </element>
+    <element name="cluster24.CN_org_jhotdraw_app_action_edit_SelectAllAction_SelectAllAction(JComponent)">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_draw_DiamondFigure_drawFill(Graphics2D)">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_draw_DiamondFigure_drawStroke(Graphics2D)">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_draw_QuadTreeDrawing_findFiguresWithin(Rectangle2D)">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_draw_action_MoveAction_actionPerformed(ActionEvent)">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_draw_ImageFigure_loadImage(File)">
+    </element>
+    <element name="cluster25.CN_org_jhotdraw_samples_svg_figures_SVGEllipseFigure_SVGEllipseFigure(double,double,double,double)">
+    </element>
+    <element name="cluster25.CN_org_jhotdraw_samples_svg_figures_SVGRectFigure_SVGRectFigure(double,double,double,double,double,double)">
+    </element>
+    <element name="cluster25.CN_org_jhotdraw_samples_svg_figures_SVGTextAreaFigure_SVGTextAreaFigure(String)">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_gui_Worker_construct()">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_gui_Worker_run()">
+    </element>
+    <element name="cluster25.CN_org_jhotdraw_draw_DefaultDrawing_DefaultDrawing()">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_draw_DefaultDrawing_draw(Graphics2D)">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_draw_DefaultDrawing_findFigureInside(Point2D)">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_draw_DefaultDrawing_findFiguresWithin(Rectangle2D)">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_draw_DefaultDrawing_indexOf(Figure)">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_samples_svg_io_ImageMapOutputFormat_writeLineElement(IXMLElement,SVGPathFigure)">
+        <uses provider="cluster26.MT_org_jhotdraw_geom_GrowStroke_createStrokedShape(Shape)"/>
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_samples_svg_io_ImageMapOutputFormat_writePathElement(IXMLElement,SVGPathFigure)">
+        <uses provider="cluster26.MT_org_jhotdraw_geom_GrowStroke_createStrokedShape(Shape)"/>
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_samples_svg_io_ImageMapOutputFormat_writePolygonElement(IXMLElement,SVGPathFigure)">
+        <uses provider="cluster26.MT_org_jhotdraw_geom_GrowStroke_createStrokedShape(Shape)"/>
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_draw_action_MoveConstrainedAction_actionPerformed(ActionEvent)">
+        <uses provider="cluster23.CM_org_jhotdraw_draw_DrawingView_getConstrainer()"/>
+        <uses provider="cluster23.CM_org_jhotdraw_draw_Figure_getBounds()"/>
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_draw_ImageFigure_writeObject(ObjectOutputStream)">
+    </element>
+    <element name="cluster25.CM_org_jhotdraw_gui_datatransfer_ClipboardUtil_getClipboard()">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_gui_datatransfer_ClipboardUtil_getClipboard()">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_gui_Worker_failed(Throwable)">
+    </element>
+    <element name="cluster25.CM_org_jhotdraw_draw_AbstractFigure_isConnectable()">
+    </element>
+    <element name="cluster25.MT_org_jhotdraw_draw_AbstractFigure_isConnectable()">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_draw_Drawing_add(Figure)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_draw_Drawing_remove(Figure)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_draw_Drawing_basicAdd(Figure)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_draw_Drawing_basicRemove(Figure)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_draw_Drawing_findFigureInside(Point2D)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_draw_action_ApplyAttributesAction_applyAttributes()">
+        <uses provider="cluster26.FE_org_jhotdraw_draw_action_ApplyAttributesAction_excludedAttributes"/>
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_geom_BezierPath_chop(Point2D)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_geom_BezierPath_outlineContains(Point2D,double)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_geom_BezierPath_toGeneralPath()">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_geom_GrowStroke_createStrokedShape(Shape)">
+        <uses provider="cluster26.CM_org_jhotdraw_geom_BezierPath_getWindingRule()"/>
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_geom_BezierPath_getWindingRule()">
+        <uses provider="cluster26.FE_org_jhotdraw_geom_BezierPath_windingRule"/>
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_geom_BezierPath_setWindingRule(int)">
+        <uses provider="cluster26.FE_org_jhotdraw_geom_BezierPath_windingRule"/>
+    </element>
+    <element name="cluster26.FE_org_jhotdraw_geom_BezierPath_windingRule">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_geom_BezierPath$Node_equals(Object)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_geom_BezierPath$Node_hashCode()">
+    </element>
+    <element name="cluster26.FE_org_jhotdraw_draw_action_ApplyAttributesAction_excludedAttributes">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_draw_Drawing_add(int,Figure)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_app_Application_addPalette(Window)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_app_Application_removePalette(Window)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_app_Application_removeWindow(Window)">
+    </element>
+    <element name="cluster26.CN_org_jhotdraw_samples_svg_action_CombineAction_CombineAction(DrawingEditor,SVGPathFigure,boolean)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_samples_svg_action_CombineAction_canUngroup()">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_samples_teddy_action_ToggleLineNumbersAction_updateView()">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_samples_teddy_action_ToggleStatusBarAction_updateView()">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_gui_plaf_palette_PaletteToolBarUI_createNonRolloverBorder()">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_gui_plaf_palette_PaletteToolBarUI_createNonRolloverToggleBorder()">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_gui_plaf_palette_PaletteToolBarUI_createRolloverBorder()">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_gui_JFontChooser_getUIClassID()">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_gui_JFontChooser_setUI(FontChooserUI)">
+    </element>
+    <element name="cluster26.CN_org_jhotdraw_gui_JFontChooser_JFontChooser()">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_gui_plaf_palette_PaletteFontChooserUI_doFamilyChanged()">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_gui_JFontChooser_loadAllFonts()">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_gui_fontchooser_DefaultFontChooserModel_setFonts(Font[])">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_geom_Bezier_fitBezierPath(BezierPath,double)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_geom_Bezier_fitBezierPath(Point2D[],double)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_geom_Bezier_addCurveTo(Point2D[],BezierPath,double,boolean)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_geom_Bezier_findCorners(List_Point2D_,double,double)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_geom_Bezier_fitBezierPath(List_Point2D_,double)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_samples_svg_figures_LinkHandle_basicGetBounds()">
+        <uses provider="cluster23.CM_org_jhotdraw_draw_Figure_getBounds()"/>
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_samples_svg_figures_LinkHandle_draw(Graphics2D)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_samples_svg_figures_LinkHandle_getToolTipText(Point)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_beans_AbstractBean_addPropertyChangeListener(PropertyChangeListener)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_beans_AbstractBean_addPropertyChangeListener(String,PropertyChangeListener)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_beans_AbstractBean_removePropertyChangeListener(PropertyChangeListener)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_beans_AbstractBean_removePropertyChangeListener(String,PropertyChangeListener)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_gui_URIChooser_addActionListener(ActionListener)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_gui_URIChooser_getApproveButtonText()">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_gui_URIChooser_getDialogTitle()">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_gui_URIChooser_removeActionListener(ActionListener)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_gui_URIChooser_setApproveButtonMnemonic(int)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_gui_URIChooser_setApproveButtonText(String)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_gui_URIChooser_setDialogTitle(String)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_gui_URIChooser_setDialogType(int)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_gui_URIChooser_setSelectedURI(URI)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_gui_URIChooser_showDialog(Component,String)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_gui_URIChooser_showOpenDialog(Component)">
+    </element>
+    <element name="cluster26.CM_org_jhotdraw_gui_URIChooser_showSaveDialog(Component)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_gui_URIChooser_getApproveButtonText()">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_gui_URIChooser_setDialogType(int)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_gui_URIChooser_showDialog(Component,String)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_gui_URIChooser_showOpenDialog(Component)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_gui_URIChooser_showSaveDialog(Component)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_app_MDIApplication$WindowMenuHandler_updateWindowMenu()">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_app_MDIApplication_createFileMenu(View)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_app_MDIApplication_createHelpMenu(View)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_app_MDIApplication_createWindowMenu(View)">
+    </element>
+    <element name="cluster26.MT_org_jhotdraw_app_SDIApplication_createFileMenu(View)">
+    </element>
+    <element name="cluster27.MT_org_jhotdraw_samples_svg_io_SVGOutputFormat_write(OutputStream,Drawing,List_Figure_)">
+    </element>
+    <element name="cluster27.MT_org_jhotdraw_draw_ImageHolderFigure_getImageData()">
+    </element>
+    <element name="cluster27.MT_org_jhotdraw_draw_ImageHolderFigure_setImage(byte[],BufferedImage)">
+    </element>
+    <element name="cluster27.MT_org_jhotdraw_util_prefs_PreferencesUtil_systemNodeForPackage(Class_?_)">
+    </element>
+    <element name="cluster27.MT_org_jhotdraw_util_prefs_PreferencesUtil_userNodeForPackage(Class_?_)">
+    </element>
+    <element name="cluster27.MT_org_jhotdraw_draw_DefaultDrawingView_drawDrawingNonvolatileBuffered(Graphics2D)">
+    </element>
+    <element name="cluster27.MT_org_jhotdraw_draw_DefaultDrawingView_drawDrawingVolatileBuffered(Graphics2D)">
+    </element>
+    <element name="cluster28.MT_org_jhotdraw_draw_AbstractFigure_isTransformable()">
+    </element>
+    <element name="cluster28.MT_org_jhotdraw_draw_AbstractFigure_setTransformable(boolean)">
+    </element>
+    <element name="cluster28.MT_org_jhotdraw_draw_action_AbstractDrawingEditorAction$EventHandler_propertyChange(PropertyChangeEvent)">
+        <uses provider="cluster23.MT_org_jhotdraw_draw_action_AbstractDrawingEditorAction_updateEnabledState()"/>
+    </element>
+    <element name="cluster28.MT_org_jhotdraw_draw_action_AbstractDrawingViewAction$EventHandler_propertyChange(PropertyChangeEvent)">
+    </element>
+    <element name="cluster28.FE_org_jhotdraw_draw_DrawingEditorProxy_target">
+    </element>
+    <element name="cluster28.MT_org_jhotdraw_draw_DrawingEditorProxy_getFocusedView()">
+        <uses provider="cluster28.FE_org_jhotdraw_draw_DrawingEditorProxy_target"/>
+    </element>
+    <element name="cluster28.MT_org_jhotdraw_draw_handle_ResizeHandleKit$EastHandle_keyPressed(KeyEvent)">
+        <uses provider="cluster23.CM_org_jhotdraw_draw_Figure_getBounds()"/>
+    </element>
+    <element name="cluster28.MT_org_jhotdraw_draw_handle_ResizeHandleKit$NorthHandle_keyPressed(KeyEvent)">
+        <uses provider="cluster23.CM_org_jhotdraw_draw_Figure_getBounds()"/>
+    </element>
+    <element name="cluster28.MT_org_jhotdraw_draw_handle_ResizeHandleKit$WestHandle_keyPressed(KeyEvent)">
+        <uses provider="cluster23.CM_org_jhotdraw_draw_Figure_getBounds()"/>
+    </element>
+    <element name="cluster29.CM_org_jhotdraw_draw_Drawing_basicAdd(Figure)">
+    </element>
+    <element name="cluster29.CM_org_jhotdraw_draw_Drawing_basicRemove(Figure)">
+    </element>
+    <element name="cluster29.MT_org_jhotdraw_geom_BezierPath_getPointOnPath(double,double)">
+    </element>
+    <element name="cluster29.FE_org_jhotdraw_draw_ImageFigure_bufferedImage">
+    </element>
+    <element name="cluster29.MT_org_jhotdraw_draw_ImageFigure_drawFigure(Graphics2D)">
+    </element>
+    <element name="cluster29.FE_org_jhotdraw_samples_svg_figures_SVGImageFigure_cachedHitShape">
+    </element>
+    <element name="cluster29.FE_org_jhotdraw_samples_svg_figures_SVGImageFigure_cachedTransformedShape">
+    </element>
+    <element name="cluster29.CM_org_jhotdraw_samples_teddy_JEditorArea_replaceRange(String,int,int)">
+    </element>
+    <element name="cluster29.CM_org_jhotdraw_samples_teddy_JEditorArea_setLineWrap(boolean)">
+    </element>
+    <element name="cluster29.MT_org_jhotdraw_geom_BezierPath_getLengthOfPath(double)">
+    </element>
+    <element name="cluster29.MT_org_jhotdraw_draw_action_FontChooserHandler_updateEnabledState()">
+    </element>
+    <element name="cluster29.MT_org_jhotdraw_gui_JFontChooser_setSelectedFont(Font)">
+    </element>
+    <element name="cluster29.MT_org_jhotdraw_gui_JFontChooser_updateSelectionPath(Font)">
+    </element>
+    <element name="cluster29.MT_org_jhotdraw_gui_plaf_palette_PalettePanelUI_paint(Graphics,JComponent)">
+    </element>
+    <element name="cluster29.MT_org_jhotdraw_gui_plaf_palette_colorchooser_PaletteCMYKChooser_buildChooser()">
+    </element>
+    <element name="cluster30.MT_org_jhotdraw_draw_DefaultDrawingView_drawHandles(Graphics2D)">
+    </element>
+    <element name="cluster30.MT_org_jhotdraw_draw_DefaultDrawingView_drawTool(Graphics2D)">
+    </element>
+    <element name="cluster30.CM_org_jhotdraw_samples_teddy_regex_Matcher_findNext()">
+    </element>
+    <element name="cluster30.CM_org_jhotdraw_samples_teddy_regex_Matcher_findNext(int)">
+        <uses provider="cluster30.CM_org_jhotdraw_samples_teddy_regex_Matcher_findNext()"/>
+    </element>
+    <element name="cluster30.CM_org_jhotdraw_samples_teddy_regex_Matcher_findPrevious()">
+    </element>
+    <element name="cluster30.CM_org_jhotdraw_samples_teddy_regex_Matcher_findPrevious(int)">
+        <uses provider="cluster30.CM_org_jhotdraw_samples_teddy_regex_Matcher_findPrevious()"/>
+    </element>
+    <element name="cluster30.MT_org_jhotdraw_gui_plaf_palette_PaletteTextComponentBorder_paintBorder(Component,Graphics,int,int,int,int)">
+    </element>
+    <element name="cluster30.MT_org_jhotdraw_gui_plaf_palette_PaletteToolBarBorder_paintBorder(Component,Graphics,int,int,int,int)">
+    </element>
+    <element name="cluster30.CM_org_jhotdraw_draw_BezierFigure_splitSegment(Point2D,double)">
+    </element>
+    <element name="cluster30.CM_org_jhotdraw_samples_svg_figures_SVGBezierFigure_splitSegment(Point2D,double)">
+    </element>
+    <element name="cluster30.FE_org_jhotdraw_draw_action_AbstractDrawingViewAction_editor">
+    </element>
+    <element name="cluster30.MT_org_jhotdraw_draw_action_AbstractDrawingViewAction_getView()">
+        <uses provider="cluster30.FE_org_jhotdraw_draw_action_AbstractDrawingViewAction_editor"/>
+    </element>
+    <element name="cluster30.MT_org_jhotdraw_app_AbstractApplication_getOpenChooser(View)">
+        <uses provider="cluster23.MT_org_jhotdraw_app_AbstractApplication_getRecentURIs()"/>
+        <uses provider="cluster26.CM_org_jhotdraw_gui_URIChooser_setSelectedURI(URI)"/>
+    </element>
+    <element name="cluster30.MT_org_jhotdraw_app_AbstractApplication_getSaveChooser(View)">
+        <uses provider="cluster23.CM_org_jhotdraw_app_View_getURI()"/>
+        <uses provider="cluster26.CM_org_jhotdraw_gui_URIChooser_setSelectedURI(URI)"/>
+    </element>
+    <element name="cluster31.CM_org_jhotdraw_draw_DefaultDrawingEditor_createActionMap()">
+        <uses provider="cluster24.CN_org_jhotdraw_app_action_edit_DeleteAction_DeleteAction()"/>
+    </element>
+    <element name="cluster31.CM_org_jhotdraw_draw_DefaultDrawingEditor_createInputMap()">
+    </element>
+    <element name="cluster31.MT_org_jhotdraw_gui_JFileURIChooser_getComponent()">
+    </element>
+    <element name="cluster31.MT_org_jhotdraw_gui_JFileURIChooser_getSelectedURI()">
+    </element>
+    <element name="cluster31.MT_org_jhotdraw_gui_JFileURIChooser_setSelectedURI(URI)">
+    </element>
+    <element name="cluster32.MT_org_jhotdraw_draw_action_DefaultAttributeAction_changeAttribute()">
+    </element>
+    <element name="cluster32.MT_org_jhotdraw_samples_pert_figures_TaskFigure_createHandles(int)">
+        <uses provider="cluster23.CN_org_jhotdraw_samples_pert_figures_DependencyFigure_DependencyFigure()"/>
+    </element>
+    <element name="cluster32.MT_org_jhotdraw_samples_pert_figures_TaskFigure_isDependentOf(TaskFigure)">
+    </element>
+    <element name="cluster32.MT_org_jhotdraw_samples_pert_figures_TaskFigure_updateStartTime()">
+    </element>
+    <element name="cluster32.CM_src_main_java_net_n3_nanoxml_IXMLElement_getDoubleAttribute(String,String,double)">
+    </element>
+    <element name="cluster32.CM_src_main_java_net_n3_nanoxml_XMLElement_getDoubleAttribute(String,String,double)">
+    </element>
+    <element name="cluster32.MT_org_jhotdraw_samples_svg_figures_SVGImageFigure_restoreTransformTo(Object)">
+    </element>
+    <element name="cluster32.MT_org_jhotdraw_samples_teddy_FindDialog_initComponents()">
+    </element>
+    <element name="cluster32.FE_org_jhotdraw_samples_svg_figures_SVGPathFigure_cachedPath">
+    </element>
+    <element name="cluster32.FE_org_jhotdraw_samples_odg_figures_ODGPathFigure_cachedPath">
+    </element>
+    <element name="cluster32.MT_org_jhotdraw_draw_action_EditGridPanel_initComponents()">
+    </element>
+    <element name="cluster32.FE_org_jhotdraw_gui_plaf_palette_PaletteToolBarUI$DockingListener_origin">
+    </element>
+    <element name="cluster32.MT_org_jhotdraw_gui_plaf_palette_PaletteToolBarUI_createDragWindow(JToolBar)">
+    </element>
+    <element name="cluster33.CM_org_jhotdraw_app_action_AbstractViewAction_isEnabled()">
+    </element>
+    <element name="cluster33.MT_org_jhotdraw_app_action_AbstractViewAction_isEnabled()">
+    </element>
+    <element name="cluster33.MT_org_jhotdraw_app_action_AbstractViewAction_setEnabled(boolean)">
+    </element>
+    <element name="cluster33.MT_org_jhotdraw_draw_handle_ResizeHandleKit$ResizeHandle_trackStart(Point,int)">
+        <uses provider="cluster23.CM_org_jhotdraw_draw_Figure_getBounds()"/>
+    </element>
+    <element name="cluster33.MT_org_jhotdraw_draw_handle_ResizeHandleKit$ResizeHandle_trackStep(Point,Point,int)">
+        <uses provider="cluster23.CM_org_jhotdraw_draw_DrawingView_getConstrainer()"/>
+    </element>
+    <element name="cluster33.MT_org_jhotdraw_app_action_AbstractSaveUnsavedChangesAction_actionPerformed(ActionEvent)">
+        <uses provider="cluster23.CM_org_jhotdraw_app_View_getURI()"/>
+    </element>
+    <element name="cluster33.MT_org_jhotdraw_app_action_AbstractViewAction_isMayCreateView()">
+    </element>
+    <element name="cluster33.MT_org_jhotdraw_app_action_AbstractViewAction_setMayCreateView(boolean)">
+    </element>
+</ldi>
