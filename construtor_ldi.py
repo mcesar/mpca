@@ -2,6 +2,7 @@
 
 import argparse
 import os
+import re
 from glob import glob
 from db import Db
 import constants
@@ -9,14 +10,13 @@ import dependencias_estaticas as simplifier
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-r", "--repository")
+parser.add_argument("-a", "--all_levels", action="store_true", default=False)
 args = parser.parse_args()
 
-files = [y for x in os.walk('.') for y in glob(os.path.join(x[0], '*.graphL*.dot'))]
 db = Db()
 
 classes = {}
 dependencies = {}
-entities_clusters_map = {}
 
 def load_db_entities():
 	print('Carregando classes e entidades...')
@@ -43,61 +43,93 @@ def load_dependencies():
 			dependencies[int(id1)] = []
 		dependencies[int(id1)].append({'id': id2, 'path': path, 'type': etype})
 
-def write_xmls():
+def clusters_files():
+	""" recover the list of files containing the clusters, sorted by ascending level """
+	files = [y for x in os.walk('.') for y in glob(os.path.join(x[0], '*.graphL*.dot'))]
+	clusters_files = []
+	clusters_dict = {}
 	for file in files:
-		file_name = file.split('/').pop()
+		file_name = file.rpartition('/')[2]
 		if ('fine_grained' in file or 'coarse_grained' in file) and file_name.startswith(args.repository):
-			print(file_name)
-			q = """
-					select c.id, c.nome, e.id, e.caminho, e.tipo
-					from clusters c 
-						inner join grafos g on c.grafo = g.id 
-						inner join clusters_entidades ce on c.id = ce.cluster 
-						inner join entidades e on e.id = ce.entidade 
-					where g.arquivo = %s
-				"""			
-			clusters = db.query(q, (file_name,))
-			# fills the entities x clusters mapping to further reference
-			entities_clusters_map.clear()
-			for cluster_id, cluster_name, entity_id, entity_path, entity_type in clusters:
-				if 'coarse_grained' in file:
-					for d in classes[entity_id]:
-						method_name = d['type'] + '_' + strip_args(d['path'].split('/').pop())
-						entity_full_name = "{}.{}".format(simplified(entity_path), method_name)
-						entities_clusters_map[entity_full_name] = cluster_name
-				else:
-					entity_full_name = entity_type + '_' + simplified(entity_path)
-					entities_clusters_map[entity_full_name] = cluster_name
-			# writes down the lattix xmls
-			clusters = db.query(q, (file_name,))
-			with open(file.replace('.dot', '.ldi'), 'w') as xml:
-				if file.endswith('.graphL1.dot'):
-					xml_dep = open(file.replace('.graphL1.dot', '.dependencies.ldi'), 'w')
-				else:
-					xml_dep = None
-				xml.write("<?xml version=\"1.0\" ?>\n<ldi>\n")
-				if xml_dep is not None: xml_dep.write("<?xml version=\"1.0\" ?>\n<ldi>\n")
-				for cluster_id, cluster_name, entity_id, entity_path, entity_type in clusters:
-					if 'coarse_grained' in file:
-						for d in classes[entity_id]:
-							method_name = d['type'] + '_' + strip_args(d['path'].split('/').pop())
-							entity_full_name = "{}.{}".format(simplified(entity_path), method_name)
-							xml_write_element(xml, "{}.{}".format(cluster_name, entity_full_name), 
-								[ d[0] for d in entity_dependencies_with_cluster(d['id'], coarse_grained_dependency_name) ])
-							if xml_dep is not None: 
-								xml_write_element(xml_dep, strip_args(to_java(d['path']) + '_' + d['type']), 
-									[ d[2] + '_' + d[1] for d in entity_dependencies_with_cluster(d['id'], coarse_grained_dependency_name) ])
-					else:
-						entity_full_name = entity_type + '_' + strip_args(simplified(entity_path))
-						xml_write_element(xml, "{}.{}".format(cluster_name, entity_full_name), 
-							[ d[0] for d in entity_dependencies_with_cluster(entity_id, lambda d : d[1] + '_' + d[0]) ])
-						if xml_dep is not None:
-							xml_write_element(xml_dep, strip_args(to_java(entity_path)) + '_' + entity_type, 
-								[ d[2] + '_' + d[1] for d in entity_dependencies_with_cluster(entity_id, lambda d : d[1] + '_' + d[0]) ])
-				xml.write("</ldi>")
+			if args.all_levels:
+				new_file_name = re.sub('\.graphL\d+\.','.graphAllLevels.', file_name)
+				path = re.sub('\.graphL\d+\.','.graphAllLevels.', file)
+				if path not in clusters_dict:
+					clusters_dict[path] = {'name': new_file_name, 'path': path, 'subfiles': []}
+				clusters_dict[path]['subfiles'].append([file_name,int(file_name.partition('.graphL')[2].partition('.')[0])])
+			else:
+				clusters_files.append({'name': file_name, 'path': file})
+	if args.all_levels:
+		clusters_files = clusters_dict.values()
+		for c_f in clusters_files:
+			c_f['subfiles'] = sorted(c_f['subfiles'], key = lambda sf : sf[1])
+	return clusters_files
+
+def entities_clusters_map(file):
+	""" builds a dict containing the clusters names of the entities, plus entities attributes """
+	if file['name'].endswith('.graphAllLevels.dot'):
+		files = [arr[0] for arr in file['subfiles']]
+	else:
+		files = [ file['name'] ]
+	entities_clusters_map = {}
+	for file_name in files:
+		q = """
+				select c.id, c.nome, e.id, e.caminho, e.tipo
+				from clusters c 
+					inner join grafos g on c.grafo = g.id 
+					inner join clusters_entidades ce on c.id = ce.cluster 
+					inner join entidades e on e.id = ce.entidade 
+				where g.arquivo = %s
+			"""
+		clusters = db.query(q, (file_name,))
+		for cluster_id, cluster_name, entity_id, entity_path, entity_type in clusters:
+			if 'coarse_grained' in file_name:
+				for e in classes[entity_id]:
+					method_name = e['type'] + '_' + strip_args(e['path'].split('/').pop())
+					entity_full_name = "{}.{}".format(simplified(entity_path), method_name)
+					add_cluster_to_map(entity_full_name, cluster_name, entities_clusters_map, e)
+			else:
+				entity_full_name = "{}_{}".format(entity_type, simplified(entity_path))
+				e = {'id': entity_id, 'path': entity_path, 'type': entity_type}
+				add_cluster_to_map(entity_full_name, cluster_name, entities_clusters_map, e)
+	return entities_clusters_map
+
+def add_cluster_to_map(entity_full_name, cluster_name, entities_clusters_map, e):
+	if entity_full_name not in entities_clusters_map:
+		entities_clusters_map[entity_full_name] = [ cluster_name, e ]
+	else:
+		e_c = entities_clusters_map[entity_full_name]
+		e_c[0] = cluster_name + '.' + e_c[0]
+
+def write_xmls():
+	for file in clusters_files():
+		file_name = file['name']
+		print(file['path'])
+		e_c_m = entities_clusters_map(file)
+		# writes down the lattix xmls
+		with open(file['path'].replace('.dot', '.ldi'), 'w') as xml:
+			if file_name.endswith('.graphL1.dot') or file_name.endswith('.graphAllLevels.dot'):
+				dependencies_file_name = file['path'].replace('.graphL1.dot', '.dependencies.ldi')
+				dependencies_file_name = dependencies_file_name.replace('.graphAllLevels.dot', '.dependencies.ldi')
+				xml_dep = open(dependencies_file_name, 'w')
+			else:
+				xml_dep = None
+			xml.write("<?xml version=\"1.0\" ?>\n<ldi>\n")
+			if xml_dep is not None: xml_dep.write("<?xml version=\"1.0\" ?>\n<ldi>\n")
+			if 'coarse_grained' in file_name:
+				func = coarse_grained_dependency_name
+			else:
+				func = lambda d : d[1] + '_' + d[0]
+			for entity_full_name, e in e_c_m.items():
+				xml_write_element(xml, "{}.{}".format(e[0], entity_full_name), 
+					[ d[0] for d in entity_dependencies_with_cluster(e[1]['id'], func, e_c_m) ])
 				if xml_dep is not None: 
-					xml_dep.write("</ldi>")
-					xml_dep.close()
+					xml_write_element(xml_dep, strip_args(to_java(e[1]['path']) + '_' + e[1]['type']), 
+						[ d[2] + '_' + d[1] for d in entity_dependencies_with_cluster(e[1]['id'], func, e_c_m) ])
+			xml.write("</ldi>")
+			if xml_dep is not None: 
+				xml_dep.write("</ldi>")
+				xml_dep.close()
 
 def coarse_grained_dependency_name(d):
 	if d[1] in ['CN','CM','FE','MT']:
@@ -119,8 +151,8 @@ def entity_dependencies(id):
 def entity_dependencies_simplified(id):
 	return [ (strip_args(simplified(d[0])), d[1], strip_args(to_java(d[0]))) for d in entity_dependencies(id)]
 
-def entity_dependencies_with_cluster(id, func):
-	return [("{}.{}".format(entities_clusters_map[func(d)], func(d)), d[1], d[2]) 
+def entity_dependencies_with_cluster(id, func, entities_clusters_map):
+	return [("{}.{}".format(entities_clusters_map[func(d)][0], func(d)), d[1], d[2]) 
 				for d in entity_dependencies_simplified(id) if func(d) in entities_clusters_map]
 
 def xml_write_element(xml, name, e_d):
@@ -130,8 +162,6 @@ def xml_write_element(xml, name, e_d):
 	xml.write("    </element>\n")
 
 def strip_args(method_name):
-	# if '(' in method_name: 
-	# 	return method_name[:method_name.find('(')]
 	return method_name.replace('<', '_').replace('>', '_')
 
 load_db_entities()
