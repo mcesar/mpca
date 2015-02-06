@@ -45,18 +45,18 @@ def load_dependencies():
 
 def clusters_files():
 	""" recover the list of files containing the clusters, sorted by ascending level """
-	files = [y for x in os.walk('.') for y in glob(os.path.join(x[0], '*.graphL*.dot'))]
+	files = [y for x in os.walk('.') for y in glob(os.path.join(x[0], '*.mdgL*.dot'))]
 	clusters_files = []
 	clusters_dict = {}
 	for file in files:
 		file_name = file.rpartition('/')[2]
 		if ('fine_grained' in file or 'coarse_grained' in file) and file_name.startswith(args.repository):
 			if args.all_levels:
-				new_file_name = re.sub('\.graphL\d+\.','.graphAllLevels.', file_name)
-				path = re.sub('\.graphL\d+\.','.graphAllLevels.', file)
+				new_file_name = re.sub('\.mdgL\d+\.','.mdgAllLevels.', file_name)
+				path = re.sub('\.mdgL\d+\.','.mdgAllLevels.', file)
 				if path not in clusters_dict:
 					clusters_dict[path] = {'name': new_file_name, 'path': path, 'subfiles': []}
-				clusters_dict[path]['subfiles'].append([file_name,int(file_name.partition('.graphL')[2].partition('.')[0])])
+				clusters_dict[path]['subfiles'].append([file_name,int(file_name.partition('.mdgL')[2].partition('.')[0])])
 			else:
 				clusters_files.append({'name': file_name, 'path': file})
 	if args.all_levels:
@@ -67,7 +67,7 @@ def clusters_files():
 
 def entities_clusters_map(file):
 	""" builds a dict containing the clusters names of the entities, plus entities attributes """
-	if file['name'].endswith('.graphAllLevels.dot'):
+	if file['name'].endswith('.mdgAllLevels.dot'):
 		files = [arr[0] for arr in file['subfiles']]
 	else:
 		files = [ file['name'] ]
@@ -108,9 +108,9 @@ def write_xmls():
 		e_c_m = entities_clusters_map(file)
 		# writes down the lattix xmls
 		with open(file['path'].replace('.dot', '.ldi'), 'w') as xml:
-			if file_name.endswith('.graphL1.dot') or file_name.endswith('.graphAllLevels.dot'):
-				dependencies_file_name = file['path'].replace('.graphL1.dot', '.dependencies.ldi')
-				dependencies_file_name = dependencies_file_name.replace('.graphAllLevels.dot', '.dependencies.ldi')
+			if file_name.endswith('.mdgL1.dot') or file_name.endswith('.mdgAllLevels.dot'):
+				dependencies_file_name = file['path'].replace('.mdgL1.dot', '.dependencies.ldi')
+				dependencies_file_name = dependencies_file_name.replace('.mdgAllLevels.dot', '.dependencies.ldi')
 				xml_dep = open(dependencies_file_name, 'w')
 			else:
 				xml_dep = None

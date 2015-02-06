@@ -34,7 +34,7 @@ if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
 	parser.add_argument("-r", "--repository", default="siop")
 	parser.add_argument("-s", "--source", default="commits")
-	parser.add_argument("-m", "--max_entities", type=int, default=100)
+	parser.add_argument("-n", "--max_entities", type=int, default=100)
 	parser.add_argument("-c", "--min_confidence", type=float, default=0)
 	parser.add_argument("-p", "--min_support", type=float, default=0)
 	parser.add_argument("-d", "--min_date", default="1900-01-01")

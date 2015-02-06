@@ -184,7 +184,7 @@ function nextCommit (i) {
 
 function coletaEntidades (commit, callback) {
 	var cmd = 'git diff-tree --no-commit-id --name-status -r ' + commit;
-	exec(cmd, {cwd:dir, maxBuffer: 20 * 1024 * 1024}, function (err, stdout, stderr) {
+	exec(cmd, {cwd:dir, maxBuffer: 50 * 1024 * 1024}, function (err, stdout, stderr) {
 		if (err) { throw err; }
 		var lines = stdout.split('\n'), i, j;
 		var line, arr;

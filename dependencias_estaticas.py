@@ -7,24 +7,29 @@ import constants
 import re
 
 repository_prefixes = { 
-	'siop': '', 
-	'derby': '', 
-	'hadoop': '', 
+	'siop': {'xml':['br.gov','br.gov','br.gov'],'db':['SiopEJB/ejbModule/br/gov','SiopJPA/src/br/gov','SiopWAR/src/br/gov']}, 
+	'derby': {'xml':['org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache'],'db':['java/build/org/apache','java/drda/org/apache','java/engine/org/apache','java/tools/org/apache','java/client/org/apache','java/shared/org/apache','java/storeless/org/apache','java/optional/org/apache']}, 
+	'hadoop': {'xml':['org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache'],'db':['hdfs/src/java/org/apache','hadoop-common/src/main/java/org/apache','hadoop-common-project/hadoop-annotations/src/main/java/org/apache','hadoop-common-project/hadoop-common/src/main/java/org/apache','hadoop-hdfs-project/hadoop-hdfs/src/main/java/org/apache','hadoop-hdfs-project/hadoop-hdfs/src/ant/org/apache','hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-app/src/main/java/org/apache','hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-common/src/main/java/org/apache','hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-core/src/main/java/org/apache','hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-hs/src/main/java/org/apache','hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-jobclient/src/main/java/org/apache','hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-shuffle/src/main/java/org/apache','hadoop-common-project/hadoop-auth/src/main/java/org/apache','hadoop-tools/hadoop-streaming/src/main/java/org/apache','hadoop-hdfs-project/hadoop-hdfs-httpfs/src/main/java/org/apache','hadoop-tools/hadoop-archives/src/main/java/org/apache','hadoop-hdfs-project/hadoop-hdfs/src/contrib/bkjournal/src/main/java/org/apache','hadoop-tools/hadoop-extras/src/main/java/org/apache','hadoop-tools/hadoop-rumen/src/main/java/org/apache','hadoop-tools/hadoop-distcp/src/main/java/org/apache','hadoop-tools/hadoop-datajoin/src/main/java/org/apache','hadoop-tools/hadoop-gridmix/src/main/java/org/apache','hadoop-yarn-project/hadoop-yarn/hadoop-yarn-api/src/main/java/org/apache','hadoop-yarn-project/hadoop-yarn/hadoop-yarn-applications/hadoop-yarn-applications-distributedshell/src/main/java/org/apache','hadoop-yarn-project/hadoop-yarn/hadoop-yarn-applications/hadoop-yarn-applications-unmanaged-am-launcher/src/main/java/org/apache','hadoop-yarn-project/hadoop-yarn/hadoop-yarn-common/src/main/java','hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-common/src/main/java/org/apache','hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-nodemanager/src/main/java/org/apache','hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-resourcemanager/src/main/java/org/apache','hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-web-proxy/src/main/java/org/apache','hadoop-yarn-project/hadoop-yarn/hadoop-yarn-client/src/main/java/org/apache','hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-hs-plugins/src/main/java/org','hadoop-maven-plugins/src/main/java/org/apache','hadoop-common-project/hadoop-nfs/src/main/java/org/apache','hadoop-common-project/hadoop-minikdc/src/main/java/org/apache','hadoop-tools/hadoop-openstack/src/main/java/org/apache','hadoop-tools/hadoop-sls/src/main/java/org/apache','hadoop-yarn-project/hadoop-yarn/hadoop-yarn-server/hadoop-yarn-server-applicationhistoryservice/src/main/java/org/apache','hadoop-common-project/hadoop-kms/src/main/java/org/apache','hadoop-tools/hadoop-azure/src/main/java/org/apache','hadoop-tools/hadoop-aws/src/main/java/org/apache']}, 
 	'wildfly': '', 
-	'eclipse.platform.ui': '', 
-	'eclipse.jdt': '', 
-	'geronimo': '', 
-	'lucene': '', 
-	'jhotdraw7': {'xml':'org.jhotdraw','db':'src/main/java/org/jhotdraw'} }
+	'eclipse.platform.ui': {'xml':['org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse'],'db':['bundles/org.eclipse.jface/src/org/eclipse','bundles/org.eclipse.ui.win32/src/org/eclipse','bundles/org.eclipse.ui.views/src/org/eclipse','bundles/org.eclipse.ui.workbench/Eclipse UI Editor Support/org/eclipse','bundles/org.eclipse.ui.workbench/Eclipse UI/org/eclipse','bundles/org.eclipse.ui/src/org/eclipse/ui','bundles/org.eclipse.ui.ide/src/org/eclipse','bundles/org.eclipse.ui.ide/extensions/org/eclipse','bundles/org.eclipse.ui.workbench.compatibility/src/org/eclipse','bundles/org.eclipse.ui.forms/src/org/eclipse','bundles/org.eclipse.ui.presentations.r21/src/org/eclipse','bundles/org.eclipse.core.commands/src/org/eclipse','bundles/org.eclipse.ui.navigator/src/org/eclipse','bundles/org.eclipse.ui.browser/src/org/eclipse','bundles/org.eclipse.jface.databinding/src/org/eclipse','bundles/org.eclipse.ui.views.properties.tabbed/src/org/eclipse','bundles/org.eclipse.ui.navigator.resources/src/org/eclipse','bundles/org.eclipse.core.databinding.beans/src/org/eclipse','bundles/org.eclipse.core.databinding/src/org/eclipse','bundles/org.eclipse.core.databinding.observable/src/org/eclipse','bundles/org.eclipse.ui.ide.application/src/org/eclipse','bundles/org.eclipse.ui.cocoa/src/org/eclipse/ui','bundles/org.eclipse.e4.ui.model.workbench/src/org/eclipse','bundles/org.eclipse.e4.ui.css.core/src/org/eclipse','bundles/org.eclipse.e4.ui.css.swt/src/org/eclipse','bundles/org.eclipse.core.databinding.property/src/org/eclipse','bundles/org.eclipse.e4.ui.services/src/org/eclipse','bundles/org.eclipse.e4.ui.workbench.swt/src/org/eclipse','bundles/org.eclipse.e4.core.commands/src/org/eclipse','bundles/org.eclipse.e4.ui.bindings/src/org/eclipse','bundles/org.eclipse.ui.carbon/src/org/eclipse','bundles/org.eclipse.e4.ui.workbench3/src/org/eclipse','bundles/org.eclipse.e4.ui.workbench/src/org/eclipse','bundles/org.eclipse.e4.ui.workbench.addons.swt/src/org/eclipse','bundles/org.eclipse.e4.ui.css.swt.theme/src/org/eclipse','bundles/org.eclipse.e4.ui.di/src/org/eclipse','bundles/org.eclipse.e4.ui.workbench.renderers.swt/src/org/eclipse','bundles/org.eclipse.e4.ui.workbench.renderers.swt.cocoa/src/org/eclipse','bundles/org.eclipse.e4.emf.xpath/src/org/eclipse','bundles/org.eclipse.e4.ui.widgets/src/org/eclipse','bundles/org.eclipse.ui.images.renderer/src/main/java/org/eclipse','bundles/org.eclipse.e4.ui.progress/src/org/eclipse','bundles/org.eclipse.ui.monitoring/src/org/eclipse']}, 
+	'eclipse.jdt': {'xml':['org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','org.eclipse','com.sun','org.eclipse','org.eclipse','org.eclipse','org.eclipse'],'db':['org.eclipse.jdt.core/batch/org/eclipse','org.eclipse.jdt.core/codeassist/org/eclipse','org.eclipse.jdt.core/compiler/org/eclipse','org.eclipse.jdt.core/eval/org/eclipse','org.eclipse.jdt.core/model/org/eclipse','org.eclipse.jdt.core/search/org/eclipse','org.eclipse.jdt.core/dom/org/eclipse','org.eclipse.jdt.core/antadapter/org/eclipse','org.eclipse.jdt.core.tests.model/src/org/eclipse','org.eclipse.jdt.core/formatter/org/eclipse','org.eclipse.jdt.apt.core/src/org/eclipse','org.eclipse.jdt.apt.ui/src/org/eclipse','org.eclipse.jdt.apt.core/src/com/sun','org.eclipse.jdt.compiler.tool/src/org/eclipse','org.eclipse.jdt.compiler.apt/src/org/eclipse','org.eclipse.jdt.apt.pluggable.core/src/org/eclipse','org.eclipse.jdt.annotation/src/org/eclipse']}, 
+	'geronimo': {'xml':['org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache'],'db':['plugins/console/console-base-portlets/src/main/java/org/apache','plugins/console/console-core/src/main/java/org/apache','plugins/debugviews/debugviews-portlets/src/main/java/org/apache','plugins/plancreator/plancreator-portlets/src/main/java/org/apache','plugins/pluto/geronimo-pluto/src/main/java/org/apache','plugins/axis/geronimo-axis/src/main/java/org/apache','plugins/axis/geronimo-axis-builder/src/main/java/org/apache','plugins/axis2/geronimo-axis2/src/main/java/org/apache','plugins/axis2/geronimo-axis2-builder/src/main/java/org/apache','plugins/axis2/geronimo-axis2-ejb/src/main/java/org/apache','plugins/client/geronimo-client/src/main/java/org/apache','plugins/client/geronimo-client-builder/src/main/java/org/apache','plugins/clustering/geronimo-clustering/src/main/java/org/apache','plugins/clustering/geronimo-clustering-wadi/src/main/java/org/apache','plugins/corba/geronimo-corba/src/main/java/org/apache','plugins/corba/geronimo-corba-builder/src/main/java/org/apache','plugins/cxf/geronimo-cxf/src/main/java/org/apache','plugins/cxf/geronimo-cxf-builder/src/main/java/org/apache','plugins/cxf/geronimo-cxf-ejb/src/main/java/org/apache/geronimo','plugins/j2ee/geronimo-j2ee-builder/src/main/java/org/apache','plugins/j2ee/geronimo-j2ee-schema/src/main/java/org/apache','plugins/jasper/geronimo-jasper/src/main/java/org/apache','plugins/jasper/geronimo-jasper-builder/src/main/java/org/apache','plugins/jaxws/geronimo-jaxws-builder/src/main/java/org/apache','plugins/myfaces/geronimo-myfaces/src/main/java/org/apache','plugins/myfaces/geronimo-myfaces-builder/src/main/java/org/apache','plugins/openejb/geronimo-openejb/src/main/java/org/apache','plugins/openejb/geronimo-openejb-builder/src/main/java/org/apache','plugins/webservices/geronimo-webservices/src/main/java/org/apache','plugins/webservices/geronimo-webservices-builder/src/main/java/org/apache','plugins/corba/geronimo-yoko/src/main/java/org/apache','plugins/hotdeploy/geronimo-hot-deploy/src/main/java/org/apache','plugins/j2ee/geronimo-naming-builder/src/main/java/org/apache','plugins/j2ee/geronimo-security-builder/src/main/java/org/apache','plugins/j2ee/geronimo-web-2.5-builder/src/main/java/org/apache','plugins/j2ee/geronimo-test-ddbean/src/main/java/org/apache','plugins/system-database/geronimo-derby/src/main/java/org/apache','plugins/console/geronimo-converter/src/main/java/org/apache','plugins/console/plugin-portlets/src/main/java/org/apache','plugins/system-database/sysdb-portlets/src/main/java/org/apache','plugins/clustering/geronimo-farm/src/main/java/org/apache','plugins/ca-helper/geronimo-ca-helper/src/main/java/org/apache','plugins/mejb/geronimo-mejb/src/main/java/org/apache','plugins/monitoring/agent-jar/src/main/java/org/apache','plugins/monitoring/mconsole-war/src/main/java/org','plugins/remote-deploy/geronimo-remote-deploy/src/main/java/org/apache','plugins/welcome/geronimo-welcome/src/main/java/org/apache','plugins/openejb/geronimo-openejb-clustering-builder-wadi/src/main/java/org/apache','plugins/openejb/geronimo-openejb-clustering-wadi/src/main/java/org/apache','plugins/aspectj/geronimo-aspectj/src/main/java/org/apache','plugins/clustering/geronimo-deploy-farm/src/main/java/org/apache','plugins/clustering/geronimo-plugin-farm/src/main/java/org/apache','plugins/j2ee/geronimo-j2ee/src/main/java/org/apache','plugins/connector-1_6/geronimo-connector-builder-1_6/src/main/java/org/apache','plugins/openejb/openejb-portlets/src/main/java/org/apache','plugins/monitoring/agent-jmx/src/main/java/org/apache','plugins/cxf/geronimo-cxf-tools/src/main/java/org/apache','plugins/activemq/activemq-portlets/src/main/java/org/apache','plugins/console/console-filter/src/main/java/org/apache','plugins/console/console-portal-driver/src/main/java/org/apache','plugins/openwebbeans/geronimo-openwebbeans-builder/src/main/java/org/apache','plugins/openjpa2/geronimo-openjpa2/src/main/java/org/apache','plugins/openjpa2/geronimo-persistence-jpa20/src/main/java/org/apache','plugins/openjpa2/geronimo-persistence-jpa20-builder/src/main/java/org/apache','framework/buildsupport/car-maven-plugin/src/main/java/org/apache','framework/buildsupport/geronimo-maven-plugin/src/main/java/org/apache','framework/buildsupport/testsuite-maven-plugin/src/main/java/org/apache','framework/modules/geronimo-cli/src/main/java/org/apache','framework/modules/geronimo-common/src/main/java/org/apache','framework/modules/geronimo-config-groovy-transformer/src/main/java/org/apache','framework/modules/geronimo-core/src/main/java/org/apache','framework/modules/geronimo-crypto/src/main/java/org/apache','framework/modules/geronimo-deploy-config/src/main/java/org/apache','framework/modules/geronimo-deploy-jsr88/src/main/java/org/apache','framework/modules/geronimo-deploy-tool/src/main/java/org/apache','framework/buildsupport/geronimo-osgi-plugin/src/main/java/org/apache','framework/buildsupport/geronimo-property-plugin/src/main/java/org/apache','framework/modules/geronimo-blueprint/src/main/java/org/apache','framework/modules/geronimo-bundle-recorder/src/main/java/org/apache','framework/modules/geronimo-deploy-jsr88-full/src/main/java/org/apache','framework/modules/geronimo-deploy-tool/src/main/java/org/apache','framework/modules/geronimo-deployment/src/main/java/org/apache','framework/modules/geronimo-hook/src/main/java/org/apache','framework/modules/geronimo-interceptor/src/main/java/org/apache','framework/modules/geronimo-jdbc/src/main/java/org/apache','framework/modules/geronimo-jmx-remoting/src/main/java/org/apache','framework/modules/geronimo-kernel/src/main/java/org/apache','framework/modules/geronimo-main/src/main/java/org/apache','framework/modules/geronimo-management/src/main/java/org/apache','framework/modules/geronimo-naming/src/main/java/org/apache','framework/modules/geronimo-obr/src/main/java/org/apache','framework/modules/geronimo-pax-logging/src/main/java/org/apache','framework/modules/geronimo-plugin/src/main/java/org/apache','framework/modules/geronimo-rmi-loader/src/main/java/org/apache','framework/modules/geronimo-security/src/main/java/org/apache','framework/modules/geronimo-service-builder/src/main/java/org/apache','framework/modules/geronimo-shell-base/src/main/java/org/apache','framework/modules/geronimo-shell-diagnose/src/main/java/org/apache','framework/modules/geronimo-system/src/main/java/org/apache','framework/modules/geronimo-transformer/src/main/java/org/apache','framework/modules/testsupport-common/src/main/java/org/apache','plugins/activemq/geronimo-activemq-blueprint/src/main/java/org/apache','plugins/activemq/geronimo-activemq-management/src/main/java/org/apache','plugins/aries/geronimo-aries-builder/src/main/java/org/apache','plugins/aries/geronimo-aries-shell/src/main/java/org/apache','plugins/aries/geronimo-aries/src/main/java/org/apache','plugins/axis2/geronimo-axis2-ejb-builder/src/main/java/org/apache','plugins/bval/geronimo-bval-builder/src/main/java/org/apache','plugins/bval/geronimo-bval/src/main/java/org/apache','plugins/connector-1_6/geronimo-connector-1_6/src/main/java/org/apache','plugins/connector-1_6/geronimo-transaction-1_6/src/main/java/org/apache','plugins/cxf/geronimo-cxf-ejb-builder/src/main/java/org/apache','plugins/j2ee/geronimo-web/src/main/java/org/apache','plugins/javamail/geronimo-mail/src/main/java/org/apache','plugins/jaxws/geronimo-jaxws-ejb-builder/src/main/java/org/apache','plugins/jaxws/geronimo-jaxws-sun-tools/src/main/java/org/apache','plugins/jetty8/geronimo-jetty8-builder/src/main/java/org/apache','plugins/jetty8/geronimo-jetty8-clustering-builder-wadi/src/main/java/org/apache','plugins/jetty8/geronimo-jetty8-clustering-wadi/src/main/java/org/apache','plugins/jetty8/geronimo-jetty8/src/main/java/org/apache','plugins/monitoring/agent-ejb/src/main/java/org/apache','plugins/openjpa2/geronimo-aries-jpa/src/main/java/org/apache','plugins/openwebbeans/geronimo-openwebbeans/src/main/java/org/apache','plugins/sharedlib/geronimo-sharedlib/src/main/java/org/apache','plugins/tomcat/geronimo-tomcat7-builder/src/main/java/org/apache','plugins/tomcat/geronimo-tomcat7-clustering-builder-wadi/src/main/java/org/apache','plugins/tomcat/geronimo-tomcat7-clustering-wadi/src/main/java/org/apache','plugins/tomcat/geronimo-tomcat7/src/main/java/org/apache','plugins/uddi/uddi-war-repackage/src/main/java/org/apache','plugins/wab/geronimo-wab/src/main/java/org/apache','plugins/wab/geronimo-web-extender/src/main/java/org/apache','plugins/wink/geronimo-wink-builder/src/main/java/org/apache','plugins/wink/geronimo-wink/src/main/java/org/apache']}, 
+	'lucene': {'xml':['org.apache','org.apache','org.apache','org.tartarus','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.egothor','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache','org.apache'],'db':['lucene/core/src/java/org/apache','lucene/tools/src/java/org','lucene/analysis/common/src/java/org/apache','lucene/analysis/common/src/java/org/tartarus','lucene/analysis/icu/src/java/org/apache','lucene/analysis/icu/src/tools/java/org/apache/lucene','lucene/analysis/kuromoji/src/java/org/apache','lucene/analysis/kuromoji/src/tools/java/org/apache','lucene/analysis/morfologik/src/java/org/apache','lucene/analysis/phonetic/src/java/org/apache','lucene/analysis/smartcn/src/java/org/apache','lucene/analysis/stempel/src/java/org/apache','lucene/analysis/stempel/src/java/org/egothor','lucene/analysis/uima/src/java/org/apache','lucene/benchmark/src/java/org/apache','lucene/demo/src/java/org/apache','lucene/facet/src/java/org/apache','lucene/grouping/src/java/org/apache','lucene/highlighter/src/java/org/apache','lucene/join/src/java/org/apache','lucene/memory/src/java/org/apache','lucene/misc/src/java/org/apache','lucene/queries/src/java/org/apache','lucene/queryparser/src/java/org/apache','lucene/sandbox/src/java/org/apache','lucene/spatial/src/java/org/apache','lucene/suggest/src/java/org/apache','lucene/codecs/src/java/org/apache','lucene/classification/src/java/org/apache','lucene/replicator/src/java/org/apache','lucene/expressions/src/java/org/apache','lucene/test-framework/src/java/org/apache']}, 
+	'jhotdraw7': {'xml':['org.jhotdraw'],'db':['src/main/java/org/jhotdraw']} }
 
 def load_entities_from_db():
 	db = Db()
 	repository_id = constants.repository_map[args.repository]
-	prefix = repository_prefixes[args.repository]['db']
+	prefixes = repository_prefixes[args.repository]['db']
 	db_entities = {}
+	sql_args = (repository_id,)
+	prefixes_str = ''
+	for prefix in prefixes:
+		sql_args += (prefix + '%',)
+		if len(prefixes_str) > 0: prefixes_str += ' or '
+		prefixes_str += 'caminho like %s'
 	cursor = db.query(
-		"select id, caminho from entidades where repositorio = %s and caminho like %s", 
-		(repository_id, prefix + '%'))
+		"select id, caminho from entidades where repositorio = %s and (" + prefixes_str + ")", sql_args)
 	for (id, path) in cursor:
 		key = to_java_convention(path, args.repository, True)
 		if not key in db_entities: db_entities[key] = {'id': id, 'path': path}
@@ -34,7 +39,6 @@ def load_entities_from_db():
 def load_evolutionary_dependencies_from_db():
 	db = Db()
 	repository_id = constants.repository_map[args.repository]
-	prefix = repository_prefixes[args.repository]['db']
 	graphs_ed = {}
 	cursor = db.query("""select g.id, g.source, g.max_entities, g.min_confidence, 
 			g.min_support, g.min_date, g.types, de.entidade1, de.entidade2, e.caminho
@@ -62,12 +66,10 @@ def load_evolutionary_dependencies_from_db():
 	return graphs_ed
 
 def to_java_convention(path, repository, strip_generics=False):
-	prefix_db = repository_prefixes[repository]['db'].replace('/', '.')
-	prefix_xml = repository_prefixes[repository]['xml']
 	arr = path.split('/')
 	new_arr = []
 	class_count = 0
-	for index, s in enumerate(arr):
+	for s in arr:
 		if s.endswith('.f'):
 			continue
 		if s == 'CL':
@@ -76,7 +78,7 @@ def to_java_convention(path, repository, strip_generics=False):
 				s = '$'
 		if s in constants.entity_types:
 			continue
-		new_s = s.replace('.c', '')
+		new_s = re.sub('\.c$', '', s)
 		# remove generic types
 		if strip_generics:
 			while '<' in new_s:
@@ -99,18 +101,24 @@ def to_java_convention(path, repository, strip_generics=False):
 			#else:
 			#	new_s = new_s.replace('(', '(' + outer_class + ',')
 		new_arr.append(new_s)
-	return '.'.join(new_arr).replace(prefix_db, prefix_xml).replace('.$.','$')
+	result = '.'.join(new_arr).replace('.$.','$')
+	for i in range(0, len(repository_prefixes[repository]['db'])):
+		prefix_db = repository_prefixes[repository]['db'][i].replace('/', '.')
+		prefix_xml = repository_prefixes[repository]['xml'][i]
+		result = result.replace(prefix_db, prefix_xml)
+	return result
 
 def parse_xml():
 	root = etree.parse(args.file).getroot()
-	prefix = repository_prefixes[args.repository]['xml']
+	prefixes = repository_prefixes[args.repository]['xml']
 	classes = {}
 	for e1 in root:
 		for e2 in e1:
 			if e2.tag == 'name':
 				package_name = e2.text
 				if package_name is None: package_name = ''
-			if e2.tag == 'class' and package_name.startswith(prefix) and e2.attrib['confirmed'] == 'yes':
+			has_prefix = [prefix for prefix in prefixes if package_name.startswith(prefix)]
+			if e2.tag == 'class' and has_prefix and e2.attrib['confirmed'] == 'yes':
 				is_enum = False
 				for e3 in e2:
 					if e3.tag == 'name':
@@ -144,7 +152,8 @@ def parse_xml():
 								feature_dict = {'name': feature_name, 'dependencies': []}
 								class_dict['entities'].append(feature_dict)
 								feature_dict['type'] = feature_type
-							if e4.tag == 'outbound' and e4.text.startswith(prefix) and e4.attrib['type'] == 'feature':
+							has_prefix = [prefix for prefix in prefixes if e4.text.startswith(prefix)]
+							if e4.tag == 'outbound' and has_prefix and e4.attrib['type'] == 'feature':
 								#e4.attrib['confirmed'] == 'yes' and
 								dependency_name = simplified_args(e4.text)
 								#if class_top_level_name(feature_name) != class_top_level_name(dependency_name):
@@ -213,6 +222,8 @@ def import_static_dependencies(db_entities, classes):
 			where entidade1 in (select id from entidades where repositorio=%s)""",
 			(constants.repository_map[args.repository],))
 
+	dep_map = {}
+
 	for c in classes.values():
 		for e in c['entities']:
 			if e['name'] in db_entities:
@@ -221,8 +232,9 @@ def import_static_dependencies(db_entities, classes):
 					calle_id = find_id_in_class_or_superclasses(d, classes, db_entities, e)
 					if calle_id:
 						#print(db_entities[e['name']]['id'], db_entities[d]['id'])
-						if not args.dont_store:
+						if not args.dont_store and '{}-{}'.format(caller_id, calle_id) not in dep_map:
 							db.insert('insert into dependencias values (%s,%s)', (caller_id, calle_id))
+							dep_map['{}-{}'.format(caller_id, calle_id)] = True
 					#else:
 					#	if args.verbose: print(d)
 				if args.verbose and not args.not_found:
@@ -239,11 +251,11 @@ def import_static_dependencies(db_entities, classes):
 	db.commit()
 	db.close()
 
-def export_evolutionary_dependencies(db_entities, classes, e_graphs):
+def export_evolutionary_dependencies(db_entities, classes, e_graphs,repository):
 	for g in e_graphs.values():
 		if g['types'] == 'CL,IN':
 			continue
-		with open('mixed-dependencias_{}_n{}_c{}_s{}_d{}.ldi'.format(g['source'],g['max_entitites'],str(g['min_confidence']).replace('.','_'),g['min_support'],g['min_date']), 'w') as f:
+		with open('mixed-dependencies_{}_{}_n{}_c{}_s{}_d{}.ldi'.format(repository,g['source'],g['max_entitites'],str(g['min_confidence']).replace('.','_'),g['min_support'],g['min_date']), 'w') as f:
 			f.write('<?xml version=\"1.0\" ?>\n<ldi>\n')
 			for c in classes.values():
 				for e in c['entities']:
@@ -270,14 +282,14 @@ if __name__ == '__main__':
 	parser.add_argument("-e", "--evolutionary_dependencies", action="store_true", default=False)
 	args = parser.parse_args()
 
-	prefix_db = repository_prefixes[args.repository]['db']
-	prefix_xml = repository_prefixes[args.repository]['xml']
-
 	db_entities = load_entities_from_db()
 	classes = parse_xml()
 
 	if args.evolutionary_dependencies:
 		e_graphs = load_evolutionary_dependencies_from_db()
-		export_evolutionary_dependencies(db_entities, classes, e_graphs)
+		export_evolutionary_dependencies(db_entities, classes, e_graphs, args.repository)
 	else:
 		import_static_dependencies(db_entities, classes)
+
+	# print('org.apache.lucene.codecs.asserting.AssertingDocValuesFormat$AssertingDocValuesConsumer.in')
+	# print(to_java_convention('lucene/test-framework/src/java/org/apache/lucene/analysis/CannedBinaryTokenStream.f/CL/CannedBinaryTokenStream.c/CL/BinaryTermAttributeImpl.c/FE/bytes', args.repository))
