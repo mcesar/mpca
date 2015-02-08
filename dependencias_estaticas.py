@@ -39,14 +39,17 @@ def load_entities_from_db():
 def load_evolutionary_dependencies_from_db():
 	db = Db()
 	repository_id = constants.repository_map[args.repository]
+	types = 'CN,CM,FE,MT'
+	if args.coarse_grained:
+		types = 'CL,IN'
 	graphs_ed = {}
 	cursor = db.query("""select g.id, g.source, g.max_entities, g.min_confidence, 
 			g.min_support, g.min_date, g.types, de.entidade1, de.entidade2, e.caminho
 		from dependencias_evolucionarias de 
 			inner join grafos_de g on de.grafo = g.id 
 			inner join entidades e on de.entidade2 = e.id 
-		where g.repositorio = %s""", 
-		(repository_id,))
+		where g.repositorio = %s and g.types = %s""", 
+		(repository_id,types))
 	for (id, source, max_entitites, min_confidence, min_support, min_date, types, entity1, entity2, e2_path) in cursor:
 		if id not in graphs_ed:
 			graphs_ed[id] = {
