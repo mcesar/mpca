@@ -294,11 +294,13 @@ def export_evolutionary_dependencies(db_entities, classes, e_graphs, repository)
 				class_count += 1
 				if grain == 'coarse_grained':
 					f.write("    <element name=\"{}\">\n".format(c['name']))
+					added_dependencies = set()
 					for d in c['dependencies']:
 						has_prefix = [prefix for prefix in prefixes if d.startswith(prefix)]
-						if not has_prefix:
+						if not has_prefix or d in added_dependencies:
 							continue
 						f.write("        <uses provider=\"{}\" kind=\"static\"/>\n".format(d))
+						added_dependencies.add(d)
 					if c['name'] in db_entities:
 						entity_id = db_entities[c['name']]['id']
 						write_evol_deps_of_entity(f, entity_id, g)
