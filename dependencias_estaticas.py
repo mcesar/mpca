@@ -159,7 +159,7 @@ def parse_xml():
 								dependency_name = simplified_args(e4.text)
 								#if class_top_level_name(feature_name) != class_top_level_name(dependency_name):
 								feature_dict['dependencies'].append(dependency_name)
-								if e3.text != class_name(dependency_name):
+								if class_dict['name'] != class_name(dependency_name):
 									class_dict['dependencies'].add(class_name(dependency_name))
 	return classes
 
@@ -221,7 +221,7 @@ def import_static_dependencies(db_entities, classes, coarse_grained):
 
 	table_suffix = ""
 	if coarse_grained:
-		table_suffix = "coarse_grained"
+		table_suffix = "_coarse_grained"
 
 	if not args.dont_store:
 		db.delete("""
@@ -236,11 +236,14 @@ def import_static_dependencies(db_entities, classes, coarse_grained):
 			if c['name'] in db_entities:
 				caller_id = db_entities[c['name']]['id']
 				for d in c['dependencies']:
-					if d in db_entities:
+					if d in db_entities and not args.dont_store:
 						calle_id = db_entities[d]['id']
 						db.insert('insert into dependencias_coarse_grained values (%s,%s)', (caller_id, calle_id))
+				if args.verbose and not args.not_found:
+					print(c['name'])
 			else:
-				if args.verbose and args.not_found:
+				anonymous_inner_class = re.search('\$\d+$', c['name'])
+				if args.verbose and args.not_found and not anonymous_inner_class:
 					print(c['name'])
 		else:
 			for e in c['entities']:
