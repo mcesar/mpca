@@ -272,25 +272,40 @@ def import_static_dependencies(db_entities, classes, coarse_grained):
 	db.commit()
 	db.close()
 
-def export_evolutionary_dependencies(db_entities, classes, e_graphs,repository):
+def export_evolutionary_dependencies(db_entities, classes, e_graphs, repository):
 	for g in e_graphs.values():
 		if g['types'] == 'CL,IN':
-			continue
-		with open('mixed-dependencies_{}_{}_n{}_c{}_s{}_d{}.ldi'.format(repository,g['source'],g['max_entitites'],str(g['min_confidence']).replace('.','_'),g['min_support'],g['min_date']), 'w') as f:
+			grain = 'coarse_grained'
+		else:
+			grain = 'fine_grained'
+		file_name = 'mixed-dependencies_{}_{}_n{}_c{}_s{}_d{}_{}.ldi'.format(repository,g['source'],g['max_entitites'],str(g['min_confidence']).replace('.','_'),g['min_support'],g['min_date'],grain)
+		with open(file_name, 'w') as f:
 			f.write('<?xml version=\"1.0\" ?>\n<ldi>\n')
 			for c in classes.values():
-				for e in c['entities']:
-					f.write("    <element name=\"{}\">\n".format(e['name']))
-					for d in e['dependencies']:
+				if grain == 'coarse_grained':
+					f.write("    <element name=\"{}\">\n".format(c['name']))
+					for d in c['dependencies']:
 						f.write("        <uses provider=\"{}\" kind=\"static\"/>\n".format(d))
-					if e['name'] in db_entities:
-						entity_id = db_entities[e['name']]['id']
-						if entity_id in g['dependencies']:
-							evol_deps = g['dependencies'][entity_id]
-							for e_d in evol_deps:
-								f.write("        <uses provider=\"{}\" kind=\"evolutionary\"/>\n".format(e_d))
+					if c['name'] in db_entities:
+						entity_id = db_entities[c['name']]['id']
+						write_evol_deps_of_entity(f, entity_id, g)
 					f.write("    </element>\n")
+				else:
+					for e in c['entities']:
+						f.write("    <element name=\"{}\">\n".format(e['name']))
+						for d in e['dependencies']:
+							f.write("        <uses provider=\"{}\" kind=\"static\"/>\n".format(d))
+						if e['name'] in db_entities:
+							entity_id = db_entities[e['name']]['id']
+							write_evol_deps_of_entity(f, entity_id, g)
+						f.write("    </element>\n")
 			f.write('</ldi>')
+
+def write_evol_deps_of_entity(f, entity_id, g):
+	if entity_id in g['dependencies']:
+		evol_deps = g['dependencies'][entity_id]
+		for e_d in evol_deps:
+			f.write("        <uses provider=\"{}\" kind=\"evolutionary\"/>\n".format(e_d))
 
 if __name__ == '__main__':
 
