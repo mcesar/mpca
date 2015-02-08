@@ -30,10 +30,22 @@ def load_db_entities():
 			classes[class_id].append({'id': id, 'path': path, 'type': type})
 
 def load_dependencies():
-	print('Carregando dependências...')
+	print('Carregando dependências fine grained...')
 	cursor = db.query("""
 			select e1.id, e2.id, e2.caminho, e2.tipo
 			from dependencias d 
+				inner join entidades e1 on d.entidade1 = e1.id
+				inner join entidades e2 on d.entidade2 = e2.id
+			where e1.repositorio = %s""", 
+		(constants.repository_map[args.repository],))
+	for id1, id2, path, etype in cursor:
+		if int(id1) not in dependencies:
+			dependencies[int(id1)] = []
+		dependencies[int(id1)].append({'id': id2, 'path': path, 'type': etype})
+	print('Carregando dependências coarse grained...')
+	cursor = db.query("""
+			select e1.id, e2.id, e2.caminho, e2.tipo
+			from dependencias_coarse_grained d 
 				inner join entidades e1 on d.entidade1 = e1.id
 				inner join entidades e2 on d.entidade2 = e2.id
 			where e1.repositorio = %s""", 
@@ -84,10 +96,12 @@ def entities_clusters_map(file):
 		clusters = db.query(q, (file_name,))
 		for cluster_id, cluster_name, entity_id, entity_path, entity_type in clusters:
 			if 'coarse_grained' in file_name:
-				for e in classes[entity_id]:
-					method_name = e['type'] + '_' + strip_args(e['path'].split('/').pop())
-					entity_full_name = "{}.{}".format(simplified(entity_path), method_name)
-					add_cluster_to_map(entity_full_name, cluster_name, entities_clusters_map, e)
+				e = {'id': entity_id, 'path': entity_path, 'type': entity_type}
+				add_cluster_to_map(simplified(entity_path), cluster_name, entities_clusters_map, e)				
+				# for e in classes[entity_id]:
+				# 	method_name = e['type'] + '_' + strip_args(e['path'].split('/').pop())
+				# 	entity_full_name = "{}.{}".format(simplified(entity_path), method_name)
+				# 	add_cluster_to_map(entity_full_name, cluster_name, entities_clusters_map, e)
 			else:
 				entity_full_name = "{}_{}".format(entity_type, simplified(entity_path))
 				e = {'id': entity_id, 'path': entity_path, 'type': entity_type}
@@ -120,12 +134,19 @@ def write_xmls():
 				func = coarse_grained_dependency_name
 			else:
 				func = lambda d : d[1] + '_' + d[0]
-			for entity_full_name, e in e_c_m.items():
-				xml_write_element(xml, "{}.{}".format(e[0], entity_full_name), 
-					[ d[0] for d in entity_dependencies_with_cluster(e[1]['id'], func, e_c_m) ])
+			for entity_full_name, item in e_c_m.items():
+				cluster_name - item[0]
+				e = item[1]
+				xml_write_element(xml, "{}.{}".format(cluster_name, entity_full_name), 
+					[ d[0] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) ])
 				if xml_dep is not None: 
-					xml_write_element(xml_dep, strip_args(to_java(e[1]['path']) + '_' + e[1]['type']), 
-						[ d[2] + '_' + d[1] for d in entity_dependencies_with_cluster(e[1]['id'], func, e_c_m) ])
+					if 'coarse_grained' in file_name:
+						xml_write_element(xml_dep, strip_args(to_java(e['path'])), 
+							[ d[2] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) ])
+					else:
+						xml_write_element(xml_dep, strip_args(to_java(e['path']) + '_' + e['type']), 
+							[ d[2] + '_' + d[1] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) ])
+
 			xml.write("</ldi>")
 			if xml_dep is not None: 
 				xml_dep.write("</ldi>")
