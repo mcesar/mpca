@@ -6,6 +6,7 @@ import re
 from glob import glob
 from db import Db
 import constants
+import util
 import dependencias_estaticas as simplifier
 
 parser = argparse.ArgumentParser()
@@ -120,6 +121,7 @@ def write_xmls():
 		file_name = file['name']
 		print(file['path'])
 		e_c_m = entities_clusters_map(file)
+		prefixes = constants.repository_prefixes[args.repository]['xml']
 		# writes down the lattix xmls
 		with open(file['path'].replace('.dot', '.ldi'), 'w') as xml:
 			if file_name.endswith('.mdgL1.dot') or file_name.endswith('.mdgAllLevels.dot'):
@@ -135,14 +137,16 @@ def write_xmls():
 			else:
 				func = lambda d : d[1] + '_' + d[0]
 			for entity_full_name, item in e_c_m.items():
-				cluster_name - item[0]
+				cluster_name = item[0]
 				e = item[1]
+				if not util.has_prefix(to_java(e['path']), prefixes):
+					continue
 				xml_write_element(xml, "{}.{}".format(cluster_name, entity_full_name), 
 					[ d[0] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) ])
 				if xml_dep is not None: 
 					if 'coarse_grained' in file_name:
 						xml_write_element(xml_dep, strip_args(to_java(e['path'])), 
-							[ d[2] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) ])
+							[ d[2] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) if util.has_prefix(d[2], prefixes) ])
 					else:
 						xml_write_element(xml_dep, strip_args(to_java(e['path']) + '_' + e['type']), 
 							[ d[2] + '_' + d[1] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) ])
