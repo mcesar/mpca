@@ -109,6 +109,7 @@ def to_java_convention(path, repository, strip_generics=False):
 	return result
 
 def parse_xml():
+	"""Parse XML from DependencyFinder"""
 	root = etree.parse(args.file).getroot()
 	prefixes = repository_prefixes[args.repository]['xml']
 	classes = {}
@@ -122,7 +123,7 @@ def parse_xml():
 				is_enum = False
 				for e3 in e2:
 					if e3.tag == 'name':
-						class_dict = {'name': e3.text, 'entities': [], 'superclasses': []}
+						class_dict = {'name': e3.text, 'entities': [], 'superclasses': [], 'dependencies': set()}
 						classes[e3.text] = class_dict
 					if e3.tag == 'outbound' and e3.attrib['type'] == 'class' and e3.attrib['confirmed'] == 'no' and e3.text == 'java.lang.Enum':
 						is_enum = True
@@ -158,6 +159,8 @@ def parse_xml():
 								dependency_name = simplified_args(e4.text)
 								#if class_top_level_name(feature_name) != class_top_level_name(dependency_name):
 								feature_dict['dependencies'].append(dependency_name)
+								if e3.text != class_name(dependency_name):
+									class_dict['dependencies'].add(class_name(dependency_name))
 	return classes
 
 def class_name(feature_name):
@@ -213,40 +216,55 @@ def find_id_in_class_or_superclasses(feature_name, classes, db_entities, e):
 		return None
 	return db_entities[feature_name]['id']
 
-def import_static_dependencies(db_entities, classes):
+def import_static_dependencies(db_entities, classes, coarse_grained):
 	db = Db()
+
+	table_suffix = ""
+	if coarse_grained:
+		table_suffix = "coarse_grained"
 
 	if not args.dont_store:
 		db.delete("""
-			delete from dependencias 
-			where entidade1 in (select id from entidades where repositorio=%s)""",
+			delete from dependencias{} 
+			where entidade1 in (select id from entidades where repositorio=%s)""".format(table_suffix),
 			(constants.repository_map[args.repository],))
 
 	dep_map = {}
 
 	for c in classes.values():
-		for e in c['entities']:
-			if e['name'] in db_entities:
-				caller_id = db_entities[e['name']]['id']
-				for d in e['dependencies']:
-					calle_id = find_id_in_class_or_superclasses(d, classes, db_entities, e)
-					if calle_id:
-						#print(db_entities[e['name']]['id'], db_entities[d]['id'])
-						if not args.dont_store and '{}-{}'.format(caller_id, calle_id) not in dep_map:
-							db.insert('insert into dependencias values (%s,%s)', (caller_id, calle_id))
-							dep_map['{}-{}'.format(caller_id, calle_id)] = True
-					#else:
-					#	if args.verbose: print(d)
-				if args.verbose and not args.not_found:
-					print(e['name'])
+		if coarse_grained:
+			if c['name'] in db_entities:
+				caller_id = db_entities[c['name']]['id']
+				for d in c['dependencies']:
+					if d in db_entities:
+						calle_id = db_entities[d]['id']
+						db.insert('insert into dependencias_coarse_grained values (%s,%s)', (caller_id, calle_id))
 			else:
-				# ignore entities not supported by historage
-				anonymous_inner_class = re.search('\$\d+\.', e['name'])
-				compiler_generated_element = re.search('access\$\d+\(', e['name']) or re.search('\.this\$\d+', e['name'])
-				default_constructor = is_default_constructor(e['name'])
-				# prints feature names not found in db
-				if args.verbose and args.not_found and not anonymous_inner_class and not compiler_generated_element and not default_constructor:
-				 	print(e['name'])
+				if args.verbose and args.not_found:
+					print(c['name'])
+		else:
+			for e in c['entities']:
+				if e['name'] in db_entities:
+					caller_id = db_entities[e['name']]['id']
+					for d in e['dependencies']:
+						calle_id = find_id_in_class_or_superclasses(d, classes, db_entities, e)
+						if calle_id:
+							#print(db_entities[e['name']]['id'], db_entities[d]['id'])
+							if not args.dont_store and '{}-{}'.format(caller_id, calle_id) not in dep_map:
+								db.insert('insert into dependencias values (%s,%s)', (caller_id, calle_id))
+								dep_map['{}-{}'.format(caller_id, calle_id)] = True
+						#else:
+						#	if args.verbose: print(d)
+					if args.verbose and not args.not_found:
+						print(e['name'])
+				else:
+					# ignore entities not supported by historage
+					anonymous_inner_class = re.search('\$\d+\.', e['name'])
+					compiler_generated_element = re.search('access\$\d+\(', e['name']) or re.search('\.this\$\d+', e['name'])
+					default_constructor = is_default_constructor(e['name'])
+					# prints feature names not found in db
+					if args.verbose and args.not_found and not anonymous_inner_class and not compiler_generated_element and not default_constructor:
+					 	print(e['name'])
 
 	db.commit()
 	db.close()
@@ -280,6 +298,7 @@ if __name__ == '__main__':
 	parser.add_argument("-v", "--verbose", action="store_true")
 	parser.add_argument("-n", "--not_found", action="store_true")
 	parser.add_argument("-e", "--evolutionary_dependencies", action="store_true", default=False)
+	parser.add_argument("-c", "--coarse_grained", action="store_true", default=False)
 	args = parser.parse_args()
 
 	db_entities = load_entities_from_db()
@@ -289,7 +308,7 @@ if __name__ == '__main__':
 		e_graphs = load_evolutionary_dependencies_from_db()
 		export_evolutionary_dependencies(db_entities, classes, e_graphs, args.repository)
 	else:
-		import_static_dependencies(db_entities, classes)
+		import_static_dependencies(db_entities, classes, args.coarse_grained)
 
 	# print('org.apache.lucene.codecs.asserting.AssertingDocValuesFormat$AssertingDocValuesConsumer.in')
 	# print(to_java_convention('lucene/test-framework/src/java/org/apache/lucene/analysis/CannedBinaryTokenStream.f/CL/CannedBinaryTokenStream.c/CL/BinaryTermAttributeImpl.c/FE/bytes', args.repository))
