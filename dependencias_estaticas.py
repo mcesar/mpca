@@ -282,12 +282,22 @@ def export_evolutionary_dependencies(db_entities, classes, e_graphs, repository)
 		else:
 			grain = 'fine_grained'
 		file_name = 'mixed-dependencies_{}_{}_n{}_c{}_s{}_d{}_{}.ldi'.format(repository,g['source'],g['max_entitites'],str(g['min_confidence']).replace('.','_'),g['min_support'],g['min_date'],grain)
+		prefixes = repository_prefixes[args.repository]['xml']
 		with open(file_name, 'w') as f:
+			print(file_name)
 			f.write('<?xml version=\"1.0\" ?>\n<ldi>\n')
+			class_count = 0
 			for c in classes.values():
+				has_prefix = [prefix for prefix in prefixes if c['name'].startswith(prefix)]
+				if not has_prefix:
+					continue
+				class_count += 1
 				if grain == 'coarse_grained':
 					f.write("    <element name=\"{}\">\n".format(c['name']))
 					for d in c['dependencies']:
+						has_prefix = [prefix for prefix in prefixes if d.startswith(prefix)]
+						if not has_prefix:
+							continue
 						f.write("        <uses provider=\"{}\" kind=\"static\"/>\n".format(d))
 					if c['name'] in db_entities:
 						entity_id = db_entities[c['name']]['id']
@@ -303,11 +313,16 @@ def export_evolutionary_dependencies(db_entities, classes, e_graphs, repository)
 							write_evol_deps_of_entity(f, entity_id, g)
 						f.write("    </element>\n")
 			f.write('</ldi>')
+			print(class_count)
 
 def write_evol_deps_of_entity(f, entity_id, g):
+	prefixes = repository_prefixes[args.repository]['xml']
 	if entity_id in g['dependencies']:
 		evol_deps = g['dependencies'][entity_id]
 		for e_d in evol_deps:
+			has_prefix = [prefix for prefix in prefixes if e_d.startswith(prefix)]
+			if not has_prefix:
+				continue
 			f.write("        <uses provider=\"{}\" kind=\"evolutionary\"/>\n".format(e_d))
 
 if __name__ == '__main__':
