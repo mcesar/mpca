@@ -1,6 +1,7 @@
 #!/usr/local/bin/python3
 
 import argparse
+import xml.etree.ElementTree as etree
 import os
 import re
 from glob import glob
@@ -31,7 +32,7 @@ def load_db_entities():
 			classes[id] = []
 		else:
 			classes[class_id].append({'id': id, 'path': path, 'type': type})
-		java_to_id[to_java()] = {'id': id, 'path': path, 'type': type}
+		java_to_id[to_java(path)] = {'id': id, 'path': path, 'type': type}
 
 def load_dependencies():
 	print('Carregando dependências fine grained...')
@@ -120,16 +121,18 @@ def add_cluster_to_map(entity_full_name, cluster_name, entities_clusters_map, e)
 		e_c[0] = cluster_name + '.' + e_c[0]
 
 def load_evolutionary_dependencies(file_name):
-	if file_name = '': return {}
+	if file_name == '': return {}
 	root = etree.parse(file_name).getroot()
 	result = {}
 	for e1 in root:
 		class_name = e1.attrib['name']
+		if class_name not in java_to_id:
+			continue
 		id = java_to_id[class_name]['id']
 		result[id] = []
 		for e2 in e1:
-			if e2.attrib['kind'] == 'evolutionary':
-				result[id].add(java_to_id(e2.attrib['provider']))
+			if e2.attrib['kind'] == 'evolutionary' and e2.attrib['provider'] in java_to_id:
+				result[id].append(java_to_id[e2.attrib['provider']])
 	return result
 
 def write_xmls(evol_deps):
@@ -139,7 +142,10 @@ def write_xmls(evol_deps):
 		e_c_m = entities_clusters_map(file)
 		prefixes = constants.repository_prefixes[args.repository]['xml']
 		# writes down the lattix xmls
-		with open(file['path'].replace('.dot', '.ldi'), 'w') as xml:
+		ldi_name = file['path'].replace('.dot', '.ldi')
+		if args.evolutionary_dependencies_file:
+			ldi_name = ldi_name.replace('.ldi', '.mixed.ldi')
+		with open(ldi_name, 'w') as xml:
 			if file_name.endswith('.mdgL1.dot') or file_name.endswith('.mdgAllLevels.dot'):
 				dependencies_file_name = file['path'].replace('.mdgL1.dot', '.dependencies.ldi')
 				dependencies_file_name = dependencies_file_name.replace('.mdgAllLevels.dot', '.dependencies.ldi')
@@ -154,8 +160,8 @@ def write_xmls(evol_deps):
 				func = lambda d : d[1] + '_' + d[0]
 			for entity_full_name, item in e_c_m.items():
 				cluster_name = item[0]
-				java_name = to_java(e['path'])
 				e = item[1]
+				java_name = to_java(e['path'])
 				if not util.has_prefix(java_name, prefixes):
 					continue
 				xml_write_element(xml, "{}.{}".format(cluster_name, entity_full_name), 
@@ -163,13 +169,9 @@ def write_xmls(evol_deps):
 					[ d[0] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m, evol_deps) ])
 				if xml_dep is not None: 
 					if 'coarse_grained' in file_name:
-						xml_write_element(xml_dep, strip_args(java_name), 
-							[ d[2] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) if util.has_prefix(d[2], prefixes) ], 
-							[ d[2] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m, evol_deps) if util.has_prefix(d[2], prefixes) ])
+						xml_write_element(xml_dep, strip_args(java_name), [ d[2] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) if util.has_prefix(d[2], prefixes) ], [ d[2] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m, evol_deps) if util.has_prefix(d[2], prefixes) ])
 					else:
-						xml_write_element(xml_dep, strip_args(java_name) + '_' + e['type']), 
-							[ d[2] + '_' + d[1] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) ], 
-							[ d[2] + '_' + d[1] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m, evol_deps) ])
+						xml_write_element(xml_dep, strip_args(java_name) + '_' + e['type'], [ d[2] + '_' + d[1] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) ], [ d[2] + '_' + d[1] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m, evol_deps) ])
 
 			xml.write("</ldi>")
 			if xml_dep is not None: 
@@ -193,14 +195,13 @@ def entity_dependencies(id, dep=None):
 	if dep is None:
 		dep = dependencies
 	if int(id) not in dep: return []
-	return [ (d['path'], d['type']) for d in dependencies[int(id)] ]
+	return [ (d['path'], d['type']) for d in dep[int(id)] ]
 
 def entity_dependencies_simplified(id, dep=None):
 	return [ (strip_args(simplified(d[0])), d[1], strip_args(to_java(d[0]))) for d in entity_dependencies(id, dep)]
 
 def entity_dependencies_with_cluster(id, func, entities_clusters_map, dep=None):
-	cluster_name = entities_clusters_map[func(d)][0]
-	return [("{}.{}".format(cluster_name, func(d)), d[1], d[2]) 
+	return [("{}.{}".format(entities_clusters_map[func(d)][0], func(d)), d[1], d[2]) 
 				for d in entity_dependencies_simplified(id, dep) if func(d) in entities_clusters_map]
 
 def xml_write_element(xml, name, e_d, e_ed):

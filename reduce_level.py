@@ -10,11 +10,11 @@ def reduce_level(str, n, s, fix):
 		result = result.partition('.src.main.')[0]
 		result = result.partition('.src.test.')[0]
 	skipped = ''
-	for x in xrange(0, s):
+	for x in range(0, s):
 		p = result.rpartition('.')
 		skipped = '.' + p[2] + skipped
 		result = p[0]
-	for x in xrange(0, n):
+	for x in range(0, n):
 		result = result.rpartition('.')[0]
 	return result + skipped
 
@@ -45,16 +45,16 @@ if __name__ == '__main__':
 		for e2 in e1:
 			if args.exclude and args.exclude in e2.attrib['provider']:
 				continue
-		 	provider = reduce_level(e2.attrib['provider'], args.levels, args.skip, args.fix_geronimo)
-		 	if 'kind' in e2.attrib:
-		 		kind = e2.attrib['kind']
-		 	else:
-		 		kind = 'static'
-		 	if kind in ignore:
-		 		continue
-		 	key = provider + '|' + kind
-		 	if key not in elements[element] and element != provider:
-		 		elements[element][key] = {'name': provider, 'kind': kind}
+			provider = reduce_level(e2.attrib['provider'], args.levels, args.skip, args.fix_geronimo)
+			if 'kind' in e2.attrib:
+				kind = e2.attrib['kind']
+			else:
+				kind = 'static'
+			if kind in ignore:
+				continue
+			key = provider + '|' + kind
+			if key not in elements[element] and element != provider:
+				elements[element][key] = {'name': provider, 'kind': kind}
 
 	print("<?xml version=\"1.0\" ?>\n<ldi>\n")
 	for e, providers in elements.items():
