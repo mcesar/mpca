@@ -9,7 +9,6 @@ def draw_rectangle(x, y, width, height):
 		fill = 'fill="black"'
 	print('	<rect width="{}" height="{}" x="{}" y="{}" {} />'.format(width,height,y,x,fill));
 
-
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
 	parser.add_argument("-f", "--file")
@@ -46,14 +45,3 @@ if __name__ == '__main__':
 		draw_rectangle(element[0], element[1], 1,1)
 	print("</g>")
 	print("</svg>")
-
-	# private static void printRectangle(PrintStream printStream, int x, int y,
-	# 		int width, int height) {
-	# 	// coordinates in SVG are inverse from the matrix coordinates
-	# 	printStream.println("    <rect width=\"" + width + "\"  " +
-	# 									"height=\"" + height + "\" " +
-	# 									"x=\"" + y + "\" " +
-	# 									"y=\"" + x + "\" " +
-	# 									(width == 1 && height == 1 ? " fill=\"black\" " : "") + "/>");
-
-	# }
