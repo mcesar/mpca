@@ -164,7 +164,7 @@ def write_xmls(evol_deps):
 				java_name = to_java(e['path'])
 				if not util.has_prefix(java_name, prefixes):
 					continue
-				xml_write_element(xml, "{}.{}".format(cluster_name, entity_full_name), 
+				xml_write_element(xml, "{}.{}".format(cluster_name, strip_args(entity_full_name)), 
 					[ d[0] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) ], 
 					[ d[0] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m, evol_deps) ])
 				if xml_dep is not None: 
