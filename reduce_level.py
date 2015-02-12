@@ -4,6 +4,34 @@ import sys
 import argparse
 import xml.etree.ElementTree as etree
 
+def reduce(f, levels=1, skip=0, ignore=[], exclude='', fix_geronimo=False):
+	elements = {}
+	sizes = {}
+	root = etree.parse(f).getroot()
+	for e1 in root:
+		if exclude and exclude in e1.attrib['name']:
+			continue
+		element = reduce_level(e1.attrib['name'], levels, skip, fix_geronimo)
+		if element not in elements:
+		 	elements[element] = {}
+		 	sizes[element] = 1
+		else:
+			sizes[element] += 1
+		for e2 in e1:
+			if exclude and exclude in e2.attrib['provider']:
+				continue
+			provider = reduce_level(e2.attrib['provider'], levels, skip, fix_geronimo)
+			if 'kind' in e2.attrib:
+				kind = e2.attrib['kind']
+			else:
+				kind = 'static'
+			if kind in ignore:
+				continue
+			key = provider + '|' + kind
+			if key not in elements[element] and element != provider:
+				elements[element][key] = {'name': provider, 'kind': kind}
+	return (elements, sizes)
+
 def reduce_level(str, n, s, fix):
 	result = str
 	if fix:
@@ -29,32 +57,13 @@ if __name__ == '__main__':
 	parser.add_argument("-x", "--fix_geronimo", action="store_true", default=False)
 	args = parser.parse_args()
 
-	ignore = args.ignore.split(',')
-
 	f = args.file
 	if len(f) == 0:
 		f = sys.stdin
-	root = etree.parse(f).getroot()
-	elements = {}
-	for e1 in root:
-		if args.exclude and args.exclude in e1.attrib['name']:
-			continue
-		element = reduce_level(e1.attrib['name'], args.levels, args.skip, args.fix_geronimo)
-		if element not in elements:
-		 	elements[element] = {}
-		for e2 in e1:
-			if args.exclude and args.exclude in e2.attrib['provider']:
-				continue
-			provider = reduce_level(e2.attrib['provider'], args.levels, args.skip, args.fix_geronimo)
-			if 'kind' in e2.attrib:
-				kind = e2.attrib['kind']
-			else:
-				kind = 'static'
-			if kind in ignore:
-				continue
-			key = provider + '|' + kind
-			if key not in elements[element] and element != provider:
-				elements[element][key] = {'name': provider, 'kind': kind}
+
+	ignore = args.ignore.split(',')
+
+	(elements,_) = reduce(f, args.levels, args.skip, ignore, args.exclude, args.fix_geronimo)
 
 	print("<?xml version=\"1.0\" ?>\n<ldi>\n")
 	for e, providers in elements.items():
