@@ -63,7 +63,7 @@ if __name__ == '__main__':
 
 	ignore = args.ignore.split(',')
 
-	(elements,_) = reduce(f, args.levels, args.skip, ignore, args.exclude, args.fix_geronimo)
+	elements, _ = reduce(f, args.levels, args.skip, ignore, args.exclude, args.fix_geronimo)
 
 	print("<?xml version=\"1.0\" ?>\n<ldi>\n")
 	for e, providers in elements.items():
