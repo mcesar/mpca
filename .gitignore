@@ -1,0 +1,8 @@
+.DS_Store
+*.pyc
+*.svg
+*.zip
+*.class
+node_modules
+npm-debug.log
+__pycache__
