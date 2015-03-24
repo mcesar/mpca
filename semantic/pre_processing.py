@@ -1,11 +1,20 @@
 #!/usr/local/bin/python3
 
 import sys
-import tokenize
-import plyj.parser as plyj
+import nltk
+from nltk.corpus import stopwords
 
-parser = plyj.Parser()
+stop = stopwords.words('english')
 
-tree = parser.parse_file(sys.stdin)
+porter = nltk.PorterStemmer()
+# [porter.stem(t) for t in tokens]
 
-print(tree)
+processed = set()
+
+for token in sys.stdin:
+	t = token.strip()
+	if t not in stop:
+		t = porter.stem(t)
+		if t not in processed and len(t) > 1 and not t.isdigit():
+			processed.add(t)
+			print(t)

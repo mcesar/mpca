@@ -3,6 +3,9 @@
 *.svg
 *.zip
 *.class
+*.out
 node_modules
 npm-debug.log
 __pycache__
+lextab.py
+parsetab.py

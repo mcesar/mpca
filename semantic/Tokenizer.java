@@ -3,19 +3,21 @@ import java.util.*;
 
 public class Tokenizer {
 
-	private static String[] reservedWords = { "abstract","continue","for","new","switch",
-		"assert","default","goto","package","synchronized",
-		"boolean","do","if","private","this",
-		"break","double","implements","protected","throw",
-		"byte","else","import","public","throws",
-		"case","enum","instanceof","return","transient",
-		"catch","extends","int","short","try",
-		"char","final","interface","static","void",
-		"class","finally","long","strictfp","volatile",
-		"const","float","native","super","while" };
+	private static String[] reservedWords = { 
+		"abstract", "continue", "for", "new", "switch",
+		"assert", "default", "goto", "package", "synchronized",
+		"boolean", "do", "if", "private", "this",
+		"break", "double", "implements", "protected", "throw",
+		"byte", "else", "import", "public", "throws",
+		"case", "enum", "instanceof", "return", "transient",
+		"catch", "extends", "int", "short", "try",
+		"char", "final", "interface", "static", "void",
+		"class", "finally", "long", "strictfp", "volatile",
+		"const", "float", "native", "super", "while" };
 
 	private static String[] stopWords = {
-		"apache", "exception", "iterator", "false", "get", "java", "javax", "listener", "null", "object", "set", "string", "throwable", "true", "util"
+		"apache", "exception", "iterator", "false", "get", "java", "javax", 
+		"listener", "null", "object", "set", "string", "throwable", "true", "util"
 	};
 
 	public static void main(String[] args) throws IOException {
@@ -36,7 +38,9 @@ public class Tokenizer {
 				}
 			}
 		}
-		System.out.println(tokens);
+		for (String s : tokens) {
+			System.out.println(s);
+		}
 	}
 
 	private static String splitCamelCase(String s) {
