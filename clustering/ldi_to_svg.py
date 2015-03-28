@@ -42,12 +42,14 @@ if __name__ == '__main__':
 	print('<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">')
 	print('<svg width="{}px" height="{}px" version="1.1" xmlns="http://www.w3.org/2000/svg">'.format(len(indexes), len(indexes)))
 	print('<g fill="none" stroke-width="{}" >'.format(args.dot_size))
+	processed = set()
 	for element in matrix:
 		if element[2] != 'static':
 			continue
 		draw_rectangle(element[0], element[1], 1, 1, 'black')
+		processed.add((element[0], element[1]))
 	for element in matrix:
-		if element[2] != 'evolutionary':
+		if element[2] != 'evolutionary' or (element[0], element[1]) in processed:
 			continue
 		draw_rectangle(element[0], element[1], 1, 1, 'red')
 	print("</g>")
