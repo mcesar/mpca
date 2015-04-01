@@ -12,7 +12,7 @@ porter = nltk.PorterStemmer()
 processed = set()
 
 for token in sys.stdin:
-	t = token.strip()
+	t = token.lower().strip()
 	if t not in stop:
 		t = porter.stem(t)
 		if t not in processed and len(t) > 1 and not t.isdigit():
