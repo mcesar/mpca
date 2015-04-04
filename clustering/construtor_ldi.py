@@ -7,7 +7,8 @@ import re
 from glob import glob
 from db import Db
 import constants
-import util
+import string_utils as stringu
+import filesystem as filesystem
 import dependencias_estaticas as simplifier
 
 parser = argparse.ArgumentParser()
@@ -62,10 +63,9 @@ def load_dependencies():
 
 def clusters_files():
 	""" recover the list of files containing the clusters, sorted by ascending level """
-	files = [y for x in os.walk('.') for y in glob(os.path.join(x[0], '*.mdgL*.dot'))]
 	clusters_files = []
 	clusters_dict = {}
-	for file in files:
+	for file in filesystem.find('.', '*.mdgL*.dot'):
 		file_name = file.rpartition('/')[2]
 		if ('fine_grained' in file or 'coarse_grained' in file) and file_name.startswith(args.repository):
 			if args.all_levels:
@@ -162,14 +162,14 @@ def write_xmls(evol_deps):
 				cluster_name = item[0]
 				e = item[1]
 				java_name = to_java(e['path'])
-				if not util.has_prefix(java_name, prefixes):
+				if not stringu.has_prefix(java_name, prefixes):
 					continue
 				xml_write_element(xml, "{}.{}".format(cluster_name, strip_args(entity_full_name)), 
 					[ d[0] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) ], 
 					[ d[0] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m, evol_deps) ])
 				if xml_dep is not None: 
 					if 'coarse_grained' in file_name:
-						xml_write_element(xml_dep, strip_args(java_name), [ d[2] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) if util.has_prefix(d[2], prefixes) ], [ d[2] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m, evol_deps) if util.has_prefix(d[2], prefixes) ])
+						xml_write_element(xml_dep, strip_args(java_name), [ d[2] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) if stringu.has_prefix(d[2], prefixes) ], [ d[2] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m, evol_deps) if stringu.has_prefix(d[2], prefixes) ])
 					else:
 						xml_write_element(xml_dep, strip_args(java_name) + '_' + e['type'], [ d[2] + '_' + d[1] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m) ], [ d[2] + '_' + d[1] for d in entity_dependencies_with_cluster(e['id'], func, e_c_m, evol_deps) ])
 

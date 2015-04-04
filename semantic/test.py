@@ -3,7 +3,7 @@
 import logging
 from gensim import corpora, models, similarities
 
-logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
+logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.ERROR)
 
 documents = ["Human machine interface for lab abc computer applications",
               "A survey of user opinion of computer system response time",
@@ -36,12 +36,25 @@ corpus = [dictionary.doc2bow(text) for text in texts]
 tfidf = models.TfidfModel(corpus) # step 1 -- initialize a model
 corpus_tfidf = tfidf[corpus]
 
-lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=2)
+lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=5)
 corpus_lsi = lsi[corpus_tfidf] # create a double wrapper over the original corpus: bow->tfidf->fold-in-lsi
 
 index = similarities.MatrixSimilarity(corpus_lsi) # transform corpus to LSI space and index it
 
-sims = index[lsi[corpus[0]]]
-sims = sorted(enumerate(sims), key=lambda item: -item[1])
+for row in index:
+  first = True
+  for col in row:
+    if not first:
+      print(",",end="")
+    first = False
+    print(col, end="")
+  print("")
 
-print(sims)
+# sims = index[lsi[corpus[0]]]
+# sims = sorted(enumerate(sims), key=lambda item: -item[1])
+
+# print(sims)
+
+# testar
+# from sklearn.metrics.pairwise import cosine_similarity
+# dist = 1 - cosine_similarity(tfidf_matrix)
