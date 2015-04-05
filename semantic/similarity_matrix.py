@@ -12,12 +12,12 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
 parser = argparse.ArgumentParser()
 parser.add_argument("-s", "--source", default=".")
 parser.add_argument("-d", "--destination", default=".")
-parser.add_argument("-g", "--granularuty", default="coarse")
+parser.add_argument("-g", "--granularity", default="coarse")
 args = parser.parse_args()
 
 filepaths = filesystem.find(args.source,'*')
 
-if args.granularuty == 'coarse':
+if args.granularity == 'coarse':
 	entity_types = ['CL','IN']
 else:
 	entity_types = ['MT','FE','CN']
@@ -49,17 +49,22 @@ texts = [[word for word in text if word not in tokens_once]
 
 dictionary = corpora.Dictionary(texts)
 corpus = [dictionary.doc2bow(text) for text in texts]
+
 tfidf = models.TfidfModel(corpus)
 corpus_tfidf = tfidf[corpus]
 # TODO: calibrate num_topics (no artigo do Kuhn se fala em 20 a 50)
-lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=20) 
+lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=50) 
 corpus_lsi = lsi[corpus_tfidf]
 index = similarities.MatrixSimilarity(corpus_lsi)
-for row in index:
-  first = True
-  for col in row:
-    if not first:
-      print(",",end="")
-    first = False
-    print(col, end="")
-  print("")
+
+if args.destination == '.':
+	for row in index:
+	  first = True
+	  for col in row:
+	    if not first:
+	      print(",",end="")
+	    first = False
+	    print(col, end="")
+	  print("")
+else:
+	index.save(args.destination)
