@@ -10,6 +10,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-s", "--source", default=".")
 parser.add_argument("-p", "--prefix", default="corpus")
 parser.add_argument("-g", "--granularity", default="coarse")
+parser.add_argument("-m,", "--print_modules_count", default=False, action="store_true")
 args = parser.parse_args()
 
 filepaths = filesystem.find(args.source,'*')
@@ -34,6 +35,10 @@ for path in filepaths:
 	if module_path not in modules:
 		modules[module_path] = []
 	modules[module_path].append(path)
+
+if args.print_modules_count:
+	print(len(modules))
+	exit()
 
 path_index = {}
 i = 0
