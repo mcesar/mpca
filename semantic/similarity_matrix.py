@@ -11,8 +11,9 @@ logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=lo
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-s", "--source", default=".")
-parser.add_argument("-d", "--destination", default=".")
+parser.add_argument("-d", "--destination", default="cout")
 parser.add_argument("-g", "--granularity", default="coarse")
+parser.add_argument("-p", "--prefix", default="corpus")
 args = parser.parse_args()
 
 filepaths = filesystem.find(args.source,'*')
@@ -55,9 +56,9 @@ corpus_tfidf = tfidf[corpus]
 # TODO: calibrate num_topics (no artigo do Kuhn se fala em 20 a 50)
 lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=50) 
 corpus_lsi = lsi[corpus_tfidf]
-index = similarities.MatrixSimilarity(corpus_lsi)
+index = similarities.Similarity(args.prefix, corpus_lsi, 50)
 
-if args.destination == '.':
+if args.destination == 'cout':
 	for row in index:
 	  first = True
 	  for col in row:
@@ -67,4 +68,8 @@ if args.destination == '.':
 	    print(col, end="")
 	  print("")
 else:
-	index.save(args.destination)
+	f = open(os.path.join(args.destination, args.prefix + ".index"), 'w')
+	for file_name in entities_paths:
+		f.write(file_name + "\n")
+	f.close()
+	index.save(os.path.join(args.destination, args.prefix + ".sm"))
