@@ -8,9 +8,11 @@ from gensim import similarities
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-s", "--source", default=".")
+parser.add_argument("-i", "--index_source", default=".")
 parser.add_argument("-p", "--prefix", default="corpus")
 parser.add_argument("-g", "--granularity", default="coarse")
 parser.add_argument("-m,", "--print_modules_count", default=False, action="store_true")
+parser.add_argument("-v,", "--verbose", default=False, action="store_true")
 args = parser.parse_args()
 
 filepaths = filesystem.find(args.source,'*')
@@ -42,11 +44,12 @@ if args.print_modules_count:
 
 path_index = {}
 i = 0
-for path in open(args.prefix + '.index'):
+for path in open(os.path.join(args.index_source, args.prefix + '.index')):
 	path_index[path.strip()] = i
 	i = i + 1
 
-index = similarities.Similarity.load(args.prefix + '.sm')
+index = similarities.Similarity.load(
+	os.path.join(args.index_source, args.prefix + '.sm'))
 
 # index_arr = []
 # for row in index:
@@ -57,17 +60,22 @@ index = similarities.Similarity.load(args.prefix + '.sm')
 # 	 	row_arr.append(col)
 
 sum_m = 0
+count = 0
 for (module,paths) in modules.items():
+	n = len(paths) 
+	if n <= 1:
+		continue
 	sum = 0
-	for path1 in paths:
+	for i, path1 in enumerate(paths):
 		v = index.similarity_by_id(path_index[path1])
-		for path2 in paths:
-			if path1 == path2:
+		for j, path2 in enumerate(paths):
+			if j >= i or path1 == path2:
 				continue
 			sum += v[path_index[path2]]
-	CCM = sum/(len(paths)**2) #Conceptual Coesion of Module
+	CCM = sum/(n*(n-1)/2) #Conceptual Coesion of Module
 	if CCM < 0: CCM = 0
-	print(module, CCM)
+	if args.verbose:
+		print(module, CCM)
 	sum_m += CCM
-
-print(sum_m/len(modules))
+	count += 1
+print(sum_m/count)
