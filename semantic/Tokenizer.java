@@ -23,7 +23,13 @@ public class Tokenizer {
 	public static void main(String[] args) throws IOException {
 		Reader r = new BufferedReader(new InputStreamReader(System.in));
 		StreamTokenizer st = new StreamTokenizer(r);
-		st.slashSlashComments(true);
+		if (args.length > 0 && args[0].equals("-c")) {
+			st.slashStarComments(true);
+			st.slashSlashComments(true);
+		} else {
+			st.slashStarComments(false);
+			st.slashSlashComments(false);			
+		}
 		Set<String> tokens = new TreeSet<String>();
 		while (st.nextToken() != StreamTokenizer.TT_EOF) {
 			if (st.ttype == StreamTokenizer.TT_WORD) {
