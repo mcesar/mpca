@@ -15,6 +15,7 @@ parser.add_argument("-m", "--print_modules_count", default=False, action="store_
 parser.add_argument("-v", "--verbose", default=False, action="store_true")
 parser.add_argument("-c", "--clusters", default="")
 parser.add_argument("-n", "--new_path_prefix", default="")
+parser.add_argument("-x", "--exclude_clusters", default=False, action="store_true")
 args = parser.parse_args()
 
 filepaths = filesystem.find(args.source,'*')
@@ -38,19 +39,22 @@ for path in filepaths:
 	if path.endswith('.c'):
 		continue
 	arr = path.split('/')
-	if len(arr) < 2: 
+	if len(arr) < 2:
 		continue
 	entity_type = arr[-2:-1][0]
 	if not entity_type in entity_types: 
 		continue
-	if args.clusters == "":
-		module_path = '/'.join(arr[0:-3])
-	else:
+	module_path = '/'.join(arr[0:-3])
+	if args.clusters != "":
 		key = path.replace(args.source, '')
 		if key in clusters:
-			module_path = clusters[key]
+			if args.exclude_clusters:
+				module_path = ''
+			else:
+				module_path = clusters[key]
 		else:
-			module_path = ''
+			if not args.exclude_clusters:
+				module_path = ''
 	if module_path != '':
 		if module_path not in modules:
 			modules[module_path] = []
