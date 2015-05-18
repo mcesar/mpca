@@ -30,7 +30,12 @@ public class Tokenizer {
 			st.slashStarComments(false);
 			st.slashSlashComments(false);			
 		}
-		Set<String> tokens = new TreeSet<String>();
+		Collection<String> tokens = new TreeSet<String>();
+		if (Arrays.asList(args).indexOf("-d") > -1) {
+			tokens = new ArrayList<String>();
+		} else {
+			tokens = new TreeSet<String>();
+		}
 		while (st.nextToken() != StreamTokenizer.TT_EOF) {
 			if (st.ttype == StreamTokenizer.TT_WORD) {
 				for (String s : st.sval.split("\\.|-|_")) {
