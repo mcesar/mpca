@@ -31,8 +31,16 @@ else:
 clusters = {}
 if args.clusters != "":
 	for cluster_entity in open(args.clusters):
-		arr = cluster_entity.split(',')
-		clusters[arr[9]] = arr[4]
+		if '\"' in cluster_entity:
+			arr = cluster_entity.split('\"')
+			entity_path = arr[1]
+			arr = arr[0].split(',')
+			cluster_name = arr[4]
+		else:
+			arr = cluster_entity.split(',')
+			cluster_name = arr[4]
+			entity_path = arr[9]
+		clusters[entity_path.replace('/CM/','/MT/')] = cluster_name
 
 modules = {}
 for path in filepaths:

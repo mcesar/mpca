@@ -3,7 +3,7 @@
 import os
 import sys
 import logging
-from gensim import corpora, models, similarities
+from gensim import corpora, models, similarities, matutils
 import argparse
 import filesystem
 
@@ -49,6 +49,7 @@ texts = [[word for word in text if word not in tokens_once]
           for text in texts]
 
 dictionary = corpora.Dictionary(texts)
+dictionary.save(os.path.join(args.destination, args.prefix + ".dict"))
 corpus = [dictionary.doc2bow(text) for text in texts]
 
 tfidf = models.TfidfModel(corpus)
@@ -57,6 +58,8 @@ corpus_tfidf = tfidf[corpus]
 lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=50) 
 corpus_lsi = lsi[corpus_tfidf]
 index = similarities.Similarity(args.prefix, corpus_lsi, 50)
+termcorpus = matutils.Dense2Corpus(lsi.projection.u.T)
+index_t = similarities.Similarity(args.prefix + '-t', termcorpus, 50) 
 
 if args.destination == 'cout':
 	for row in index:
@@ -73,3 +76,5 @@ else:
 		f.write(file_name + "\n")
 	f.close()
 	index.save(os.path.join(args.destination, args.prefix + ".sm"))
+	index_t.save(os.path.join(args.destination, args.prefix + "-t.sm"))
+	lsi.save(os.path.join(args.destination, args.prefix + ".lsi"))
