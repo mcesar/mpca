@@ -31,11 +31,35 @@ for cluster_entity in open(args.clusters):
 	clusters[cluster_name].append(entity_path.replace('/CM/','/MT/'))
 
 if args.frequency:
-	terms = {}
 	if args.cluster == '':
 		keys = clusters.keys() 
 	else:
 		keys = [args.cluster]
+	# Collect frequencies
+	clusters_terms = {}
+	for key in keys:
+		terms = {}
+		clusters_terms[key] = terms
+		for path in clusters[key]:
+			for l in open(os.path.join(args.source, path)):
+				arr = l.split('\t')
+				if arr[0].strip() not in terms:
+					terms[arr[0].strip()] = 0	
+				terms[arr[0].strip()] = terms[arr[0].strip()] + int(arr[1].strip())
+	average_frequency = {}
+	# Compute relevance of the terms comparing the frequency on all other clusters. See Kuhn (2007)
+	if args.cluster == '':
+		for key in keys:
+			for term in clusters_terms[key]:
+				if term not in average_frequency:
+					average_frequency[term] = 0
+				average_frequency[term] = average_frequency[term] + clusters_terms[key][term]
+		for term in average_frequency:
+			average_frequency[term] = average_frequency[term] / len(clusters)
+		for key in keys:
+			for term in clusters_terms[key]:
+				clusters_terms[key][term] = clusters_terms[key][term] - average_frequency[term]
+	# Print results
 	first = True
 	for key in keys:
 		if first:
@@ -43,19 +67,13 @@ if args.frequency:
 		else:
 			print("")
 		print("%s;" % key, end="")
-		for path in clusters[key]:
-			for l in open(os.path.join(args.source, path)):
-				arr = l.split('\t')
-				if arr[0].strip() not in terms:
-					terms[arr[0].strip()] = 0	
-				terms[arr[0].strip()] = terms[arr[0].strip()] + int(arr[1].strip())
 		tfirst = True
-		for k in sorted(terms, key=terms.get, reverse=True):
+		for k in sorted(clusters_terms[key], key=clusters_terms[key].get, reverse=True):
 			if tfirst:
 				tfirst = False
 			else:
 				print(",", end="")
-			print("%s:%d" % (k,terms[k]), end="")
+			print("%s:%d" % (k, clusters_terms[key][k]), end="")
 else:
 
 	if args.cluster == '':
