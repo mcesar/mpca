@@ -12,7 +12,7 @@ parser.add_argument("-i", "--index_source", default=".")
 parser.add_argument("-p", "--prefix", default="corpus")
 parser.add_argument("-c", "--clusters", default="")
 parser.add_argument("-k", "--cluster", default="")
-parser.add_argument("-n", "--new_path_prefix", default="")
+parser.add_argument("-f", "--frequency", default=False, action="store_true")
 args = parser.parse_args()
 
 clusters = {}
@@ -30,25 +30,56 @@ for cluster_entity in open(args.clusters):
 		clusters[cluster_name] = []
 	clusters[cluster_name].append(entity_path.replace('/CM/','/MT/'))
 
-q = set()
-for path in clusters[args.cluster]:
-	for l in open(os.path.join(args.source, path)):
-		q.add(l.strip())
+if args.frequency:
+	terms = {}
+	if args.cluster == '':
+		keys = clusters.keys() 
+	else:
+		keys = [args.cluster]
+	first = True
+	for key in keys:
+		if first:
+			first = False
+		else:
+			print("")
+		print("%s;" % key, end="")
+		for path in clusters[key]:
+			for l in open(os.path.join(args.source, path)):
+				arr = l.split('\t')
+				if arr[0].strip() not in terms:
+					terms[arr[0].strip()] = 0	
+				terms[arr[0].strip()] = terms[arr[0].strip()] + int(arr[1].strip())
+		tfirst = True
+		for k in sorted(terms, key=terms.get, reverse=True):
+			if tfirst:
+				tfirst = False
+			else:
+				print(",", end="")
+			print("%s:%d" % (k,terms[k]), end="")
+else:
 
-print(q)
+	if args.cluster == '':
+		exit()
 
-dictionary = corpora.Dictionary.load(
-	os.path.join(args.index_source, args.prefix + '.dict'))
+	q = set()
+	for path in clusters[args.cluster]:
+		for l in open(os.path.join(args.source, path)):
+			q.add(l.strip())
 
-lsi = models.LsiModel.load(
-	os.path.join(args.index_source, args.prefix + '.lsi'))
+	print(q)
 
-index_t = similarities.Similarity.load(
-	os.path.join(args.index_source, args.prefix + '.sm'))
+	dictionary = corpora.Dictionary.load(
+		os.path.join(args.index_source, args.prefix + '.dict'))
 
-sims = index_t[lsi[dictionary.doc2bow(q)]]
-sims = sorted(enumerate(sims), key=lambda item: -item[1])[0:20]
-# print the result, converting ids (integers) to words (strings) 
-fmt = ["%s(%s)" %(dictionary[idother], sim) for idother, sim in enumerate(sims) if idother in dictionary]
+	lsi = models.LsiModel.load(
+		os.path.join(args.index_source, args.prefix + '.lsi'))
 
-print("the query is similar to", ', '.join(fmt))
+	index_t = similarities.Similarity.load(
+		os.path.join(args.index_source, args.prefix + '.sm'))
+
+	sims = index_t[lsi[dictionary.doc2bow(q)]]
+	sims = sorted(enumerate(sims), key=lambda item: -item[1])[0:20]
+	# print the result, converting ids (integers) to words (strings) 
+	fmt = ["%s(%s)" %(dictionary[idother], sim) for idother, sim in enumerate(sims) if idother in dictionary]
+
+	print("the query is similar to", ', '.join(fmt))
