@@ -14,6 +14,7 @@ parser.add_argument("-s", "--source", default=".")
 parser.add_argument("-d", "--destination", default="cout")
 parser.add_argument("-g", "--granularity", default="coarse")
 parser.add_argument("-p", "--prefix", default="corpus")
+parser.add_argument("-t", "--generate_terms_index", default=False, action="store_true")
 args = parser.parse_args()
 
 filepaths = filesystem.find(args.source,'*')
@@ -45,11 +46,12 @@ for file_name in entities_paths:
 
 all_tokens = sum(texts, [])
 tokens_once = set(word for word in set(all_tokens) if all_tokens.count(word) == 1)
-texts = [[word for word in text if word not in tokens_once]
-          for text in texts]
+if args.generate_terms_index:
+	texts = [[token] for token in all_tokens if token not in tokens_once]
+else:
+	texts = [[word for word in text if word not in tokens_once] for text in texts]
 
 dictionary = corpora.Dictionary(texts)
-dictionary.save(os.path.join(args.destination, args.prefix + ".dict"))
 corpus = [dictionary.doc2bow(text) for text in texts]
 
 tfidf = models.TfidfModel(corpus)
@@ -57,9 +59,10 @@ corpus_tfidf = tfidf[corpus]
 # TODO: calibrate num_topics (no artigo do Kuhn se fala em 20 a 50)
 lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=50) 
 corpus_lsi = lsi[corpus_tfidf]
-index = similarities.Similarity(args.prefix, corpus_lsi, 50)
-termcorpus = matutils.Dense2Corpus(lsi.projection.u.T)
-index_t = similarities.Similarity(args.prefix + '-t', termcorpus, 50) 
+sufix = ""
+if args.generate_terms_index:
+	sufix = "-t"
+index = similarities.Similarity(args.prefix + sufix, corpus_lsi, 50)
 
 if args.destination == 'cout':
 	for row in index:
@@ -71,10 +74,9 @@ if args.destination == 'cout':
 	    print(col, end="")
 	  print("")
 else:
-	f = open(os.path.join(args.destination, args.prefix + ".index"), 'w')
+	f = open(os.path.join(args.destination, args.prefix + sufix + ".index"), 'w')
 	for file_name in entities_paths:
 		f.write(file_name + "\n")
 	f.close()
-	index.save(os.path.join(args.destination, args.prefix + ".sm"))
-	index_t.save(os.path.join(args.destination, args.prefix + "-t.sm"))
-	lsi.save(os.path.join(args.destination, args.prefix + ".lsi"))
+	index.save(os.path.join(args.destination, args.prefix + sufix + ".sm"))
+	lsi.save(os.path.join(args.destination, args.prefix + sufix + ".lsi"))

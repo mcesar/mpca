@@ -4,14 +4,13 @@ import os
 import sys
 import argparse
 import filesystem
-from gensim import similarities, corpora, models
+from gensim import similarities, corpora, models, matutils
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-s", "--source", default=".")
 parser.add_argument("-i", "--index_source", default=".")
 parser.add_argument("-p", "--prefix", default="corpus")
 parser.add_argument("-c", "--clusters", default="")
-parser.add_argument("-k", "--cluster", default="")
 parser.add_argument("-f", "--frequency", default=False, action="store_true")
 args = parser.parse_args()
 
@@ -31,10 +30,7 @@ for cluster_entity in open(args.clusters):
 	clusters[cluster_name].append(entity_path.replace('/CM/','/MT/'))
 
 if args.frequency:
-	if args.cluster == '':
-		keys = clusters.keys() 
-	else:
-		keys = [args.cluster]
+	keys = clusters.keys() 
 	# Collect frequencies
 	clusters_terms = {}
 	for key in keys:
@@ -48,17 +44,16 @@ if args.frequency:
 				terms[arr[0].strip()] = terms[arr[0].strip()] + int(arr[1].strip())
 	average_frequency = {}
 	# Compute relevance of the terms comparing the frequency on all other clusters. See Kuhn (2007)
-	if args.cluster == '':
-		for key in keys:
-			for term in clusters_terms[key]:
-				if term not in average_frequency:
-					average_frequency[term] = 0
-				average_frequency[term] = average_frequency[term] + clusters_terms[key][term]
-		for term in average_frequency:
-			average_frequency[term] = average_frequency[term] / len(clusters)
-		for key in keys:
-			for term in clusters_terms[key]:
-				clusters_terms[key][term] = clusters_terms[key][term] - average_frequency[term]
+	for key in keys:
+		for term in clusters_terms[key]:
+			if term not in average_frequency:
+				average_frequency[term] = 0
+			average_frequency[term] = average_frequency[term] + clusters_terms[key][term]
+	for term in average_frequency:
+		average_frequency[term] = average_frequency[term] / len(clusters)
+	for key in keys:
+		for term in clusters_terms[key]:
+			clusters_terms[key][term] = clusters_terms[key][term] - average_frequency[term]
 	# Print results
 	first = True
 	for key in keys:
@@ -75,29 +70,27 @@ if args.frequency:
 				print(",", end="")
 			print("%s:%d" % (k, clusters_terms[key][k]), end="")
 else:
-
-	if args.cluster == '':
-		exit()
-
-	q = set()
-	for path in clusters[args.cluster]:
-		for l in open(os.path.join(args.source, path)):
-			q.add(l.strip())
-
-	print(q)
-
+	#Load LSI index
 	dictionary = corpora.Dictionary.load(
 		os.path.join(args.index_source, args.prefix + '.dict'))
-
 	lsi = models.LsiModel.load(
 		os.path.join(args.index_source, args.prefix + '.lsi'))
-
 	index_t = similarities.Similarity.load(
-		os.path.join(args.index_source, args.prefix + '.sm'))
+		os.path.join(args.index_source, args.prefix + '-t.sm'))
+	termcorpus = matutils.Dense2Corpus((lsi.projection.u * lsi.projection.s).T)
+	for key in clusters:
+		# Build a query from cluster's terms
+		q = set()
+		for path in clusters[key]:
+			for l in open(os.path.join(args.source, path)):
+				q.add(l.strip())
 
-	sims = index_t[lsi[dictionary.doc2bow(q)]]
-	sims = sorted(enumerate(sims), key=lambda item: -item[1])[0:20]
-	# print the result, converting ids (integers) to words (strings) 
-	fmt = ["%s(%s)" %(dictionary[idother], sim) for idother, sim in enumerate(sims) if idother in dictionary]
+		print(q)
 
-	print("the query is similar to", ', '.join(fmt))
+		# sims = index_t[lsi[dictionary.doc2bow(q)]]
+		sims = index_t[list(termcorpus)[dictionary.doc2bow(q)]]
+		sims = sorted(enumerate(sims), key=lambda item: -item[1])[0:20]
+		# print the result, converting ids (integers) to words (strings) 
+		fmt = ["%s(%s)" %(dictionary[idother], sim) for idother, sim in enumerate(sims) if idother in dictionary]
+
+		print("the query is similar to", ', '.join(fmt))
