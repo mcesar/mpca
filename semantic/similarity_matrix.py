@@ -47,11 +47,16 @@ for file_name in entities_paths:
 all_tokens = sum(texts, [])
 tokens_once = set(word for word in set(all_tokens) if all_tokens.count(word) == 1)
 if args.generate_terms_index:
-	texts = [[token] for token in all_tokens if token not in tokens_once]
+	texts = [[token] for token in set(all_tokens) if token not in tokens_once]
+	f = open(os.path.join(args.destination, args.prefix + ".terms"), 'w')
+	for term in texts:
+		f.write(term[0] + "\n")
+	f.close()
 else:
 	texts = [[word for word in text if word not in tokens_once] for text in texts]
 
 dictionary = corpora.Dictionary(texts)
+dictionary.save(os.path.join(args.destination, args.prefix + ".dict"))
 corpus = [dictionary.doc2bow(text) for text in texts]
 
 tfidf = models.TfidfModel(corpus)

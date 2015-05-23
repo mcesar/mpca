@@ -74,23 +74,52 @@ else:
 	dictionary = corpora.Dictionary.load(
 		os.path.join(args.index_source, args.prefix + '.dict'))
 	lsi = models.LsiModel.load(
-		os.path.join(args.index_source, args.prefix + '.lsi'))
+		os.path.join(args.index_source, args.prefix + '-t.lsi'))
 	index_t = similarities.Similarity.load(
 		os.path.join(args.index_source, args.prefix + '-t.sm'))
-	termcorpus = matutils.Dense2Corpus((lsi.projection.u * lsi.projection.s).T)
+	terms = {}
+	i = 0
+	for term in open(os.path.join(args.index_source, args.prefix + '.terms')):
+		terms[i] = term
+		i = i + 1
+	first = True
+	sims = {}
+	# Compute similarities
 	for key in clusters:
 		# Build a query from cluster's terms
 		q = set()
 		for path in clusters[key]:
 			for l in open(os.path.join(args.source, path)):
 				q.add(l.strip())
-
-		print(q)
-
-		# sims = index_t[lsi[dictionary.doc2bow(q)]]
-		sims = index_t[list(termcorpus)[dictionary.doc2bow(q)]]
-		sims = sorted(enumerate(sims), key=lambda item: -item[1])[0:20]
-		# print the result, converting ids (integers) to words (strings) 
-		fmt = ["%s(%s)" %(dictionary[idother], sim) for idother, sim in enumerate(sims) if idother in dictionary]
-
-		print("the query is similar to", ', '.join(fmt))
+		# Perform query
+		sims[key] = list(enumerate(index_t[lsi[dictionary.doc2bow(q)]]))
+	# Compute averages
+	averages = {}
+	for key in clusters:
+		for s in sims[key]:
+			if s[0] not in averages:
+				averages[s[0]] = 0
+			averages[s[0]] = averages[s[0]] + s[1]
+	for k in averages.keys():
+		averages[k] = averages[k] / len(clusters)
+	# Compute relevance of the terms comparing the frequency on all other clusters. See Kuhn (2007)
+	for key in clusters:
+		new_sims = {}
+		for s in sims[key]:
+			new_sims[s[0]] = (s[0], s[1] - averages[s[0]])
+		sims[key] = new_sims.values()
+	# Print results
+	for key in clusters:
+		if first:
+			first = False
+		else:
+			print("")
+		print("%s;" % key, end="")
+		cluster_sims = sorted(sims[key], key=lambda item: -item[1])[0:100]
+		tfirst = True
+		for sim in cluster_sims:
+			if tfirst:
+				tfirst = False
+			else:
+				print(",", end="")
+			print("%s:%s:%s" % (sim[0],terms[sim[0]].strip(), sim[1]), end="")
