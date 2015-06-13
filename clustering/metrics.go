@@ -1,24 +1,13 @@
 package main
 
 import (
-	"encoding/xml"
 	"flag"
-	"io/ioutil"
-	"os"
 	"strings"
 
 	"fmt"
-)
 
-type LDI struct {
-	Elements []struct {
-		Name string `xml:"name,attr"`
-		Uses []struct {
-			Provider string `xml:"provider,attr"`
-			Kind     string `xml:"kind,attr"`
-		} `xml:"uses"`
-	} `xml:"element"`
-}
+	"../util"
+)
 
 func main() {
 	fileName := flag.String("f", "", "file name")
@@ -26,11 +15,11 @@ func main() {
 	metric := flag.String("m", "ai", "metric name")
 	flag.Parse()
 	ignore := strings.Split(*ignoreString, ",")
-	if ldi, err := parseLDI(*fileName); err != nil {
+	if l, err := ldi.Parse(*fileName); err != nil {
 		fmt.Printf("error: %v\n", err)
 	} else {
 		if *metric == "ai" {
-			matrix, _, _ := ldi.dependencyMatrix(ignore)
+			matrix, _, _ := l.DependencyMatrix(ignore)
 			warshall(matrix)
 			// Compute average impact
 			count := 0
@@ -43,7 +32,7 @@ func main() {
 			}
 			fmt.Printf("\n%v %v %v\n", count/len(matrix), count, len(matrix))
 		} else if *metric == "ic" {
-			matrix, _, _ /*index*/ := ldi.dependencyMatrix(ignore)
+			matrix, _, _ /*index*/ := l.DependencyMatrix(ignore)
 			warshall(matrix)
 			// Compute intercomponent cyclicality
 			cycle := map[int]byte{}
@@ -73,55 +62,4 @@ func warshall(a [][]bool) {
 			}
 		}
 	}
-}
-
-func parseLDI(fileName string) (*LDI, error) {
-	var ldi LDI
-	if r, err := os.Open(fileName); err != nil {
-		return nil, err
-	} else {
-		if bytes, err := ioutil.ReadAll(r); err != nil {
-			return nil, err
-		} else {
-			if err := xml.Unmarshal(bytes, &ldi); err != nil {
-				return nil, err
-			}
-		}
-	}
-	return &ldi, nil
-}
-
-func (ldi *LDI) dependencyMatrix(ignore []string) ([][]bool, map[string]int, map[int]string) {
-	matrix := make([][]bool, len(ldi.Elements))
-	arr := make([]bool, len(ldi.Elements)*len(ldi.Elements))
-	for i := range matrix {
-		matrix[i], arr = arr[:len(ldi.Elements)], arr[len(ldi.Elements):]
-	}
-	index := map[string]int{}
-	reverseIndex := map[int]string{}
-	for i, e := range ldi.Elements {
-		index[e.Name] = i
-		reverseIndex[i] = e.Name
-	}
-	for _, e := range ldi.Elements {
-		for _, u := range e.Uses {
-			kind := u.Kind
-			if kind == "" {
-				kind = "static"
-			}
-			if !hasElement(kind, ignore) {
-				matrix[index[e.Name]][index[u.Provider]] = true
-			}
-		}
-	}
-	return matrix, index, reverseIndex
-}
-
-func hasElement(e string, s []string) bool {
-	for _, each := range s {
-		if e == each {
-			return true
-		}
-	}
-	return false
 }
