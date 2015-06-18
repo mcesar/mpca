@@ -37,11 +37,15 @@ if args.frequency:
 		terms = {}
 		clusters_terms[key] = terms
 		for path in clusters[key]:
-			for l in open(os.path.join(args.source, path)):
-				arr = l.split('\t')
-				if arr[0].strip() not in terms:
-					terms[arr[0].strip()] = 0	
-				terms[arr[0].strip()] = terms[arr[0].strip()] + int(arr[1].strip())
+			fn = os.path.join(args.source, path)
+			if os.path.isfile(fn):
+				for l in open(fn):
+					arr = l.split('\t')
+					if arr[0].strip() not in terms:
+						terms[arr[0].strip()] = 0	
+					terms[arr[0].strip()] = terms[arr[0].strip()] + int(arr[1].strip())
+			else:
+				print(fn)
 	average_frequency = {}
 	# Compute relevance of the terms comparing the frequency on all other clusters. See Kuhn (2007)
 	for key in keys:
@@ -89,8 +93,10 @@ else:
 		# Build a query from cluster's terms
 		q = set()
 		for path in clusters[key]:
-			for l in open(os.path.join(args.source, path)):
-				q.add(l.strip())
+			fn = os.path.join(args.source, path)
+			if os.path.isfile(fn):
+				for l in open(fn):
+					q.add(l.strip())
 		# Perform query
 		sims[key] = list(enumerate(index_t[lsi[dictionary.doc2bow(q)]]))
 	# Compute averages
