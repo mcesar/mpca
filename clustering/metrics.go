@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"os"
 	"strings"
 
 	"fmt"
@@ -15,6 +16,17 @@ func main() {
 	metric := flag.String("m", "ai", "metric name")
 	flag.Parse()
 	ignore := strings.Split(*ignoreString, ",")
+	if *metric == "packages" {
+		packages := map[string]int{}
+		if err := collectPackages(*fileName, packages); err != nil {
+			fmt.Printf("error: %v\n", err)
+		} else {
+			for k, _ := range packages {
+				fmt.Printf("%v\n", k)
+			}
+		}
+		return
+	}
 	if l, err := ldi.Parse(*fileName); err != nil {
 		fmt.Printf("error: %v\n", err)
 	} else {
@@ -61,5 +73,29 @@ func warshall(a [][]bool) {
 				a[i][j] = a[i][j] || (a[i][k] && a[k][j])
 			}
 		}
+	}
+}
+
+func collectPackages(fileName string, packages map[string]int) error {
+	if f, err := os.Open(fileName); err != nil {
+		return err
+	} else {
+		defer f.Close()
+		if fi, err := f.Readdir(0); err != nil {
+			fmt.Printf("error: %v\n", err)
+		} else {
+			for _, entry := range fi {
+				if strings.Contains(entry.Name(), ".f") {
+					packages[fileName] = 0
+				}
+				if entry.IsDir() {
+					fullEntryName := fileName + string(os.PathSeparator) + entry.Name()
+					if err = collectPackages(fullEntryName, packages); err != nil {
+						return err
+					}
+				}
+			}
+		}
+		return nil
 	}
 }
