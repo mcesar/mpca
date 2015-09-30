@@ -1,4 +1,4 @@
-package ldi
+package util
 
 import (
 	"encoding/xml"
@@ -16,7 +16,7 @@ type LDI struct {
 	} `xml:"element"`
 }
 
-func Parse(fileName string) (*LDI, error) {
+func ParseLDI(fileName string) (*LDI, error) {
 	var ldi LDI
 	if r, err := os.Open(fileName); err != nil {
 		return nil, err

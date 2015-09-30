@@ -2,7 +2,9 @@ package main
 
 import (
 	"flag"
+	"log"
 	"os"
+	"path/filepath"
 	"strings"
 
 	"fmt"
@@ -16,6 +18,10 @@ func main() {
 	metric := flag.String("m", "ai", "metric name")
 	flag.Parse()
 	ignore := strings.Split(*ignoreString, ",")
+	if *fileName == "" {
+		flag.Usage()
+		return
+	}
 	if *metric == "packages" {
 		packages := map[string]int{}
 		if err := collectPackages(*fileName, packages); err != nil {
@@ -27,7 +33,44 @@ func main() {
 		}
 		return
 	}
-	if l, err := ldi.Parse(*fileName); err != nil {
+	if *metric == "instability" {
+		file, err := os.Open(*fileName)
+		if err != nil {
+			log.Fatal("An error occurred while opening file ", err)
+		}
+		defer file.Close()
+		fi, err := file.Stat()
+		if err != nil {
+			log.Fatal("An error occurred ", err)
+		}
+		var names []string
+		if fi.IsDir() {
+			names, err = file.Readdirnames(0)
+		} else {
+			names = []string{*fileName}
+		}
+		file.Close()
+		s := 0.0
+		r := 0.0
+		n := 0
+		for _, fn := range names {
+			if !strings.HasSuffix(fn, ".xml") {
+				continue
+			}
+			if i, err := util.ParseInstability(filepath.Join(*fileName, fn)); err != nil {
+				fmt.Printf("error: %v\n", err)
+			} else {
+				for _, c := range i.Class {
+					s += c.Probability
+					r += c.REM
+				}
+				n += len(i.Class)
+			}
+		}
+		fmt.Println(s/float64(n), r/float64(n))
+		return
+	}
+	if l, err := util.ParseLDI(*fileName); err != nil {
 		fmt.Printf("error: %v\n", err)
 	} else {
 		if *metric == "ai" {
