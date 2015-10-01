@@ -16,6 +16,7 @@ func main() {
 	fileName := flag.String("f", "", "file name")
 	ignoreString := flag.String("i", "", "ignore kinds")
 	metric := flag.String("m", "ai", "metric name")
+	noTransitiveClosure := flag.Bool("t", false, "no transitive closure")
 	flag.Parse()
 	ignore := strings.Split(*ignoreString, ",")
 	if *fileName == "" {
@@ -75,7 +76,9 @@ func main() {
 	} else {
 		if *metric == "ai" {
 			matrix, _, _ := l.DependencyMatrix(ignore)
-			warshall(matrix)
+			if !*noTransitiveClosure {
+				warshall(matrix)
+			}
 			// Compute average impact
 			count := 0
 			for i := range matrix {
@@ -85,10 +88,15 @@ func main() {
 					}
 				}
 			}
-			fmt.Printf("\n%v %v %v\n", count/len(matrix), count, len(matrix))
+			fmt.Printf("\nAI=%v PC=%v D=%v N=%v\n",
+				float64(count)/float64(len(matrix)),
+				float64(count)/float64(len(matrix)*len(matrix)),
+				count, len(matrix))
 		} else if *metric == "ic" {
 			matrix, _, _ /*index*/ := l.DependencyMatrix(ignore)
-			warshall(matrix)
+			if !*noTransitiveClosure {
+				warshall(matrix)
+			}
 			// Compute intercomponent cyclicality
 			cycle := map[int]byte{}
 			for i := range matrix {
