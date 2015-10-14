@@ -113,7 +113,9 @@ func main() {
 			fmt.Println(len(cycle), len(matrix))
 		} else if *metric == "coincides" {
 			count := 0
+			count2 := 0
 			for _, e := range l.Elements {
+				count2 += len(e.Uses)
 				m := map[string]string{}
 				for _, u := range e.Uses {
 					if k, ok := m[u.Provider]; ok && k != u.Kind && k != "computed" {
@@ -124,7 +126,7 @@ func main() {
 					}
 				}
 			}
-			fmt.Println(count)
+			fmt.Println(count, count2, float64(count)/float64(count2))
 		}
 	}
 }
