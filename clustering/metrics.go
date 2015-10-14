@@ -111,6 +111,20 @@ func main() {
 				}
 			}
 			fmt.Println(len(cycle), len(matrix))
+		} else if *metric == "coincides" {
+			count := 0
+			for _, e := range l.Elements {
+				m := map[string]string{}
+				for _, u := range e.Uses {
+					if k, ok := m[u.Provider]; ok && k != u.Kind && k != "computed" {
+						count++
+						m[u.Provider] = "computed"
+					} else {
+						m[u.Provider] = u.Kind
+					}
+				}
+			}
+			fmt.Println(count)
 		}
 	}
 }
@@ -133,7 +147,7 @@ func collectPackages(fileName string, packages map[string]int) error {
 	} else {
 		defer f.Close()
 		if fi, err := f.Readdir(0); err != nil {
-			fmt.Printf("error: %v\n", err)
+			return err
 		} else {
 			for _, entry := range fi {
 				if strings.Contains(entry.Name(), ".f") {
