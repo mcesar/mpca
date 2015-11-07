@@ -2,18 +2,22 @@ package util
 
 import (
 	"encoding/xml"
+	"io"
 	"io/ioutil"
 	"os"
 )
 
 type LDI struct {
-	Elements []struct {
-		Name string `xml:"name,attr"`
-		Uses []struct {
-			Provider string `xml:"provider,attr"`
-			Kind     string `xml:"kind,attr"`
-		} `xml:"uses"`
-	} `xml:"element"`
+	XMLName  xml.Name  `xml:"ldi"`
+	Elements []element `xml:"element"`
+}
+type element struct {
+	Name string `xml:"name,attr"`
+	Uses []use  `xml:"uses"`
+}
+type use struct {
+	Provider string `xml:"provider,attr"`
+	Kind     string `xml:"kind,attr"`
 }
 
 func ParseLDI(fileName string) (*LDI, error) {
@@ -59,6 +63,18 @@ func (ldi *LDI) DependencyMatrix(ignore []string) ([][]bool, map[string]int, map
 		}
 	}
 	return matrix, index, reverseIndex
+}
+
+func (ldi *LDI) Append(name string, uses map[string]string) {
+	u := []use{}
+	for k, v := range uses {
+		u = append(u, use{k, v})
+	}
+	ldi.Elements = append(ldi.Elements, element{name, u})
+}
+
+func (ldi *LDI) Render(w io.Writer) error {
+	return xml.NewEncoder(w).Encode(ldi)
 }
 
 func HasElement(e string, s []string) bool {
