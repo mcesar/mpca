@@ -1,14 +1,20 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 import sys
 import argparse
+import re
 import nltk
 from nltk.corpus import stopwords
+from bs4 import BeautifulSoup
 
 parser = argparse.ArgumentParser()
+parser.add_argument("-f", "--file", default="")
 parser.add_argument("-c", "--code_page", default="utf-8")
 parser.add_argument("-l", "--language", default="english")
 parser.add_argument("-d", "--allow_duplicates", default=False, action="store_true")
+parser.add_argument("-t", "--html", default=False, action="store_true")
+parser.add_argument("-o", "--output", default="")
 args = parser.parse_args()
 
 stop = stopwords.words(args.language)
@@ -21,9 +27,27 @@ if args.allow_duplicates:
 else:
 	processed = set()
 
-for token in sys.stdin:
+if args.file == "":
+    f = sys.stdin
+else:
+    f = open(args.file)
+if args.output == "":
+    out = sys.stdout
+else:
+    out = open(args.output, 'w')
+
+RE_WHITE_SPACES = re.compile("\s+")
+if args.html:
+    txt = BeautifulSoup(f, "html5lib").get_text()
+    txt = re.sub(u"[^a-zA-Záàãéíóõúç]", " ", txt)
+    tokens = RE_WHITE_SPACES.split(txt.strip())
+else:
+    tokens = f
+
+for token in tokens:
 	t = token.lower().strip()
-	t = unicode(t, args.code_page)
+        if args.code_page != 'none':
+            t = unicode(t, args.code_page)
 	if t not in stop:
 		t = porter.stem(t)
 		if len(t) > 1 and not t.isdigit():
@@ -37,7 +61,12 @@ for token in sys.stdin:
 
 if args.allow_duplicates:
 	for (k,v) in processed.items():
-		print("%s\t%s" % (k,v))
+		out.write("%s\t%s\n" % (k,v))
 else:
 	for t in processed:
-		print(t.encode('utf-8'))
+		out.write(t.encode('utf-8') + "\n")
+
+if args.file != "":
+    f.close()
+if args.output != "":
+    out.close()
