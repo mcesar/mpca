@@ -26,6 +26,7 @@ func (g *G) incE() {
 
 func main() {
 	fileName := flag.String("f", "", "file name")
+	percentage := flag.Bool("p", false, "percentage")
 	flag.Parse()
 	if *fileName == "" {
 		fmt.Printf("usage: density -f <file-name>\n")
@@ -60,7 +61,7 @@ func main() {
 	}
 	sum := 0.0
 	squaresum := 0.0
-	histogram := [4]int{}
+	histogram := [4]float64{}
 	for _, c := range clusters {
 		d := float64(c.E) / float64((len(c.Vertices) * (len(c.Vertices) - 1)))
 		sum += d
@@ -77,5 +78,11 @@ func main() {
 	}
 	mean := sum / float64(len(clusters))
 	stddev := math.Sqrt(squaresum/float64(len(clusters)) - mean*mean)
-	fmt.Println(mean, stddev, histogram, len(clusters))
+	if *percentage {
+		for i := 0; i < 4; i++ {
+			histogram[i] = 100 * float64(histogram[i]) / float64(len(clusters))
+		}
+	}
+	fmt.Printf("%.2f & %.2f & %.2f & %.2f & %.2f & %.2f & %d\n",
+		mean, stddev, histogram[0], histogram[1], histogram[2], histogram[3], len(clusters))
 }
