@@ -1,17 +1,23 @@
 #!/usr/local/bin/python3
 
 import os
+import re
 import sys
 import argparse
 import filesystem
 from gensim import similarities, corpora, models, matutils
+import nltk
+from nltk.corpus import stopwords
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-s", "--source", default=".")
 parser.add_argument("-i", "--index_source", default=".")
+parser.add_argument("-l", "--language", default="english")
 parser.add_argument("-p", "--prefix", default="corpus")
 parser.add_argument("-c", "--clusters", default="")
 parser.add_argument("-f", "--frequency", default=False, action="store_true")
+parser.add_argument("-e", "--entities", default=False, action="store_true")
+parser.add_argument("-d", "--filter_based_on_documentation", default=False, action="store_true")
 args = parser.parse_args()
 
 clusters = {}
@@ -29,7 +35,45 @@ for cluster_entity in open(args.clusters):
         clusters[cluster_name] = []
     clusters[cluster_name].append(entity_path.replace('/CM/','/MT/'))
 
-if args.frequency:
+if args.entities:
+    stop = stopwords.words(args.language)
+    porter = nltk.PorterStemmer()
+    if args.filter_based_on_documentation:
+        filepaths = filesystem.find(args.source,'*')
+        doc_words = set()
+        for path in filepaths:
+            if not path.endswith('.txt'):
+                continue
+            f = open(path)
+            for l in f:
+                doc_words.add(l.strip())
+    all_terms = {}
+    clusters_terms = {}
+    for key in clusters.keys():
+        terms = set()
+        for entity in clusters[key]:
+            words = re.sub("(?<=[A-Z])(?=[A-Z][a-z])|(?<=[^A-Z])(?=[A-Z])|(?<=[A-Za-z])(?=[^A-Za-z])", \
+               " ", entity).split("/")
+            for w in words:
+                t = re.sub(u"[^a-zA-Záàãéíóõúç]", " ", w.lower()).strip()
+                for t in t.split(" "):
+                    if len(t) > 2 and t not in stop:
+                        t = porter.stem(t)
+                        if args.filter_based_on_documentation and t not in doc_words:
+                            continue
+                        terms.add(t)
+                        if t in all_terms:
+                            all_terms[t] += 1
+                        else:
+                            all_terms[t] = 1
+        clusters_terms[key] = list(terms)
+    byCommonality = lambda e : e[1]
+    for key in clusters.keys():
+        print(key, sorted( \
+                [(e,0) if e not in all_terms else (e,-all_terms[e]) for e in clusters_terms[key]], \
+                key=byCommonality, reverse=True))
+
+elif args.frequency:
     keys = clusters.keys()
     # Collect frequencies
     clusters_terms = {}
