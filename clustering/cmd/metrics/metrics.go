@@ -112,21 +112,32 @@ func main() {
 			}
 			fmt.Println(len(cycle), len(matrix))
 		} else if *metric == "coincides" {
-			count := 0
-			count2 := 0
-			for _, e := range l.Elements {
-				count2 += len(e.Uses)
-				m := map[string]string{}
-				for _, u := range e.Uses {
-					if k, ok := m[u.Provider]; ok && k != u.Kind && k != "computed" {
-						count++
-						m[u.Provider] = "computed"
-					} else {
-						m[u.Provider] = u.Kind
+			static, _, _ := l.DependencyMatrix([]string{"evolutionary"})
+			evolutionary, _, _ := l.DependencyMatrix([]string{"static"})
+			if !*noTransitiveClosure {
+				warshall(static)
+				warshall(evolutionary)
+			}
+			staticCount := 0
+			evolutionaryCount := 0
+			staticAndEvolutionaryCount := 0
+			for i := range static {
+				for j := range static {
+					if static[i][j] {
+						staticCount++
+						if evolutionary[i][j] {
+							staticAndEvolutionaryCount++
+						}
+					}
+					if evolutionary[i][j] {
+						evolutionaryCount++
 					}
 				}
 			}
-			fmt.Println(count, count2, float64(count)/float64(count2))
+			count := staticCount + evolutionaryCount - staticAndEvolutionaryCount
+			fmt.Println(count, staticCount,
+				float64(staticAndEvolutionaryCount)/float64(count),
+				float64(staticAndEvolutionaryCount)/float64(staticCount))
 		}
 	}
 }
