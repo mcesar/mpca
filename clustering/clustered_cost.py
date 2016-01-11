@@ -51,4 +51,4 @@ if __name__ == '__main__':
 		for e2 in e1:
 			clustered_cost += dependency_cost(e1.attrib['name'], e2.attrib['provider'], busses, clusters, args.lamb , dsm_size)
 
-	print(dsm_size, dependency_count, clustered_cost)
+	print(len(clusters), dsm_size, dependency_count, clustered_cost)

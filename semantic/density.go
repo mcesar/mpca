@@ -5,6 +5,7 @@ import (
 	"flag"
 	"math"
 	"os"
+	"sort"
 	"strings"
 
 	"fmt"
@@ -62,10 +63,14 @@ func main() {
 	sum := 0.0
 	squaresum := 0.0
 	histogram := [4]float64{}
+	densities := make([]float64, len(clusters))
+	i := 0
 	for _, c := range clusters {
 		d := float64(c.E) / float64((len(c.Vertices) * (len(c.Vertices) - 1)))
 		sum += d
 		squaresum += d * d
+		densities[i] = d
+		i++
 		if len(c.Vertices) <= 2 {
 			histogram[0] += 1
 		} else if len(c.Vertices) <= 4 {
@@ -83,6 +88,8 @@ func main() {
 			histogram[i] = 100 * float64(histogram[i]) / float64(len(clusters))
 		}
 	}
-	fmt.Printf("%.2f & %.2f & %.2f & %.2f & %.2f & %.2f & %d\n",
-		mean, stddev, histogram[0], histogram[1], histogram[2], histogram[3], len(clusters))
+	sort.Float64s(densities)
+	fmt.Printf("%.2f & %.2f & %.2f & %.2f & %.2f & %.2f & %.2f & %.2f & %.2f & %d\n",
+		mean, stddev, densities[0], densities[len(densities)-1], densities[len(densities)/2],
+		histogram[0], histogram[1], histogram[2], histogram[3], len(clusters))
 }
