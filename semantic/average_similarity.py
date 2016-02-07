@@ -16,6 +16,9 @@ parser.add_argument("-v", "--verbose", default=False, action="store_true")
 parser.add_argument("-c", "--clusters", default="")
 parser.add_argument("-n", "--new_path_prefix", default="")
 parser.add_argument("-x", "--exclude_clusters", default=False, action="store_true")
+parser.add_argument("-k", "--dont_use_cluster_name", default=False, action="store_true")
+parser.add_argument("-f", "--ignore_not_found_paths", default=False, action="store_true")
+
 args = parser.parse_args()
 
 filepaths = filesystem.find(args.source,'*')
@@ -50,7 +53,7 @@ for path in filepaths:
         if len(arr) < 2:
                 continue
         entity_type = arr[-2:-1][0]
-        if not entity_type in entity_types: 
+        if not entity_type in entity_types:
                 continue
         module_path = '/'.join(arr[0:-3])
         if args.clusters != "":
@@ -58,7 +61,7 @@ for path in filepaths:
                 if key in clusters:
                         if args.exclude_clusters:
                                 module_path = ''
-                        else:
+                        elif not args.dont_use_cluster_name:
                                 module_path = clusters[key]
                 else:
                         if not args.exclude_clusters:
@@ -99,13 +102,15 @@ max_cohesion = {'module':'','CCM':0, 'n':0, 'paths':[]}
 min_elements = {'module':'','CCM':0, 'n':99999, 'paths':[]}
 max_elements = {'module':'','CCM':0, 'n':0, 'paths':[]}
 for (module,paths) in modules.items():
-        n = len(paths) 
+        n = len(paths)
         if n <= 1:
                 continue
         sum = 0
         for i, path1 in enumerate(paths):
                 if args.new_path_prefix != '':
                         path1 = path1.replace(args.source, args.new_path_prefix)
+                if args.ignore_not_found_paths and path1 not in path_index:
+                    continue
                 v = index.similarity_by_id(path_index[path1])
                 for j, path2 in enumerate(paths):
                         if args.new_path_prefix != '':
@@ -121,22 +126,26 @@ for (module,paths) in modules.items():
             min_cohesion['module'] = module
             min_cohesion['CCM'] = CCM
             min_cohesion['n'] = n
-            min_cohesion['paths'] = paths
+            if args.verbose:
+                min_cohesion['paths'] = paths
         if CCM > max_cohesion['CCM']:
             max_cohesion['module'] = module
             max_cohesion['CCM'] = CCM
             max_cohesion['n'] = n
-            max_cohesion['paths'] = paths
+            if args.verbose:
+                max_cohesion['paths'] = paths
         if n < min_elements['n'] and CCM > 0:
             min_elements['module'] = module
             min_elements['CCM'] = CCM
             min_elements['n'] = n
-            min_elements['paths'] = paths
+            if args.verbose:
+                min_elements['paths'] = paths
         if n > max_elements['n']:
             max_elements['module'] = module
             max_elements['CCM'] = CCM
             max_elements['n'] = n
-            max_elements['paths'] = paths
+            if args.verbose:
+                max_elements['paths'] = paths
         sum_m += CCM
         count += 1
-print(sum_m/count, min_cohesion, max_cohesion, min_elements, max_elements)
+print('\nAVG', sum_m/count, '\nMIN_COH', min_cohesion, '\nMAX_COH', max_cohesion, '\nMIN_ELE', min_elements, '\nMAX_ELE', max_elements)
